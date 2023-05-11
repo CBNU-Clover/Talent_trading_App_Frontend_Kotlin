@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.talent_trading_market_kt">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".retrofit.App"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Talenttradingmarketkt"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".boardfunction.ReadBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".boardfunction.MakeBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".boardfunction.BoardMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".memberfunction.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".memberfunction.RegisterMember" />
+    </application>
+
+</manifest>
