@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.response.Post
+import com.example.talent_trading_market_kt.response.PostGetAllBoard
 
-class BoardAdapter(val boardList: List<Post>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
+class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
 {
 
 
