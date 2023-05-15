@@ -1,5 +1,6 @@
 package com.example.talent_trading_market_kt.boardfunction
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -27,7 +28,6 @@ class ReadBoardActivity : AppCompatActivity() {
                         board_view.layoutManager=LinearLayoutManager(this@ReadBoardActivity,LinearLayoutManager.VERTICAL,false)
                         board_view.setHasFixedSize(true)
                         board_view.adapter=BoardAdapter(boardList)
-
                     }
                 }
 
@@ -38,7 +38,6 @@ class ReadBoardActivity : AppCompatActivity() {
 
             })
         }
-
 
     }
 

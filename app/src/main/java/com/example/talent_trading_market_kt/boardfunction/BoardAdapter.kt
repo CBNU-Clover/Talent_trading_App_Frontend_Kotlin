@@ -1,12 +1,18 @@
 package com.example.talent_trading_market_kt.boardfunction
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.dto.PostDeleteBoard
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
+import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import java.lang.Exception
 
 class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
 {
@@ -15,7 +21,21 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardAdapter.CustomViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.boardlist_item,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
-        return CustomViewHolder(view)
+        return CustomViewHolder(view).apply {
+            itemView.setOnClickListener {
+                val curPos:Int=adapterPosition
+                val boards: PostGetAllBoard =boardList.get(curPos)
+                val id: Long? =boards.id
+                //val postDeleteBoard=PostDeleteBoard()
+                //postDeleteBoard.delete_id=id
+                Toast.makeText(parent.context,"Id:${boards.id} 제목:${boards.postName} 내용:${boards.content}",Toast.LENGTH_SHORT).show()
+                val intent=Intent(parent.context,OneBoardActivity::class.java)
+                intent.putExtra("postName",boards.postName)
+                intent.putExtra("content",boards.content)
+                intent.putExtra("Id",boards.id.toString())
+                parent.context.startActivity(intent)
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: BoardAdapter.CustomViewHolder, position: Int) {
