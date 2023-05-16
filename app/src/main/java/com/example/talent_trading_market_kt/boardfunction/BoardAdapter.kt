@@ -34,6 +34,7 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 intent.putExtra("content",boards.content)
                 intent.putExtra("Id",boards.id.toString())
                 parent.context.startActivity(intent)
+
             }
         }
     }

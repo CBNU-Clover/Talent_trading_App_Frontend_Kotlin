@@ -14,5 +14,5 @@ interface BoardFunctionApi{
     fun getAllboard():Call<List<PostGetAllBoard>>
 
     @POST("/api/vi/boards/deletePost")
-    fun deletePost(@Body postBoardDTO: PostDeleteBoard):Call<Long?>
+    fun deletePost(@Body postDeleteBoard: PostDeleteBoard):Call<Void>
 }

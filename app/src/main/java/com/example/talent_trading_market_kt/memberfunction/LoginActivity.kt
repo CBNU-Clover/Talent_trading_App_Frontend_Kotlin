@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<String?>, response: Response<String?>) {
                         if (response.isSuccessful) {
                             val message: String?
-                            message = response.body()
+                            message = response.body().toString()
                             // 토큰을 저장한다.
                             App.prefs.token=message
                             Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
