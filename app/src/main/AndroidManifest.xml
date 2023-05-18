@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Talenttradingmarketkt"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".boardfunction.postsearch.SearchOneBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".boardfunction.postsearch.SearchBoardActivity"
+            android:exported="false" />
+        <activity
             android:name=".boardfunction.OneBoardActivity"
             android:exported="false" />
         <activity

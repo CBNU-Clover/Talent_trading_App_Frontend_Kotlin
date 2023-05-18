@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -15,33 +15,35 @@ import com.example.talent_trading_market_kt.response.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import java.lang.Exception
 
-class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
+class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Adapter<SearchBoardAdapter.CustomViewHolder>()
 {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardAdapter.CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.boardlist_item,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBoardAdapter.CustomViewHolder {
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.searchboardlist_item,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
-                val boards: PostGetAllBoard =boardList.get(curPos)
-                val id: Long? =boards.id
+                val search_boards: PostSearchResult =boardList.get(curPos)
+                val id: Long? =search_boards.id
                 //val postDeleteBoard=PostDeleteBoard()
                 //postDeleteBoard.delete_id=id
-                Toast.makeText(parent.context,"Id:${boards.id} 제목:${boards.postName} 내용:${boards.content}",Toast.LENGTH_SHORT).show()
-                val intent=Intent(parent.context,OneBoardActivity::class.java)
-                intent.putExtra("postName",boards.postName)
-                intent.putExtra("content",boards.content)
-                intent.putExtra("Id",boards.id.toString())
+                Toast.makeText(parent.context,"Id:${search_boards.id} 작성자:${search_boards.writerNickname} 제목:${search_boards.postName} 내용:${search_boards.content}",Toast.LENGTH_SHORT).show()
+                val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
+                intent.putExtra("Search_writerNickname",search_boards.writerNickname)
+                intent.putExtra("Search_postName",search_boards.postName)
+                intent.putExtra("Search_content",search_boards.content)
+                intent.putExtra("Search_Id",search_boards.id.toString())
                 parent.context.startActivity(intent)
 
             }
         }
     }
 
-    override fun onBindViewHolder(holder: BoardAdapter.CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchBoardAdapter.CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
+        holder.writerNickname.text=boardList.get(position).writerNickname
         holder.title.text=boardList.get(position).postName
         holder.content.text=boardList.get(position).content
     }
@@ -53,6 +55,7 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val title=itemView.findViewById<TextView>(R.id.title) // 제목
         val content=itemView.findViewById<TextView>(R.id.content) // 내용
+        val writerNickname=itemView.findViewById<TextView>(R.id.writer) // 작성자
     }
 
 }
