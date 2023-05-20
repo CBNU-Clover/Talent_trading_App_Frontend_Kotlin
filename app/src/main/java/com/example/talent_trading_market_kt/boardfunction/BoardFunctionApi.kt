@@ -1,6 +1,8 @@
 package com.example.talent_trading_market_kt.boardfunction
 
-import com.example.talent_trading_market_kt.dto.*
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.PostSearchResult
 import retrofit2.Call

@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
-import com.example.talent_trading_market_kt.dto.PostSearch
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import kotlinx.android.synthetic.main.activity_search_board.*

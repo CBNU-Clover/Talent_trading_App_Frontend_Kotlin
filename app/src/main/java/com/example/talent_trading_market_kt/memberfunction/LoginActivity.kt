@@ -8,12 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.LoginDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.LoginDTO
 import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.*
-import java.util.logging.Level
-import java.util.logging.Logger
 
 
 class LoginActivity : AppCompatActivity() {
@@ -51,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                             message = response.body().toString()
                             // 토큰을 저장한다.
                             App.prefs.token=message
-                            Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             finishAffinity()
                             startActivity(intent)

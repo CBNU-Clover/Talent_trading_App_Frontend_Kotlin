@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.PostDeleteBoard
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection

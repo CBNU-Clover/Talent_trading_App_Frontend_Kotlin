@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.memberfunction.LoginActivity
+import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadBoardActivity
 
 class BoardMainActivity : AppCompatActivity() {
     lateinit var make_content:Button

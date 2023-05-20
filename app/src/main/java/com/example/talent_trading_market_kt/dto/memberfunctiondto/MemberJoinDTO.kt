@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.dto
+package com.example.talent_trading_market_kt.dto.memberfunctiondto
 
 import retrofit2.http.POST
 import retrofit2.Retrofit

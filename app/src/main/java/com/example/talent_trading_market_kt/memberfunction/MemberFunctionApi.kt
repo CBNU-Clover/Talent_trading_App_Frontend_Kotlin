@@ -1,13 +1,11 @@
 package com.example.talent_trading_market_kt.memberfunction
 
-import com.example.talent_trading_market_kt.dto.EmailCheckDTO
-import com.example.talent_trading_market_kt.dto.LoginDTO
-import com.example.talent_trading_market_kt.dto.MemberJoinDTO
-import com.example.talent_trading_market_kt.dto.NickCheckDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.LoginDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.NickCheckDTO
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface MemberFunctionApi{

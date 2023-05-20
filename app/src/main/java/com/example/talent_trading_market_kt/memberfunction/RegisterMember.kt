@@ -6,9 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.EmailCheckDTO
-import com.example.talent_trading_market_kt.dto.MemberJoinDTO
-import com.example.talent_trading_market_kt.dto.NickCheckDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
+import com.example.talent_trading_market_kt.dto.memberfunctiondto.NickCheckDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,7 +44,7 @@ class RegisterMember : AppCompatActivity() {
         //닉네임 중복 체크
         nicknamebt.setOnClickListener {
             val nickname=nickname.text.toString()
-            val nickCheckDTO=NickCheckDTO()
+            val nickCheckDTO= NickCheckDTO()
             nickCheckDTO.nickname=nickname
             if(service!=null)
             {
@@ -70,7 +70,7 @@ class RegisterMember : AppCompatActivity() {
         //이메일 중복체크
         emailbt.setOnClickListener {
             val email=email.text.toString()
-            val emailCheckDTO=EmailCheckDTO()
+            val emailCheckDTO= EmailCheckDTO()
             emailCheckDTO.email=email
             if(service!=null)
             {

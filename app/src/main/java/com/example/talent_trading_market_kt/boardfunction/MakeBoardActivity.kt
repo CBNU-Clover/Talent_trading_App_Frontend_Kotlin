@@ -6,17 +6,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.NickCheckDTO
-import com.example.talent_trading_market_kt.dto.PostBoardDTO
-import com.example.talent_trading_market_kt.dto.PostDeleteBoard
-import com.example.talent_trading_market_kt.memberfunction.MemberFunctionApi
-import com.example.talent_trading_market_kt.memberfunction.RegisterMember
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.logging.Level
-import java.util.logging.Logger
 
 class MakeBoardActivity : AppCompatActivity() {
     lateinit var writerNickname: EditText

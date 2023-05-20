@@ -1,23 +1,12 @@
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.PostBoardDTO
-import com.example.talent_trading_market_kt.dto.PostDeleteBoard
-import com.example.talent_trading_market_kt.response.PostGetAllBoard
+import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.io.Serializable
 
 class OneBoardActivity : AppCompatActivity() {
     lateinit var title: TextView
@@ -28,8 +17,8 @@ class OneBoardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_boardread)
         val id:Long
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        title=findViewById(R.id.one_title)
-        content=findViewById(R.id.one_content)
+        //=findViewById(R.id.one_title)
+        //content=findViewById(R.id.one_content)
         //delete=findViewById(R.id.delete_bt)
         /*println(intent.getStringExtra("postName"))
         println(intent.getStringExtra("content"))

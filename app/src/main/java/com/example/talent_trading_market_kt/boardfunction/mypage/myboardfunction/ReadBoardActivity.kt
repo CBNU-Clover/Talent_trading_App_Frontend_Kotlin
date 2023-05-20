@@ -1,14 +1,15 @@
 
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,7 +17,7 @@ import retrofit2.Response
 class ReadBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_boardhistory)
+        setContentView(R.layout.activity_myboardhistory)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         if(service!=null)
         {
@@ -25,9 +26,9 @@ class ReadBoardActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var boardList:List<PostGetAllBoard>;
                         boardList= response.body()!!;
-                        //board_view.layoutManager=LinearLayoutManager(this@ReadBoardActivity,LinearLayoutManager.VERTICAL,false)
-                        //board_view.setHasFixedSize(true)
-                        //board_view.adapter=BoardAdapter(boardList)
+                        //myboard_view.layoutManager=LinearLayoutManager(this@ReadBoardActivity, LinearLayoutManager.VERTICAL,false)
+                        //myboard_view.setHasFixedSize(true)
+                        //myboard_view.adapter=BoardAdapter(boardList)
                     }
                 }
 

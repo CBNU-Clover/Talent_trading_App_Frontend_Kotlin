@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.dto
+package com.example.talent_trading_market_kt.dto.boardfunctiondto
 
 class PostBoardDTO
 {
