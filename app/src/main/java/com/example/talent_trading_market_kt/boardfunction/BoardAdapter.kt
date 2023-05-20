@@ -20,7 +20,7 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardAdapter.CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.boardlist_item,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.list_item,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {

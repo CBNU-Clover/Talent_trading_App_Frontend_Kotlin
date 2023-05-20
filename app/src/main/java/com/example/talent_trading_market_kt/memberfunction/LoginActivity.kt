@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.LoginDTO
 import com.example.talent_trading_market_kt.retrofit.App
@@ -50,13 +51,19 @@ class LoginActivity : AppCompatActivity() {
                             message = response.body().toString()
                             // 토큰을 저장한다.
                             App.prefs.token=message
-                            Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
-                            finish()
+                            Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            finishAffinity()
+                            startActivity(intent)
+                        }
+                        else
+                        {
+                            Toast.makeText(this@LoginActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<String?>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, "로그인이 실패했습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "다시 로그인 버튼을 눌러주세요", Toast.LENGTH_SHORT).show()
                     }
 
                 })

@@ -26,8 +26,7 @@ class MakeBoardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_make_board)
-        writerNickname = findViewById(R.id.writer)
+        setContentView(R.layout.activity_boardwrite)
         postName = findViewById(R.id.title)
         content = findViewById(R.id.content)
         write_bt = findViewById(R.id.make_content)
@@ -35,11 +34,9 @@ class MakeBoardActivity : AppCompatActivity() {
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 
         write_bt.setOnClickListener {
-            val writer=writerNickname.text.toString()
             val postname=postName.text.toString()
             val content=content.text.toString()
             val postBoardDTO= PostBoardDTO()
-            postBoardDTO.writerNickname=writer
             postBoardDTO.postName=postname
             postBoardDTO.content=content
             if(service!=null)

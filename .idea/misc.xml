@@ -7,23 +7,39 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_phone.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/round_border.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/round_border2.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_board.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_board_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_boardhistory.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_boardread.xml" value="0.2" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_boardsearch.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_boardwrite.xml" value="0.264" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_login2.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_main.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_make_board.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_mypage.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_one_board.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_point.xml" value="0.136" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_ranking.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_read_board.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_search_board.xml" value="0.152" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_search_one_board.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_searchresult.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_shinhyo.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_test.xml" value="0.109375" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_trade.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/boardlist_item.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/list_item.xml" value="0.264" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/ranking_item.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/searchboardlist_item.xml" value="0.128125" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/trade_history.xml" value="0.2" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

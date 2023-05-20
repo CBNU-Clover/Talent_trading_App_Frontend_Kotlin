@@ -1,3 +1,4 @@
+/*
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
@@ -58,4 +59,4 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
         val writerNickname=itemView.findViewById<TextView>(R.id.writer) // 작성자
     }
 
-}
+}*/

@@ -25,12 +25,12 @@ class OneBoardActivity : AppCompatActivity() {
     lateinit var delete: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one_board)
+        setContentView(R.layout.activity_boardread)
         val id:Long
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         title=findViewById(R.id.one_title)
         content=findViewById(R.id.one_content)
-        delete=findViewById(R.id.delete_bt)
+        //delete=findViewById(R.id.delete_bt)
         /*println(intent.getStringExtra("postName"))
         println(intent.getStringExtra("content"))
         println(intent.getStringExtra("Id"))
@@ -44,7 +44,7 @@ class OneBoardActivity : AppCompatActivity() {
         {
             content.text=intent.getStringExtra("content")
         }
-        delete.setOnClickListener {
+        /*delete.setOnClickListener {
             if(service!=null)
                 {
                     val postDeleteBoard=PostDeleteBoard()
@@ -66,7 +66,7 @@ class OneBoardActivity : AppCompatActivity() {
 
                     })
                 }
-            }
+            }*/
         }
     }
 

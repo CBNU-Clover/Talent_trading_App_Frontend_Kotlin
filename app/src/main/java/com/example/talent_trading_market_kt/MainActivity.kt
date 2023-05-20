@@ -10,26 +10,26 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var button: Button
-    lateinit var board_bt:Button
+    //lateinit var button: Button
+    //lateinit var board_bt:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button=findViewById(R.id.bt)
-        board_bt=findViewById(R.id.board_bt)
+        //button=findViewById(R.id.bt)
+        //board_bt=findViewById(R.id.board_bt)
 
-        bt.setOnClickListener {
+      /*  bt.setOnClickListener {
 
             val intent=Intent(this, LoginActivity::class.java)
                 startActivity(intent)
 
-        }
-        board_bt.setOnClickListener {
+        }*/
+        /*board_bt.setOnClickListener {
 
            val intent=Intent(this, BoardMainActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
     }
 }
