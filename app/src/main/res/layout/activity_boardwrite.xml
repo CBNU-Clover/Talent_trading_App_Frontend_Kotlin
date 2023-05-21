@@ -17,14 +17,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/backlogin"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/backbutton"
-            android:backgroundTint="#282928"></ImageButton>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +24,7 @@
         android:text="글쓰기"
         android:fontFamily="@font/malgunbd"
         android:textColor="@color/black"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="160dp"
         android:textSize="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">

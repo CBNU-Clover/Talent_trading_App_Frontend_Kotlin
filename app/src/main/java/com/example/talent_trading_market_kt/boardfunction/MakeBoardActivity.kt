@@ -13,7 +13,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MakeBoardActivity : AppCompatActivity() {
-    lateinit var writerNickname: EditText
     lateinit var postName: EditText
     lateinit var content: EditText
     lateinit var write_bt:Button
@@ -31,6 +30,7 @@ class MakeBoardActivity : AppCompatActivity() {
             val postname=postName.text.toString()
             val content=content.text.toString()
             val postBoardDTO= PostBoardDTO()
+            postBoardDTO.writerNickname="writer"
             postBoardDTO.postName=postname
             postBoardDTO.content=content
             if(service!=null)

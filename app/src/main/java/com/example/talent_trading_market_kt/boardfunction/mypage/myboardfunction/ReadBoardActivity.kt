@@ -9,6 +9,7 @@ import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import kotlinx.android.synthetic.main.activity_myboardhistory.*
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,9 +27,9 @@ class ReadBoardActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var boardList:List<PostGetAllBoard>;
                         boardList= response.body()!!;
-                        //myboard_view.layoutManager=LinearLayoutManager(this@ReadBoardActivity, LinearLayoutManager.VERTICAL,false)
-                        //myboard_view.setHasFixedSize(true)
-                        //myboard_view.adapter=BoardAdapter(boardList)
+                        myboard_view.layoutManager=LinearLayoutManager(this@ReadBoardActivity, LinearLayoutManager.VERTICAL,false)
+                        myboard_view.setHasFixedSize(true)
+                        myboard_view.adapter=BoardAdapter(boardList)
                     }
                 }
 
