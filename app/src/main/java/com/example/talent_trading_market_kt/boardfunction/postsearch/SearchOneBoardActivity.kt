@@ -1,4 +1,4 @@
-/*
+
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +13,11 @@ class SearchOneBoardActivity : AppCompatActivity() {
     lateinit var content:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_one_board)
+        setContentView(R.layout.one_search_board)
         var id:Long
-        writerNickname=findViewById(R.id.one_writer)
-        title=findViewById(R.id.one_title)
-        content=findViewById(R.id.one_content)
+        writerNickname=findViewById(R.id.searchone_writer)
+        title=findViewById(R.id.searchone_title)
+        content=findViewById(R.id.searchone_content)
         if(intent.hasExtra("Search_writerNickname"))
         {
             title.text=intent.getStringExtra("Search_writerNickname")
@@ -35,4 +35,4 @@ class SearchOneBoardActivity : AppCompatActivity() {
     }
 }
 
-*/
+
