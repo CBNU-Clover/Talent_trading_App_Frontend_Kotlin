@@ -6,9 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.finishAffinity
+import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
+import com.example.talent_trading_market_kt.fragment.Fragment3_MyPage
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,7 +51,8 @@ class OneBoardActivity : AppCompatActivity() {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
                                 Toast.makeText(this@OneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this@OneBoardActivity, ReadBoardActivity::class.java)
+
+                            val intent = Intent(this@OneBoardActivity, MainActivity::class.java)
                                 finishAffinity()
                                 startActivity(intent)
                             }

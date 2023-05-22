@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 
-class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
+class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
 {
 
 
@@ -34,6 +34,7 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
             }
         }
     }
+
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
