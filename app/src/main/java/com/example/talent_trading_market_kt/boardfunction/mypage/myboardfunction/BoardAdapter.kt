@@ -24,7 +24,7 @@ class BoardAdapter(val boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 val id: Long? =boards.id
                 //val postDeleteBoard=PostDeleteBoard()
                 //postDeleteBoard.delete_id=id
-                Toast.makeText(parent.context,"Id:${boards.id} 제목:${boards.postName} 내용:${boards.content}",Toast.LENGTH_SHORT).show()
+                //Toast.makeText(parent.context,"Id:${boards.id} 제목:${boards.postName} 내용:${boards.content}",Toast.LENGTH_SHORT).show()
                 val intent=Intent(parent.context, OneBoardActivity::class.java)
                 intent.putExtra("postName",boards.postName)
                 intent.putExtra("content",boards.content)

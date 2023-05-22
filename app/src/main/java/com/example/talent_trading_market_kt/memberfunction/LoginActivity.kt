@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                             message = response.body().toString()
                             // 토큰을 저장한다.
                             App.prefs.token=message
-                            Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             finishAffinity()
                             startActivity(intent)

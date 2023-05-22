@@ -28,7 +28,7 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
                 val curPos:Int=adapterPosition
                 val search_boards: PostSearchResult =boardList.get(curPos)
                 val id: Long? =search_boards.id
-                Toast.makeText(parent.context,"Id:${search_boards.id} 작성자:${search_boards.writerNickname} 제목:${search_boards.postName} 내용:${search_boards.content}",Toast.LENGTH_SHORT).show()
+                //Toast.makeText(parent.context,"Id:${search_boards.id} 작성자:${search_boards.writerNickname} 제목:${search_boards.postName} 내용:${search_boards.content}",Toast.LENGTH_SHORT).show()
                 val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
                 intent.putExtra("Search_writerNickname",search_boards.writerNickname)
                 intent.putExtra("Search_postName",search_boards.postName)
