@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="20dp">
         <TextView
-            android:id="@+id/my_title"
+            android:id="@+id/all_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -21,7 +21,7 @@
             android:textColor="#000000"
             android:textSize="18dp" />
         <TextView
-            android:id="@+id/search_price"
+            android:id="@+id/all_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -30,9 +30,19 @@
             android:text="가격"
             android:textColor="#000000"
             android:textSize="17dp" />
+        <TextView
+            android:id="@+id/all_writer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/malgunbd"
+            android:layout_marginTop="3dp"
+            android:text="작성자"
+            android:textColor="#000000"
+            android:textSize="17dp" />
 
         <TextView
-            android:id="@+id/my_content"
+            android:id="@+id/all_content"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:backgroundTint="#FFFFFF"
@@ -42,7 +52,7 @@
             android:textSize="14dp" />
 
         <TextView
-            android:id="@+id/my_time"
+            android:id="@+id/all_time"
             android:layout_width="48dp"
             android:layout_height="18dp"
             android:fontFamily="@font/malgun"

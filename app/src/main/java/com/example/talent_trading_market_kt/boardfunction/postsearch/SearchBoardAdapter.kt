@@ -1,4 +1,4 @@
-/*
+
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
@@ -21,7 +21,7 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBoardAdapter.CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.searchboardlist_item,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.searchresult_item,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
@@ -31,12 +31,12 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
                 //val postDeleteBoard=PostDeleteBoard()
                 //postDeleteBoard.delete_id=id
                 Toast.makeText(parent.context,"Id:${search_boards.id} 작성자:${search_boards.writerNickname} 제목:${search_boards.postName} 내용:${search_boards.content}",Toast.LENGTH_SHORT).show()
-                val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
+                /*val intent=Intent(parent.context,::class.java)
                 intent.putExtra("Search_writerNickname",search_boards.writerNickname)
                 intent.putExtra("Search_postName",search_boards.postName)
                 intent.putExtra("Search_content",search_boards.content)
                 intent.putExtra("Search_Id",search_boards.id.toString())
-                parent.context.startActivity(intent)
+                parent.context.startActivity(intent)*/
 
             }
         }
@@ -54,9 +54,9 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
     }
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
-        val title=itemView.findViewById<TextView>(R.id.title) // 제목
-        val content=itemView.findViewById<TextView>(R.id.content) // 내용
-        val writerNickname=itemView.findViewById<TextView>(R.id.writer) // 작성자
+        val title=itemView.findViewById<TextView>(R.id.search_title) // 제목
+        val content=itemView.findViewById<TextView>(R.id.search_content) // 내용
+        val writerNickname=itemView.findViewById<TextView>(R.id.search_writer) // 작성자
     }
 
-}*/
+}

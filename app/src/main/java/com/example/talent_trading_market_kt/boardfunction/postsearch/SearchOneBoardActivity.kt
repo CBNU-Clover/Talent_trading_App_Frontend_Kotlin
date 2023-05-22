@@ -1,5 +1,4 @@
 /*
-
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import androidx.appcompat.app.AppCompatActivity
@@ -35,4 +34,5 @@ class SearchOneBoardActivity : AppCompatActivity() {
         }
     }
 }
+
 */

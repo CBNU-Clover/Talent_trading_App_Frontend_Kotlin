@@ -1,10 +1,11 @@
-/*
+
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
@@ -12,7 +13,7 @@ import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_search_board.*
+import kotlinx.android.synthetic.main.activity_searchresult.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,11 +23,11 @@ class SearchBoardActivity : AppCompatActivity() {
     lateinit var search_bt:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_board)
-        postname=findViewById(R.id.keyword)
-        search_bt=findViewById(R.id.search_bt)
-
+        setContentView(R.layout.activity_searchresult)
+        postname=findViewById(R.id.search_postName)
+        search_bt=findViewById(R.id.search_button)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+
         search_bt.setOnClickListener {
             val postSearch= PostSearch()
             val postname=postname
@@ -38,10 +39,10 @@ class SearchBoardActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             var searchboardList:List<PostSearchResult>;
                             searchboardList= response.body()!!;
-                            search_board.layoutManager= LinearLayoutManager(this@SearchBoardActivity,
+                            search_result_view.layoutManager= LinearLayoutManager(this@SearchBoardActivity,
                                 LinearLayoutManager.VERTICAL,false)
-                            search_board.setHasFixedSize(true)
-                            search_board.adapter= SearchBoardAdapter(searchboardList)
+                            search_result_view.setHasFixedSize(true)
+                            search_result_view.adapter= SearchBoardAdapter(searchboardList)
                         }
                     }
 
@@ -56,4 +57,5 @@ class SearchBoardActivity : AppCompatActivity() {
         }
 
     }
-}*/
+}
+
