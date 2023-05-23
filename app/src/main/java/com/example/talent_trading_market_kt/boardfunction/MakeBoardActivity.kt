@@ -3,14 +3,19 @@ package com.example.talent_trading_market_kt.boardfunction
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.CalendarView
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.fragment.Fragment2_Menu
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import kotlinx.android.synthetic.main.activity_boardwrite.calendarView
+import kotlinx.android.synthetic.main.activity_boardwrite.selectdate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +24,8 @@ class MakeBoardActivity : AppCompatActivity() {
     lateinit var postName: EditText
     lateinit var content: EditText
     lateinit var write_bt:Button
+    lateinit var selectdate: TextView
+    lateinit var calendarView: CalendarView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +33,23 @@ class MakeBoardActivity : AppCompatActivity() {
         postName = findViewById(R.id.title)
         content = findViewById(R.id.content)
         write_bt = findViewById(R.id.make_content)
+        selectdate = findViewById(R.id.selectdate)
+        calendarView = findViewById(R.id.calendarView)
 
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+
+        fun openCalendar(view: View) {
+            calendarView.visibility = View.VISIBLE
+
+            // 캘린더뷰 선택 리스너 설정
+            calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+                // 선택한 날짜를 텍스트뷰에 설정
+                selectdate.text = String.format("%d-%02d-%02d", year, month + 1, dayOfMonth)
+
+                // 캘린더뷰 숨김 처리
+                calendarView.visibility = View.GONE
+            }
+        }
 
         write_bt.setOnClickListener {
             val postname=postName.text.toString()
