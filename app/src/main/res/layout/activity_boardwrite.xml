@@ -92,12 +92,6 @@
                     android:text="거래 가능" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="거래 중" />
-
-                <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
