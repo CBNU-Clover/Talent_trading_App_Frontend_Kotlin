@@ -109,6 +109,14 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="결제하기"
+                android:textStyle="bold"
+                android:textSize="15dp"/>
+
+
         </LinearLayout>
 
 
