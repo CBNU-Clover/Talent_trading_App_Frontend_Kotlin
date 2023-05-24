@@ -79,13 +79,13 @@
                     android:textSize="13dp" />
 
                 <TextView
+                    android:id="@+id/show_mypage_point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/nanumbarunpenb"
-                    android:text="40000 포인트"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -104,7 +104,7 @@
 
 
             <ImageButton
-                android:id="@+id/trade_btn"
+                android:id="@+id/point_bt"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"

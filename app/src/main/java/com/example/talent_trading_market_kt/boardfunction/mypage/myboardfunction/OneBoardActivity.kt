@@ -29,10 +29,6 @@ class OneBoardActivity : AppCompatActivity() {
         title=findViewById(R.id.one_title)
         content=findViewById(R.id.one_content)
         delete=findViewById(R.id.delete_button)
-        /*println(intent.getStringExtra("postName"))
-        println(intent.getStringExtra("content"))
-        println(intent.getStringExtra("Id"))
-        println("++++++++++++++++++++++++++++++++++++++++++++++++++++")*/
         if(intent.hasExtra("postName"))
         {
             title.text=intent.getStringExtra("postName")
