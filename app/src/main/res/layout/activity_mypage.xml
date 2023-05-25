@@ -16,12 +16,20 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/backlogin"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/backbutton"
+                android:backgroundTint="#282928"></ImageButton>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="90dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/malgunbd"
@@ -30,12 +38,13 @@
                 android:textSize="25dp">
 
             </TextView>
+
             <ImageButton
                 android:id="@+id/setting_ic"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="90dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/settingic"
                 android:backgroundTint="#282928"></ImageButton>
 
@@ -121,6 +130,15 @@
                 android:background="@drawable/file"
                 android:backgroundTint="#282928" />
 
+            <ImageButton
+                android:id="@+id/mypoint_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/point"
+                android:backgroundTint="#282928" />
+
 
         </LinearLayout>
         <LinearLayout
@@ -133,13 +151,13 @@
 
 
             <TextView
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:textAlignment="center"
             android:gravity="center"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="4dp"
             android:fontFamily="@font/malgunbd"
-            android:text="포인트"
+            android:text="내 거래기록"
             android:textColor="@color/black"
             android:textSize="12dp" />
 
@@ -148,11 +166,22 @@
             android:layout_height="16dp"
             android:textAlignment="center"
             android:gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="11dp"
             android:fontFamily="@font/malgunbd"
             android:text="내 글 목록"
             android:textColor="@color/black"
             android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="16dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginLeft="11dp"
+                android:fontFamily="@font/malgunbd"
+                android:text="포인트"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
 
 
         </LinearLayout>
