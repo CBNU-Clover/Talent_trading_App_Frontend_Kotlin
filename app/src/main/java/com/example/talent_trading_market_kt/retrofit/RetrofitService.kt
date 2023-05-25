@@ -17,7 +17,7 @@ class RetrofitConnection {
     // 객체를 하나만 생성하는 싱글톤 패턴을 적용합니다.
     companion object {
         // API 서버의 주소가 BASE_URL이 됩니다.
-        private const val BASE_URL = "http://192.168.45.209:8080/"
+        private const val BASE_URL = "http://192.168.45.78:8080/"
         private var INSTANCE: Retrofit? = null
         private val okHttpClient = OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build() //Client 생성
 

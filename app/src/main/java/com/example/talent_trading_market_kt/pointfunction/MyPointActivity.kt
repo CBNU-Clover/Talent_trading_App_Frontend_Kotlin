@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.fragment.Fragment3_MyPage
+import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import kotlinx.android.synthetic.main.activity_mypage.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,14 +27,16 @@ class MyPointActivity  : AppCompatActivity() {
         back_button_tomypage=findViewById(R.id.back_button_tomypage)
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
         if (service != null) {
-            service.show_point().enqueue(object : Callback<Long> {
-                override fun onResponse(call: Call<Long>, response: Response<Long>) {
+            service.show_point().enqueue(object : Callback<ShowPointDTO> {
+                override fun onResponse(call: Call<ShowPointDTO>, response: Response<ShowPointDTO>) {
                     if (response.isSuccessful) {
-                        showpoint.text=response.body().toString()+" 포인트"
+                        var showPointDTO=ShowPointDTO()
+                        showPointDTO= response.body()!!
+                        showpoint.text= showPointDTO.point.toString()+" 포인트"
                     }
                 }
 
-                override fun onFailure(call: Call<Long>, t: Throwable) {
+                override fun onFailure(call: Call<ShowPointDTO>, t: Throwable) {
                 }
 
             })
