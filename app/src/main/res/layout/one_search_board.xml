@@ -92,10 +92,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/board_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="30,000원"
+                android:text="40000원"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -110,6 +111,7 @@
                 android:textSize="15dp" />
 
             <Button
+                android:id="@+id/payment_button"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:text="결제하기"
