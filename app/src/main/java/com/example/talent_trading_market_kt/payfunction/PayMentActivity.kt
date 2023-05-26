@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradePost
+import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradingFunctionApi
 import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
@@ -70,6 +73,25 @@ class PayMentActivity : AppCompatActivity() {
 
 
         payment.setOnClickListener {
+            val service = RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
+            var tradePost=TradePost()
+            tradePost.tradePost_id= intent.getStringExtra("pay_Id")?.toLong()
+            if (service != null) {
+                service.trade(tradePost).enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(this@PayMentActivity, "거래 완료", Toast.LENGTH_SHORT).show()
+                            finish()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                    }
+
+                })
+            }
+
             //결제가 이루어진다.
         }
     }
