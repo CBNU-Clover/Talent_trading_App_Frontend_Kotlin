@@ -5,4 +5,5 @@ class PostBoardDTO
     var writerNickname : String? =null
     var postName :String?=null
     var content : String?=null
+    var price:Long?=null
 }

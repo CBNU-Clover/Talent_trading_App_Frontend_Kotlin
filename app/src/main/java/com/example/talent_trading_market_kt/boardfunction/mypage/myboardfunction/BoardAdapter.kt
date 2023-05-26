@@ -29,6 +29,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 intent.putExtra("postName",boards.postName)
                 intent.putExtra("content",boards.content)
                 intent.putExtra("Id",boards.id.toString())
+                intent.putExtra("price",boards.price.toString())
                 parent.context.startActivity(intent)
 
             }
@@ -40,6 +41,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
         holder.title.text=boardList.get(position).postName
         holder.content.text=boardList.get(position).content
+        holder.price.text= boardList.get(position).price.toString()
     }
 
     override fun getItemCount(): Int {
@@ -49,6 +51,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val title=itemView.findViewById<TextView>(R.id.my_title) // 제목
         val content=itemView.findViewById<TextView>(R.id.my_content) // 내용
+        val price=itemView.findViewById<TextView>(R.id.my_price)//가격
     }
 
 }
