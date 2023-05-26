@@ -24,9 +24,9 @@ class Fragment3_MyPage:Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view:View=inflater.inflate(R.layout.activity_mypage,container,false)
         val myboard:ImageButton=view.findViewById(R.id.history_btn)
-        val mypoint:ImageButton=view.findViewById(R.id.point_bt)
+        val mypoint_btn:ImageButton=view.findViewById(R.id.mypoint_btn)
         val show_point_mypage:TextView=view.findViewById(R.id.show_mypage_point)
-        mypoint.setOnClickListener {
+        mypoint_btn.setOnClickListener {
                 val activity = requireActivity()
                 val intent = Intent(activity, MyPointActivity::class.java)
                 activity.startActivity(intent)

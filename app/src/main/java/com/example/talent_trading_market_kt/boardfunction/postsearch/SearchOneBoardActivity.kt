@@ -45,6 +45,10 @@ class SearchOneBoardActivity : AppCompatActivity() {
         {
             content.text=intent.getStringExtra("Search_content")
         }
+        if(intent.hasExtra("Search_price"))
+        {
+            board_price.text=intent.getStringExtra("Search_price")
+        }
     }
 }
 

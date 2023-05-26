@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
@@ -25,6 +26,8 @@ class RegisterMember : AppCompatActivity() {
     lateinit var nicknamebt: Button
     lateinit var emailbt: Button
     lateinit var register_button: Button
+    lateinit var check_nickname_result : TextView
+    lateinit var check_email_result:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,8 @@ class RegisterMember : AppCompatActivity() {
         password = findViewById(R.id.password)
         phone_number = findViewById(R.id.phone_number)
         register_button = findViewById(R.id.registerButton)
+        check_nickname_result=findViewById(R.id.checkidresult)
+        check_email_result=findViewById(R.id.checkemailresult)
 
         val service = RetrofitConnection.getInstance().create(MemberFunctionApi::class.java)
 
@@ -52,7 +57,7 @@ class RegisterMember : AppCompatActivity() {
                     override fun onResponse(call: Call<String?>, response: Response<String?>) {
                         if (response.isSuccessful) {
                             val message: String? = response.body()
-                            Toast.makeText(this@RegisterMember, message, Toast.LENGTH_SHORT).show()
+                            check_nickname_result.text=message
                         }
                     }
 
@@ -78,7 +83,7 @@ class RegisterMember : AppCompatActivity() {
                         override fun onResponse(call: Call<String?>, response: Response<String?>) {
                             if (response.isSuccessful) {
                                 val message: String? = response.body()
-                                Toast.makeText(this@RegisterMember, message, Toast.LENGTH_SHORT).show()
+                                check_email_result.text=message
                             }
 
                         }
