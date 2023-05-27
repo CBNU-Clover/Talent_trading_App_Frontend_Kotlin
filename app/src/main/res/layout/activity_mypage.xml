@@ -115,8 +115,8 @@
 
             <ImageButton
                 android:id="@+id/point_bt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/trade"
@@ -124,18 +124,18 @@
 
             <ImageButton
                 android:id="@+id/history_btn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/file"
                 android:backgroundTint="#282928" />
 
             <ImageButton
                 android:id="@+id/mypoint_btn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/point"
                 android:backgroundTint="#282928" />
@@ -167,7 +167,7 @@
             android:layout_height="16dp"
             android:textAlignment="center"
             android:gravity="center"
-            android:layout_marginLeft="11dp"
+            android:layout_marginLeft="10dp"
             android:fontFamily="@font/malgunbd"
             android:text="내 글 목록"
             android:textColor="@color/black"
