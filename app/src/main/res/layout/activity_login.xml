@@ -89,7 +89,7 @@
                 android:drawableStart="@drawable/ic_baseline_person_24"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:hint="아이디"
+                android:hint="닉네임"
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"></EditText>

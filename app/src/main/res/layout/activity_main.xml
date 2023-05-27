@@ -26,8 +26,8 @@
 
             <ImageButton
                 android:id="@+id/bell_btn"
-                android:layout_width="53dp"
-                android:layout_height="50dp"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bell"
@@ -77,6 +77,11 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"></TextView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/realtime_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
 
         </LinearLayout>
 
@@ -95,6 +100,11 @@
                 android:text="인기 거래 게시글"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hottrade_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
