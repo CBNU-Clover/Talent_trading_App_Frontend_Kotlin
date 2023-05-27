@@ -26,6 +26,7 @@ class MakeBoardActivity : AppCompatActivity() {
     lateinit var write_bt:Button
     lateinit var selectdate: TextView
     lateinit var calendarView: CalendarView
+    lateinit var makeboard_price:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,7 @@ class MakeBoardActivity : AppCompatActivity() {
         write_bt = findViewById(R.id.make_content)
         selectdate = findViewById(R.id.selectdate)
         calendarView = findViewById(R.id.calendarView)
+        makeboard_price=findViewById(R.id.makeboard_price)
 
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 
@@ -54,10 +56,13 @@ class MakeBoardActivity : AppCompatActivity() {
         write_bt.setOnClickListener {
             val postname=postName.text.toString()
             val content=content.text.toString()
+            val price=makeboard_price.text.toString()
+            val makeprice=price.toLong()
             val postBoardDTO= PostBoardDTO()
             postBoardDTO.writerNickname="writer"
             postBoardDTO.postName=postname
             postBoardDTO.content=content
+            postBoardDTO.price=makeprice
             if(service!=null)
             {
                 service.make_board(postBoardDTO).enqueue(object : Callback<Long?> {

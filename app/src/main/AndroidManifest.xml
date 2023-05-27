@@ -16,12 +16,23 @@
         android:theme="@style/Theme.Talenttradingmarketkt"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".payfunction.PayMentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pointfunction.MyPointActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pointfunction.ChargePointActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity android:name=".boardfunction.postsearch.SearchOneBoardActivity"
-            android:exported="false"/>
-        <activity android:name=".boardfunction.postsearch.SearchBoardActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".boardfunction.postsearch.SearchOneBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".boardfunction.postsearch.SearchBoardActivity"
+            android:exported="false" />
         <activity
             android:name=".boardfunction.mypage.myboardfunction.OneBoardActivity"
             android:exported="false" />
@@ -37,8 +48,6 @@
         <activity
             android:name=".memberfunction.LoginActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

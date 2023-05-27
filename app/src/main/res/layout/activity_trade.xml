@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".Board">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,6 +63,7 @@
 
 
                 <TextView
+                    android:id="@+id/pay_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -102,6 +102,7 @@
 
 
             <TextView
+                android:id="@+id/board_first_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -135,6 +136,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/current_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -159,18 +161,19 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="총 결재 금액"
+                android:text="총 결제 금액"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/board_final_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="30,000원"
+                android:text="30000원"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -194,6 +197,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/final_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -214,6 +218,7 @@
             android:gravity="center">
 
             <Button
+                android:id="@+id/payment"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -6,4 +6,5 @@ class PostGetAllBoard {
     var id:Long?=null
     var postName: String? = null
     var content: String? = null
+    var price:Long?=null
 }
