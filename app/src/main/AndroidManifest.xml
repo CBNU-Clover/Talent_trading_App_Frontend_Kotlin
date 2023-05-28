@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Talenttradingmarketkt"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".boardfunction.mainmenu.hottrade.HotTradeOneBoardActivity"
+            android:exported="false" />
+        <activity
             android:name=".payfunction.PayMentActivity"
             android:exported="false" />
         <activity
