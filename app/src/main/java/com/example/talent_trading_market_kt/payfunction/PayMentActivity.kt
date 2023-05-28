@@ -37,8 +37,8 @@ class PayMentActivity : AppCompatActivity() {
         if(intent.hasExtra("pay_price"))
         {
 
-            board_first_price.text=intent.getStringExtra("pay_price")
-            board_final_price.text=intent.getStringExtra("pay_price")
+            board_first_price.text=intent.getStringExtra("pay_price")+"원"
+            board_final_price.text=intent.getStringExtra("pay_price")+"원"
             println(board_final_price.text)
 
         }
