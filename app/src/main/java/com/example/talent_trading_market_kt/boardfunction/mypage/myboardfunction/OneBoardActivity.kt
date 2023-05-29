@@ -1,11 +1,13 @@
 package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat.finishAffinity
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
@@ -51,28 +53,41 @@ class OneBoardActivity : AppCompatActivity() {
         }
 
         delete.setOnClickListener {
-            if(service!=null)
-                {
-                    val postDeleteBoard= PostDeleteBoard()
-                    postDeleteBoard.delete_id= intent.getStringExtra("Id")
-                    service.deletePost(postDeleteBoard).enqueue(object : Callback<Void> {
-                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                            if (response.isSuccessful) {
-                                Toast.makeText(this@OneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
+            val builder = AlertDialog.Builder(this)
+            builder
+                .setTitle("알림")
+                .setMessage("정말 게시물을 삭제하시겠습니까?")
+                .setPositiveButton("삭제",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        if(service!=null)
+                        {
+                            val postDeleteBoard= PostDeleteBoard()
+                            postDeleteBoard.delete_id= intent.getStringExtra("Id")
+                            service.deletePost(postDeleteBoard).enqueue(object : Callback<Void> {
+                                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                                    if (response.isSuccessful) {
+                                        Toast.makeText(this@OneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
 
-                            val intent = Intent(this@OneBoardActivity, MainActivity::class.java)
-                                finishAffinity()
-                                startActivity(intent)
-                            }
+                                        val intent = Intent(this@OneBoardActivity, MainActivity::class.java)
+                                        finishAffinity()
+                                        startActivity(intent)
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<Void>, t: Throwable) {
+                                    Toast.makeText(this@OneBoardActivity, "다시 버튼을 눌러주세요", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+
+                            })
                         }
-
-                        override fun onFailure(call: Call<Void>, t: Throwable) {
-                            Toast.makeText(this@OneBoardActivity, "다시 버튼을 눌러주세요", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
                     })
-                }
+                .setNegativeButton("취소",
+                    DialogInterface.OnClickListener { dialog, id ->
+                    })
+            builder.create()
+            builder.show()
+
             }
         }
     }
