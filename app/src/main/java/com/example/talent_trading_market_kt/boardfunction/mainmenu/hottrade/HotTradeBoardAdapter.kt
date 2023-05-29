@@ -44,7 +44,7 @@ class HotTradeBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.
     override fun onBindViewHolder(holder: HotTradeBoardAdapter.CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
         holder.hottrade_postname.text=boardList.get(position).postName
-        holder.hottrade_price.text=boardList.get(position).price.toString()
+        holder.hottrade_price.text=boardList.get(position).price.toString()+"원"
 
     }
 

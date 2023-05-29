@@ -1,6 +1,7 @@
 package com.example.talent_trading_market_kt.retrofit
 
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializer
 import okhttp3.Interceptor
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
@@ -10,6 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.IOException
 import java.net.CookieManager
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class RetrofitConnection {
     var INSTANCE: Retrofit? = null
@@ -23,7 +26,7 @@ class RetrofitConnection {
 
 
         fun getInstance(): Retrofit {
-            val gson = GsonBuilder().setLenient().create()
+            val gson = GsonBuilder().setLenient().create();
             if(INSTANCE == null) {  // null인 경우에만 생성
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(BASE_URL)  // API 베이스 URL 설정

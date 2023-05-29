@@ -35,6 +35,7 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
                 intent.putExtra("Search_content",search_boards.content)
                 intent.putExtra("Search_Id",search_boards.id.toString())
                 intent.putExtra("Search_price",search_boards.price.toString())
+                intent.putExtra("Search_date",search_boards.date)
                 parent.context.startActivity(intent)
 
             }
@@ -46,7 +47,8 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
         holder.writerNickname.text=boardList.get(position).writerNickname
         holder.title.text=boardList.get(position).postName
         holder.content.text=boardList.get(position).content
-        holder.price.text= boardList.get(position).price.toString()
+        holder.price.text= boardList.get(position).price.toString()+"원"
+        holder.date.text= boardList.get(position).date
     }
 
     override fun getItemCount(): Int {
@@ -58,6 +60,7 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
         val content=itemView.findViewById<TextView>(R.id.search_content) // 내용
         val writerNickname=itemView.findViewById<TextView>(R.id.search_writer) // 작성자
         val price=itemView.findViewById<TextView>(R.id.search_price)
+        val date=itemView.findViewById<TextView>(R.id.search_time)
     }
 
 }

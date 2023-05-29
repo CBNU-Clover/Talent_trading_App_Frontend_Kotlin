@@ -13,6 +13,7 @@ import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.fragment.Fragment3_MyPage
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import kotlinx.android.synthetic.main.activity_boardread.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +43,11 @@ class OneBoardActivity : AppCompatActivity() {
         }
         if(intent.hasExtra("price"))
         {
-            readboard_price.text=intent.getStringExtra("price")
+            readboard_price.text=intent.getStringExtra("price")+"원"
+        }
+        if(intent.hasExtra("date"))
+        {
+            my_board_price.text=intent.getStringExtra("date")
         }
 
         delete.setOnClickListener {

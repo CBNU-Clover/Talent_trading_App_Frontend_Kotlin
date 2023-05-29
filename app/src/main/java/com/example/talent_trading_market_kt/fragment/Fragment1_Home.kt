@@ -38,6 +38,10 @@ class Fragment1_Home:Fragment() {
                             LinearLayoutManager.HORIZONTAL,false)
                         hottrade_view.setHasFixedSize(true)
                         hottrade_view.adapter= HotTradeBoardAdapter(searchboardList)
+                        realtime_view.layoutManager= LinearLayoutManager(requireContext(),
+                            LinearLayoutManager.HORIZONTAL,false)
+                        realtime_view.setHasFixedSize(true)
+                        realtime_view.adapter= HotTradeBoardAdapter(searchboardList)
                     }
                 }
 
