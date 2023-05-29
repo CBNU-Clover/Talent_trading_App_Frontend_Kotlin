@@ -26,8 +26,8 @@
 
             <ImageButton
                 android:id="@+id/bell_btn"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bell"
