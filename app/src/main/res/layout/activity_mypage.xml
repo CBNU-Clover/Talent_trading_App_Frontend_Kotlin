@@ -114,7 +114,7 @@
 
 
             <ImageButton
-                android:id="@+id/point_bt"
+                android:id="@+id/trading_history_bt"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="10dp"

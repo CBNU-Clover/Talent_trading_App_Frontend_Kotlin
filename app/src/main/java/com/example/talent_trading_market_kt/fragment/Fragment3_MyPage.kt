@@ -14,6 +14,7 @@ import com.example.talent_trading_market_kt.pointfunction.MyPointActivity
 import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import com.example.talent_trading_market_kt.tradingfunction.TradingHistoryActivity
 import kotlinx.android.synthetic.main.activity_mypage.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,11 +27,17 @@ class Fragment3_MyPage:Fragment() {
         val myboard:ImageButton=view.findViewById(R.id.history_btn)
         val mypoint_btn:ImageButton=view.findViewById(R.id.mypoint_btn)
         val show_point_mypage:TextView=view.findViewById(R.id.show_mypage_point)
+        val trading_history_bt:ImageButton=view.findViewById(R.id.trading_history_bt)
         mypoint_btn.setOnClickListener {
                 val activity = requireActivity()
                 val intent = Intent(activity, MyPointActivity::class.java)
                 activity.startActivity(intent)
             }
+        trading_history_bt.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, TradingHistoryActivity::class.java)
+            activity.startActivity(intent)
+        }
 
         myboard.setOnClickListener {
             val activity = requireActivity()
