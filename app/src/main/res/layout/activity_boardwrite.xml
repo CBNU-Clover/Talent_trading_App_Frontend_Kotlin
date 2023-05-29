@@ -81,6 +81,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:gravity="top"
                 android:hint="가격을 입력하세요.."
+                android:inputType="number"
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"></EditText>
