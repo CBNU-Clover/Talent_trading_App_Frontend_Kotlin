@@ -2,6 +2,7 @@ package com.example.talent_trading_market_kt.pointfunction
 
 import com.example.talent_trading_market_kt.pointfunction.pointDTO.ChargePointDTO
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
+import com.example.talent_trading_market_kt.response.pointresponse.PointHistory
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import retrofit2.Call
 import retrofit2.http.Body
@@ -14,4 +15,7 @@ interface PointFunctionApi{
 
     @GET("/api/vi/Point/show_point")
     fun show_point():Call<ShowPointDTO>
+
+    @GET("/api/vi/Point/point_history")
+    fun point_history():Call<List<PointHistory>>
 }
