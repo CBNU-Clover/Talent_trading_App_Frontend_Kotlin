@@ -5,4 +5,5 @@ class TradingHistory {
      var trade_price: Long? = null
      var buyer_nickname: String? = null
      var seller_nickname: String? = null
+     var date:String?=null
 }

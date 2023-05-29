@@ -23,6 +23,7 @@ class PayMentActivity : AppCompatActivity() {
     lateinit var current_point:TextView
     lateinit var final_point:TextView
     lateinit var pay_date:TextView
+    lateinit var pay_content:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trade)
@@ -31,6 +32,12 @@ class PayMentActivity : AppCompatActivity() {
         current_point=findViewById(R.id.current_point)
         final_point=findViewById(R.id.final_point)
         pay_date=findViewById(R.id.pay_date)
+        pay_content=findViewById(R.id.pay_content)
+        if(intent.hasExtra("pay_content"))
+        {
+            pay_content.text=intent.getStringExtra("pay_content")
+
+        }
         if(intent.hasExtra("pay_title"))
         {
             pay_title.text=intent.getStringExtra("pay_title")

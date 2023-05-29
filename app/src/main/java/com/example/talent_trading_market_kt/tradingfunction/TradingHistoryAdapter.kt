@@ -25,6 +25,7 @@ class TradingHistoryAdapter(var tradeList: List<TradingHistory>): RecyclerView.A
         holder.trade_item_price.text=tradeList.get(position).trade_price.toString()+"원"
         holder.trade_buyer.text= tradeList.get(position).buyer_nickname
         holder.trade_seller.text= tradeList.get(position).seller_nickname
+        holder.trade_time.text=tradeList.get(position).date
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +37,7 @@ class TradingHistoryAdapter(var tradeList: List<TradingHistory>): RecyclerView.A
         val trade_item_price=itemView.findViewById<TextView>(R.id.item_price) //  가격
         val trade_buyer=itemView.findViewById<TextView>(R.id.buyer)
         val trade_seller=itemView.findViewById<TextView>(R.id.seller)
+        val trade_time=itemView.findViewById<TextView>(R.id.trade_time)
     }
 
 }

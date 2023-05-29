@@ -17,6 +17,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
     lateinit var payment_button:Button
     lateinit var board_price:TextView
     lateinit var searchone_date:TextView
+    lateinit var searchone_content:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.one_search_board)
@@ -27,6 +28,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         payment_button=findViewById(R.id.payment_button)
         board_price=findViewById(R.id.board_price)
         searchone_date=findViewById(R.id.searchone_date)
+        searchone_content=findViewById(R.id.searchone_content)
         Id= intent.getStringExtra("Search_Id").toString()
         payment_button.setOnClickListener {
             val intent=Intent(this,PayMentActivity::class.java)
@@ -34,6 +36,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
             intent.putExtra("pay_price",board_price.text)
             intent.putExtra("pay_Id",Id)
             intent.putExtra("pay_date",searchone_date.text)
+            intent.putExtra("pay_content",searchone_content.text)
             startActivity(intent)
         }
         if(intent.hasExtra("Search_writerNickname"))
