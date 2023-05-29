@@ -12,10 +12,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="60dp">
 
 
             <ImageButton
@@ -30,73 +30,83 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
                 android:text="회원 가입"
                 android:fontFamily="@font/malgunbd"
                 android:textColor="@color/black"
-                android:layout_marginLeft="100dp"
-                android:textSize="28dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:textSize="28dp">
 
             </TextView>
 
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/nickname"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:hint="닉네임"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"></EditText>
+
+            <Button
+                android:id="@+id/nickcheckButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="중복확인"
+                android:textColor="@color/white"
+                android:textSize="15dp"></Button>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
         </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/nickname"
-                    android:layout_width="194dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="65dp"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_baseline_person_24"
-                    android:drawableLeft="@drawable/ic_baseline_person_24"
-                    android:fontFamily="@font/nanumbarunpenb"
-                    android:hint="닉네임"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
-
-                <Button
-                    android:id="@+id/nickcheckButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="@font/nanumbarunpenb"
-                    android:text="중복확인"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"></Button>
-            </LinearLayout>
 
         <TextView
             android:id="@+id/checkidresult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#ff0000"
+            android:textColor="#5da874"
             android:textSize="14dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
 
 
         <EditText
             android:id="@+id/email"
             android:layout_width="194dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="65dp"
             android:layout_marginTop="5dp"
             android:drawableStart="@drawable/ic_baseline_mail_outline_24"
             android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
@@ -111,12 +121,16 @@
             android:id="@+id/emailcheckButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="중복확인"
             android:textColor="@color/white"
             android:textSize="15dp"></Button>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
         <TextView
@@ -124,13 +138,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#ff0000"
+            android:textColor="#5da874"
             android:textSize="14dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="340dp"
             android:orientation="vertical">
+
+
             <EditText
                 android:id="@+id/name"
                 android:layout_width="280dp"
