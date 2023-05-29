@@ -32,7 +32,6 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 intent.putExtra("price",boards.price.toString())
                 intent.putExtra("date",boards.date)
                 parent.context.startActivity(intent)
-
             }
         }
     }
