@@ -14,10 +14,6 @@
         android:layout_margin="10dp">
 
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A5A2A2" />
 
         <TextView
             android:id="@+id/tradetime_item"
@@ -28,7 +24,7 @@
             android:layout_marginTop="3dp"
             android:text="5.10(수) 13:04"
             android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +42,7 @@
                 android:text="게시글 제목"
                 android:layout_weight="1"
                 android:textColor="#000000"
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,7 +53,7 @@
                 android:fontFamily="@font/malgunbd"
                 android:text="판매자 :"
                 android:textColor="@color/purple_500"
-                android:textSize="17dp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/seller"
@@ -69,7 +65,7 @@
                 android:fontFamily="@font/malgunbd"
                 android:text="id"
                 android:textColor="@color/purple_500"
-                android:textSize="17dp" />
+                android:textSize="15sp" />
 
 
 
@@ -92,7 +88,7 @@
                 android:text="가격"
                 android:textColor="#000000"
                 android:layout_weight="1"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -103,7 +99,7 @@
                 android:fontFamily="@font/malgunbd"
                 android:text="구매자 :"
                 android:textColor="@color/purple_500"
-                android:textSize="17dp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/buyer"
@@ -115,7 +111,7 @@
                 android:fontFamily="@font/malgunbd"
                 android:text="id"
                 android:textColor="@color/purple_500"
-                android:textSize="17dp" />
+                android:textSize="15sp" />
 
 
 
