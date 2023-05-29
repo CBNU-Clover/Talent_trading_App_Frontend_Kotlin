@@ -1,11 +1,13 @@
 package com.example.talent_trading_market_kt.memberfunction
 
+import android.graphics.Color.red
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
@@ -57,7 +59,17 @@ class RegisterMember : AppCompatActivity() {
                     override fun onResponse(call: Call<String?>, response: Response<String?>) {
                         if (response.isSuccessful) {
                             val message: String? = response.body()
-                            check_nickname_result.text=message
+                            if(message=="중복되는 닉네임이 없습니다!!")
+                            {
+                                check_nickname_result.text=message
+                                check_nickname_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.lime_green))
+
+                            }
+                            else
+                            {
+                                check_nickname_result.text=message
+                                check_nickname_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.red))
+                            }
                         }
                     }
 
@@ -83,7 +95,16 @@ class RegisterMember : AppCompatActivity() {
                         override fun onResponse(call: Call<String?>, response: Response<String?>) {
                             if (response.isSuccessful) {
                                 val message: String? = response.body()
-                                check_email_result.text=message
+                                if(message=="중복되는 이메일이 있습니다!!")
+                                {
+                                    check_email_result.text=message
+                                    check_email_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.red))
+                                }
+                                else
+                                {
+                                    check_email_result.text=message
+                                    check_email_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.lime_green))
+                                }
                             }
 
                         }
