@@ -53,9 +53,11 @@
                 android:src="@drawable/cloverlogo2" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
+
+                android:layout_weight="1"
                 android:orientation="vertical">
 
 
@@ -77,13 +79,27 @@
                     android:textColor="@color/black"
                     android:textSize="11dp" />
 
+
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/tradestate"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square_border"
+                android:layout_marginTop="10dp"
+                android:text="거래가능"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="5dp"/>
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="520dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
@@ -108,6 +124,8 @@
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
+
+
             <TextView
                 android:id="@+id/searchone_content"
                 android:layout_width="wrap_content"
@@ -117,33 +135,23 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/tradestate"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:background="@drawable/square_border"
-                android:layout_marginTop="10dp"
-                android:text="거래가능"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="5dp"/>
+
 
 
 
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            >
 
             <Button
                 android:id="@+id/payment_button"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
                 android:layout_margin="10dp"
                 android:text="거래하기"
                 android:textSize="20dp"
@@ -151,7 +159,7 @@
                 android:textStyle="bold" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

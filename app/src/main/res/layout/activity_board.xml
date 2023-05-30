@@ -18,13 +18,6 @@
             android:layout_height="60dp">
 
 
-            <ImageButton
-                android:id="@+id/backlogin"
-                android:layout_width="50dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/backbutton"
-                android:backgroundTint="#282928"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
