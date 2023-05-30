@@ -18,7 +18,7 @@
 
 
             <ImageButton
-                android:id="@+id/backlogin"
+                android:id="@+id/backbt_makeboard"
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"

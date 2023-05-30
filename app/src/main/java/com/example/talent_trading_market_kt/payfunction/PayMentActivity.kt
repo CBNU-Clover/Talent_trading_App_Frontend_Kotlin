@@ -3,6 +3,7 @@ package com.example.talent_trading_market_kt.payfunction
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.talent_trading_market_kt.R
@@ -24,6 +25,7 @@ class PayMentActivity : AppCompatActivity() {
     lateinit var final_point:TextView
     lateinit var pay_date:TextView
     lateinit var pay_content:TextView
+    lateinit var backbt_payment:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trade)
@@ -33,6 +35,10 @@ class PayMentActivity : AppCompatActivity() {
         final_point=findViewById(R.id.final_point)
         pay_date=findViewById(R.id.pay_date)
         pay_content=findViewById(R.id.pay_content)
+        backbt_payment=findViewById(R.id.backbt_payment)
+        backbt_payment.setOnClickListener {
+            finish()
+        }
         if(intent.hasExtra("pay_content"))
         {
             pay_content.text=intent.getStringExtra("pay_content")

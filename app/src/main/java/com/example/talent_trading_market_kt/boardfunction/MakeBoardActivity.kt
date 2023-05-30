@@ -4,11 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
@@ -23,6 +19,7 @@ class MakeBoardActivity : AppCompatActivity() {
     lateinit var content: EditText
     lateinit var write_bt:Button
     lateinit var makeboard_price:EditText
+    lateinit var backbt_makeboard:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +28,12 @@ class MakeBoardActivity : AppCompatActivity() {
         content = findViewById(R.id.content)
         write_bt = findViewById(R.id.make_content)
         makeboard_price=findViewById(R.id.makeboard_price)
+        backbt_makeboard=findViewById(R.id.backbt_makeboard)
 
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        backbt_makeboard.setOnClickListener {
+            finish()
+        }
 
         write_bt.setOnClickListener {
             val postname=postName.text.toString()

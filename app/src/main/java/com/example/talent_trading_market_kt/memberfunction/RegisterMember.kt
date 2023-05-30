@@ -3,10 +3,7 @@ package com.example.talent_trading_market_kt.memberfunction
 import android.graphics.Color.red
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
@@ -30,6 +27,7 @@ class RegisterMember : AppCompatActivity() {
     lateinit var register_button: Button
     lateinit var check_nickname_result : TextView
     lateinit var check_email_result:TextView
+    lateinit var backbt_register:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +43,10 @@ class RegisterMember : AppCompatActivity() {
         register_button = findViewById(R.id.registerButton)
         check_nickname_result=findViewById(R.id.checkidresult)
         check_email_result=findViewById(R.id.checkemailresult)
+        backbt_register=findViewById(R.id.backbt_register)
+        backbt_register.setOnClickListener {
+            finish()
+        }
 
         val service = RetrofitConnection.getInstance().create(MemberFunctionApi::class.java)
 

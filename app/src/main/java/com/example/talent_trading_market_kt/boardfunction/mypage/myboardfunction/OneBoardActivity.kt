@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -26,6 +27,7 @@ class OneBoardActivity : AppCompatActivity() {
     lateinit var delete: Button
     lateinit var readboard_price:TextView
     lateinit var writer_nickname:TextView
+    lateinit var backbt_myoneboard:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_boardread)
@@ -36,6 +38,10 @@ class OneBoardActivity : AppCompatActivity() {
         delete=findViewById(R.id.delete_button)
         readboard_price=findViewById(R.id.readboard_price)
         writer_nickname=findViewById(R.id.writer_nickname)
+        backbt_myoneboard=findViewById(R.id.backbt_myoneboard)
+        backbt_myoneboard.setOnClickListener {
+            finish()
+        }
         if(intent.hasExtra("postName"))
         {
             title.text=intent.getStringExtra("postName")

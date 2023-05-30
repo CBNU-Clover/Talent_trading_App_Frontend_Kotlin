@@ -3,6 +3,7 @@ package com.example.talent_trading_market_kt.tradingfunction
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
@@ -18,9 +19,14 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TradingHistoryActivity : AppCompatActivity() {
+    lateinit var backbt_trading_history:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tradehistory)
+        backbt_trading_history=findViewById(R.id.backbt_trading_history)
+        backbt_trading_history.setOnClickListener {
+            finish()
+        }
         val service = RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
         if(service!=null)
         {

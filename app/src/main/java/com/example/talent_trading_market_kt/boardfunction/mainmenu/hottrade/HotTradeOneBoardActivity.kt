@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.payfunction.PayMentActivity
@@ -17,6 +18,7 @@ class HotTradeOneBoardActivity : AppCompatActivity() {
     lateinit var payment_button:Button
     lateinit var board_price:TextView
     lateinit var date:TextView
+    lateinit var back_button:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.one_search_board)
@@ -27,7 +29,11 @@ class HotTradeOneBoardActivity : AppCompatActivity() {
         payment_button=findViewById(R.id.payment_button)
         board_price=findViewById(R.id.board_price)
         date=findViewById(R.id.searchone_date)
+        back_button=findViewById(R.id.back_button)
         Id= intent.getStringExtra("HotTrade_Id").toString()
+        back_button.setOnClickListener {
+            finish()
+        }
         payment_button.setOnClickListener {
             val intent=Intent(this,PayMentActivity::class.java)
             intent.putExtra("pay_title",title.text)

@@ -3,6 +3,7 @@ package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunctio
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
@@ -16,10 +17,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ReadBoardActivity : AppCompatActivity() {
+    lateinit var backbt_myboard:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myboardhistory)
+        backbt_myboard=findViewById(R.id.backbt_myboard)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        backbt_myboard.setOnClickListener {
+            finish()
+        }
         if(service!=null)
         {
             service.getAllboard().enqueue(object : Callback<List<PostGetAllBoard>> {
