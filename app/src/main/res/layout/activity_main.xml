@@ -11,30 +11,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal">
+            android:layout_height="60dp">
 
             <ImageView
-                android:layout_width="206dp"
-                android:layout_height="192dp"
-                android:layout_gravity="center"
-
-                android:layout_marginLeft="90dp"
-                android:src="@drawable/cloverlogo1"></ImageView>
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/logotest2"></ImageView>
 
             <ImageButton
                 android:id="@+id/bell_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:background="@drawable/bell"
                 android:backgroundTint="#5D6E6C" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <LinearLayout
