@@ -31,6 +31,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 intent.putExtra("Id",boards.id.toString())
                 intent.putExtra("price",boards.price.toString())
                 intent.putExtra("date",boards.date)
+                intent.putExtra("writer_nickname",boards.writer_nickname)
                 parent.context.startActivity(intent)
             }
         }

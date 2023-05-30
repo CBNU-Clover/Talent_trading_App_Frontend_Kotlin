@@ -35,6 +35,7 @@ class HotTradeBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.
                 intent.putExtra("HotTrade_content",search_boards.content)
                 intent.putExtra("HotTrade_Id",search_boards.id.toString())
                 intent.putExtra("HotTrade_price",search_boards.price.toString())
+                intent.putExtra("HotTrade_date",search_boards.date)
                 parent.context.startActivity(intent)
 
             }

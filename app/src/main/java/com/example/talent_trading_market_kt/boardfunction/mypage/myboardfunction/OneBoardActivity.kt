@@ -25,6 +25,7 @@ class OneBoardActivity : AppCompatActivity() {
     lateinit var content: TextView
     lateinit var delete: Button
     lateinit var readboard_price:TextView
+    lateinit var writer_nickname:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_boardread)
@@ -34,6 +35,7 @@ class OneBoardActivity : AppCompatActivity() {
         content=findViewById(R.id.one_content)
         delete=findViewById(R.id.delete_button)
         readboard_price=findViewById(R.id.readboard_price)
+        writer_nickname=findViewById(R.id.writer_nickname)
         if(intent.hasExtra("postName"))
         {
             title.text=intent.getStringExtra("postName")
@@ -50,6 +52,11 @@ class OneBoardActivity : AppCompatActivity() {
         if(intent.hasExtra("date"))
         {
             my_board_price.text=intent.getStringExtra("date")
+        }
+        if(intent.hasExtra("writer_nickname"))
+        {
+            writer_nickname.text=intent.getStringExtra("writer_nickname")
+
         }
 
         delete.setOnClickListener {
