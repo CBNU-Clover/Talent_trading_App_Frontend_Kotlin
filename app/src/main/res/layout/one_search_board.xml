@@ -111,7 +111,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="제목"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="19dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,7 +121,7 @@
                 android:layout_marginTop="5dp"
                 android:text="30,000원"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
 
@@ -152,10 +152,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="거래하기"
-                android:textSize="20dp"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
 

@@ -64,7 +64,9 @@
                 android:hint="닉네임"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="@color/black"
+                android:inputType="text"
+                android:singleLine="true"></EditText>
 
             <Button
                 android:id="@+id/nickcheckButton"
@@ -159,7 +161,9 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="@color/black"
+                android:inputType="text"
+                android:singleLine="true"></EditText>
 
             <EditText
                 android:id="@+id/password"
@@ -188,7 +192,8 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="@color/black"
+                android:inputType="number"></EditText>
 
 
 

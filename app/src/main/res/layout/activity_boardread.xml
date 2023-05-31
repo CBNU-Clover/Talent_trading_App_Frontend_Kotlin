@@ -98,7 +98,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
@@ -110,7 +110,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="제목"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="19dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -120,7 +120,7 @@
                 android:layout_marginTop="5dp"
                 android:text="30,000원"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -147,10 +147,10 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            >
 
 
             <Button
@@ -158,13 +158,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:textColor="@color/white"
+                android:layout_alignParentBottom="true"
                 android:layout_marginStart="300dp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:text="삭제" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
