@@ -4,7 +4,7 @@
     <item android:title="홈"
         android:id="@+id/home"
         android:icon="@drawable/home"/>
-    <item android:title="메뉴"
+    <item android:title="게시글"
         android:id="@+id/menu"
         android:icon="@drawable/boardmain_ic"/>
     <item android:title="마이페이지"

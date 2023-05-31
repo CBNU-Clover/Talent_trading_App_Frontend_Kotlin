@@ -161,7 +161,7 @@
                 android:layout_marginStart="300dp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
-                android:textSize="17dp"
+                android:textSize="17sp"
                 android:text="삭제" />
 
         </LinearLayout>

@@ -68,11 +68,12 @@
         <EditText
             android:id="@+id/point_amount"
             android:textColor="@color/black"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
             android:inputType="number"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
 
         <LinearLayout
