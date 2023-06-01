@@ -1,11 +1,13 @@
 package com.example.talent_trading_market_kt.payfunction
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradePost
 import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradingFunctionApi
@@ -26,6 +28,7 @@ class PayMentActivity : AppCompatActivity() {
     lateinit var pay_date:TextView
     lateinit var pay_content:TextView
     lateinit var backbt_payment:ImageButton
+    var flag:Int=0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trade)
@@ -81,7 +84,10 @@ class PayMentActivity : AppCompatActivity() {
 
                             // 문자열을 Long으로 변환할 수 없는 경우에 대한 처리
                         }
-
+                        if(showPointDTO.point!!>= boardFinalPriceLong!!)
+                        {
+                            flag=1;
+                        }
                     }
                 }
 
@@ -94,24 +100,44 @@ class PayMentActivity : AppCompatActivity() {
 
 
         payment.setOnClickListener {
-            val service = RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
-            var tradePost=TradePost()
-            tradePost.tradePost_id= intent.getStringExtra("pay_Id")?.toLong()
-            if (service != null) {
-                service.trade(tradePost).enqueue(object : Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        if (response.isSuccessful) {
-                            Toast.makeText(this@PayMentActivity, "거래 완료", Toast.LENGTH_SHORT).show()
-                            finish()
+            if(flag==1)
+            {
+                val builder = AlertDialog.Builder(this)
+                builder
+                    .setTitle("알림")
+                    .setMessage("거래를 진행하겠습니까?")
+                    .setPositiveButton("진행",
+                        DialogInterface.OnClickListener { dialog, id ->
+                val service = RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
+                var tradePost=TradePost()
+                tradePost.tradePost_id= intent.getStringExtra("pay_Id")?.toLong()
+                if (service != null) {
+                    service.trade(tradePost).enqueue(object : Callback<Void> {
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(this@PayMentActivity, "거래 완료", Toast.LENGTH_SHORT).show()
+                                finish()
 
+                            }
                         }
-                    }
 
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                    }
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                        }
 
-                })
+                    })
+                }
+                        })
+                    .setNegativeButton("취소",
+                        DialogInterface.OnClickListener { dialog, id ->
+                        })
+                builder.create()
+                builder.show()
             }
+            else if(flag==0)
+            {
+                Toast.makeText(this@PayMentActivity, "잔액이 부족합니다", Toast.LENGTH_SHORT).show()
+            }
+            
 
             //결제가 이루어진다.
         }
