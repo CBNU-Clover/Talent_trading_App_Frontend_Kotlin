@@ -54,6 +54,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="제목"
                 android:padding="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"></EditText>
 
@@ -77,7 +78,7 @@
             <EditText
                 android:id="@+id/makeboard_price"
                 android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
