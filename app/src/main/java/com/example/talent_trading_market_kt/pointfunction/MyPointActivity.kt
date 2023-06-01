@@ -24,11 +24,16 @@ import retrofit2.Response
 class MyPointActivity  : AppCompatActivity() {
     lateinit var chargepoint:TextView
     lateinit var showpoint:TextView
+    lateinit var back_btn_point:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_point)
         chargepoint=findViewById(R.id.charge_point)
         showpoint=findViewById(R.id.showpoint)
+        back_btn_point=findViewById(R.id.back_btn_point)
+        back_btn_point.setOnClickListener {
+            finish()
+        }
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
         if (service != null) {
             service.show_point().enqueue(object : Callback<ShowPointDTO> {
