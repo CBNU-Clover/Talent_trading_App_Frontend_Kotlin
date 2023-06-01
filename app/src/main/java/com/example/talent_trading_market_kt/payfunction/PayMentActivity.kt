@@ -25,7 +25,6 @@ class PayMentActivity : AppCompatActivity() {
     lateinit var pay_title:TextView
     lateinit var current_point:TextView
     lateinit var final_point:TextView
-    lateinit var pay_date:TextView
     lateinit var pay_content:TextView
     lateinit var backbt_payment:ImageButton
     var flag:Int=0;
@@ -36,7 +35,6 @@ class PayMentActivity : AppCompatActivity() {
         pay_title=findViewById(R.id.pay_title)
         current_point=findViewById(R.id.current_point)
         final_point=findViewById(R.id.final_point)
-        pay_date=findViewById(R.id.pay_date)
         pay_content=findViewById(R.id.pay_content)
         backbt_payment=findViewById(R.id.backbt_payment)
         backbt_payment.setOnClickListener {
@@ -55,15 +53,7 @@ class PayMentActivity : AppCompatActivity() {
         if(intent.hasExtra("pay_price"))
         {
 
-            board_first_price.text=intent.getStringExtra("pay_price")
             board_final_price.text=intent.getStringExtra("pay_price")
-
-
-        }
-        if(intent.hasExtra("pay_date"))
-        {
-
-            pay_date.text=intent.getStringExtra("pay_date")
 
         }
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
