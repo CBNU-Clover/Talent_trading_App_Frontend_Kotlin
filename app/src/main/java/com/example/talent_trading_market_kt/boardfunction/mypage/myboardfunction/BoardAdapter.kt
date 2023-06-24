@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
@@ -15,7 +14,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.myboardlist_item,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.board_item,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
@@ -44,6 +43,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
         holder.content.text=boardList.get(position).content
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.my_date.text=boardList.get(position).date
+        holder.writer.text=boardList.get(position).writer_nickname
     }
 
     override fun getItemCount(): Int {
@@ -51,10 +51,11 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
     }
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
-        val title=itemView.findViewById<TextView>(R.id.my_title) // 제목
-        val content=itemView.findViewById<TextView>(R.id.my_content) // 내용
-        val price=itemView.findViewById<TextView>(R.id.my_price)//가격
-        val my_date=itemView.findViewById<TextView>(R.id.my_time) // 작성일자
+        val title=itemView.findViewById<TextView>(R.id.all_title) // 제목
+        val content=itemView.findViewById<TextView>(R.id.all_content) // 내용
+        val price=itemView.findViewById<TextView>(R.id.all_price)//가격
+        val my_date=itemView.findViewById<TextView>(R.id.all_time) // 작성일자
+        val writer=itemView.findViewById<TextView>(R.id.all_writer)
     }
 
 }
