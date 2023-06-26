@@ -7,10 +7,10 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_myboardhistory.*
+import kotlinx.android.synthetic.main.myboardhistory.*
 
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.pointfunction
+package com.example.talent_trading_market_kt.pointfunction.point_history
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
+import com.example.talent_trading_market_kt.pointfunction.charge_point.ChargePointActivity
 import com.example.talent_trading_market_kt.response.pointresponse.PointHistory
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_point.*
+import kotlinx.android.synthetic.main.point_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,7 +65,7 @@ class MyPointActivity  : AppCompatActivity() {
         }
 
         chargepoint.setOnClickListener {
-            val intent= Intent(this,ChargePointActivity::class.java)
+            val intent= Intent(this, ChargePointActivity::class.java)
             startActivity(intent)
             finish()
         }

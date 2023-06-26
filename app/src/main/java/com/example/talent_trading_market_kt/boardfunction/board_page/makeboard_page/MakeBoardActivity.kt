@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.board_page.makeboard_page
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.*
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call

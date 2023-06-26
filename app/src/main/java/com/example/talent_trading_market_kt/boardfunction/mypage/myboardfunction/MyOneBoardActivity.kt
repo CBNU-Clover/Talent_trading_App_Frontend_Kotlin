@@ -11,10 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_boardread.*
+import kotlinx.android.synthetic.main.myboard_read.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

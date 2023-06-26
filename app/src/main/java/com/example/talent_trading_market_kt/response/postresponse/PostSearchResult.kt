@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.response
+package com.example.talent_trading_market_kt.response.postresponse
 
 import java.time.LocalDateTime
 

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.memberfunction
+package com.example.talent_trading_market_kt.memberfunction.api
 
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.LoginDTO

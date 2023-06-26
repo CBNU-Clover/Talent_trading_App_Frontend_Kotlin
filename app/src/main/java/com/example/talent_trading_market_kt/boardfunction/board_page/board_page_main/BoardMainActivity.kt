@@ -1,10 +1,11 @@
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.board_page.board_page_main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.board_page.makeboard_page.MakeBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
 
 class BoardMainActivity : AppCompatActivity() {

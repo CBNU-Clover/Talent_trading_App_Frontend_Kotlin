@@ -1,10 +1,10 @@
-package com.example.talent_trading_market_kt.boardfunction
+package com.example.talent_trading_market_kt.boardfunction.api
 
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import retrofit2.Call
 import retrofit2.http.*
 

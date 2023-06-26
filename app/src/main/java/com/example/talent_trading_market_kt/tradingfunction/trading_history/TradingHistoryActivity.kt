@@ -1,5 +1,5 @@
 
-package com.example.talent_trading_market_kt.tradingfunction
+package com.example.talent_trading_market_kt.tradingfunction.trading_history
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.trade.TradingHistory.TradingHistory
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_myboardhistory.*
-import kotlinx.android.synthetic.main.activity_tradehistory.*
+import com.example.talent_trading_market_kt.tradingfunction.api.TradingFunctionApi
+import kotlinx.android.synthetic.main.mytrading_history.*
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,7 +35,7 @@ class TradingHistoryActivity : AppCompatActivity() {
                         tradeList= response.body()!!;
                         Trading_History_view.layoutManager=LinearLayoutManager(this@TradingHistoryActivity, LinearLayoutManager.VERTICAL,false)
                         Trading_History_view.setHasFixedSize(true)
-                        Trading_History_view.adapter=TradingHistoryAdapter(tradeList)
+                        Trading_History_view.adapter= TradingHistoryAdapter(tradeList)
                     }
                 }
 

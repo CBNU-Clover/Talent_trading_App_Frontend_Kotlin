@@ -10,12 +10,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
-import com.example.talent_trading_market_kt.pointfunction.MyPointActivity
-import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
+import com.example.talent_trading_market_kt.pointfunction.point_history.MyPointActivity
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import com.example.talent_trading_market_kt.tradingfunction.TradingHistoryActivity
-import kotlinx.android.synthetic.main.activity_mypage.*
+import com.example.talent_trading_market_kt.tradingfunction.trading_history.TradingHistoryActivity
+import kotlinx.android.synthetic.main.mypage.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

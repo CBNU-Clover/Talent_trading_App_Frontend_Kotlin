@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.mainmenu.hottrade.HotTradeBoardAdapter
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_board.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_myboardhistory.*
+import kotlinx.android.synthetic.main.main_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.pointfunction
+package com.example.talent_trading_market_kt.pointfunction.point_history
 
 import android.annotation.SuppressLint
 import android.graphics.Color

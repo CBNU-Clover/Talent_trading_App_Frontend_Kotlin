@@ -8,11 +8,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_searchresult.*
+import kotlinx.android.synthetic.main.show_search_result_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.pointfunction
+package com.example.talent_trading_market_kt.pointfunction.charge_point
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.pointfunction.pointDTO.ChargePointDTO
+import com.example.talent_trading_market_kt.dto.pointfunctiondto.ChargePointDTO
+import com.example.talent_trading_market_kt.pointfunction.point_history.MyPointActivity
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback

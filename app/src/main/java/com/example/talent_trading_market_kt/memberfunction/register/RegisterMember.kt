@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.memberfunction
+package com.example.talent_trading_market_kt.memberfunction.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.NickCheckDTO
+import com.example.talent_trading_market_kt.memberfunction.api.MemberFunctionApi
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback

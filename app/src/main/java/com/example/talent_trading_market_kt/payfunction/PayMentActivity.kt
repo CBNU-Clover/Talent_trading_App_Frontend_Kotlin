@@ -11,10 +11,10 @@ import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradePost
 import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradingFunctionApi
-import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_trade.*
+import kotlinx.android.synthetic.main.payment_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

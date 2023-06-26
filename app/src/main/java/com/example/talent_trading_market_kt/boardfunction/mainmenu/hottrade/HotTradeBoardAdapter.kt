@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 
 class HotTradeBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Adapter<HotTradeBoardAdapter.CustomViewHolder>()
 {

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.tradingfunction
+package com.example.talent_trading_market_kt.tradingfunction.trading_history
 
 
 import android.view.LayoutInflater

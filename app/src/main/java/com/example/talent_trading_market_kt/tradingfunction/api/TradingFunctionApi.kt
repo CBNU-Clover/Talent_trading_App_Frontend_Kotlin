@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.tradingfunction
+package com.example.talent_trading_market_kt.tradingfunction.api
 
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.LoginDTO
 import com.example.talent_trading_market_kt.response.trade.TradingHistory.TradingHistory
