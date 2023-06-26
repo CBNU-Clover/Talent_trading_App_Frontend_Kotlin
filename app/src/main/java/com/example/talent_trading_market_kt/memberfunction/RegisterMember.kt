@@ -1,6 +1,5 @@
 package com.example.talent_trading_market_kt.memberfunction
 
-import android.graphics.Color.red
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -31,7 +30,7 @@ class RegisterMember : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.register_page)
 
         nickname = findViewById(R.id.nickname)
         nicknamebt = findViewById(R.id.nickcheckButton)

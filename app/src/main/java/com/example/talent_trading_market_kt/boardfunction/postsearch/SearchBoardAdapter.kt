@@ -13,7 +13,7 @@ import com.example.talent_trading_market_kt.response.PostSearchResult
 class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Adapter<SearchBoardAdapter.CustomViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBoardAdapter.CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.board_item,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_board,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {

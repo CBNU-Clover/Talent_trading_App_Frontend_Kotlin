@@ -18,7 +18,7 @@ class ChargePointActivity  : AppCompatActivity() {
     lateinit var point_amount:EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pointcharge)
+        setContentView(R.layout.point_charge_page)
         charge_button=findViewById(R.id.charge_button)
         point_amount=findViewById(R.id.point_amount)
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)

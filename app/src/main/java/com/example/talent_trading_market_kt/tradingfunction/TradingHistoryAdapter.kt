@@ -14,7 +14,7 @@ class TradingHistoryAdapter(var tradeList: List<TradingHistory>): RecyclerView.A
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.trade_history,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_trading_history,parent,false)
         return CustomViewHolder(view)
     }
 

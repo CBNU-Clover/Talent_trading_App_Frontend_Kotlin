@@ -6,16 +6,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.BoardAdapter
-import com.example.talent_trading_market_kt.fragment.Fragment3_MyPage
-import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.pointresponse.PointHistory
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_myboardhistory.*
-import kotlinx.android.synthetic.main.activity_mypage.*
 import kotlinx.android.synthetic.main.activity_point.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +21,7 @@ class MyPointActivity  : AppCompatActivity() {
     lateinit var back_btn_point:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_point)
+        setContentView(R.layout.point_page)
         chargepoint=findViewById(R.id.charge_point)
         showpoint=findViewById(R.id.showpoint)
         back_btn_point=findViewById(R.id.back_btn_point)

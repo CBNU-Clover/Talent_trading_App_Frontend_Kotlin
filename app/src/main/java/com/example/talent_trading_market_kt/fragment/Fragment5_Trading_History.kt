@@ -9,7 +9,7 @@ import com.example.talent_trading_market_kt.R
 
 class Fragment5_Trading_History:Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view=inflater.inflate(R.layout.point_history,container,false)
+        val view=inflater.inflate(R.layout.item_point_history,container,false)
 
 
         return view

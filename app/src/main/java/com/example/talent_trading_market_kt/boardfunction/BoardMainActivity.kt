@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadBoardActivity
+import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
 
 class BoardMainActivity : AppCompatActivity() {
     lateinit var make_content:Button
@@ -13,7 +13,7 @@ class BoardMainActivity : AppCompatActivity() {
     lateinit var search:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_page)
 
         make_content=findViewById(R.id.make_content)
         //read_content=findViewById(R.id.read_content)
@@ -25,7 +25,7 @@ class BoardMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         read_content.setOnClickListener {
-            val intent= Intent(this, ReadBoardActivity::class.java)
+            val intent= Intent(this, ReadMyBoardActivity::class.java)
             startActivity(intent)
         }
        /* search.setOnClickListener {

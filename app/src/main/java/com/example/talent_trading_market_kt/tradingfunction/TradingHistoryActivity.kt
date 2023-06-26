@@ -7,8 +7,6 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
-import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.trade.TradingHistory.TradingHistory
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import kotlinx.android.synthetic.main.activity_myboardhistory.*
@@ -22,7 +20,7 @@ class TradingHistoryActivity : AppCompatActivity() {
     lateinit var backbt_trading_history:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tradehistory)
+        setContentView(R.layout.mytrading_history)
         backbt_trading_history=findViewById(R.id.backbt_trading_history)
         backbt_trading_history.setOnClickListener {
             finish()

@@ -15,7 +15,6 @@ import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import kotlinx.android.synthetic.main.activity_trade.*
-import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,7 +29,7 @@ class PayMentActivity : AppCompatActivity() {
     var flag:Int=0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_trade)
+        setContentView(R.layout.payment_page)
         payment=findViewById(R.id.payment)
         pay_title=findViewById(R.id.pay_title)
         current_point=findViewById(R.id.current_point)

@@ -39,10 +39,10 @@
             android:name=".boardfunction.postsearch.SearchBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.mypage.myboardfunction.OneBoardActivity"
+            android:name=".boardfunction.mypage.myboardfunction.MyOneBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.mypage.myboardfunction.ReadBoardActivity"
+            android:name=".boardfunction.mypage.myboardfunction.ReadMyBoardActivity"
             android:exported="false" />
         <activity
             android:name=".boardfunction.MakeBoardActivity"

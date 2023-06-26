@@ -9,19 +9,17 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat.finishAffinity
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
-import com.example.talent_trading_market_kt.fragment.Fragment3_MyPage
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import kotlinx.android.synthetic.main.activity_boardread.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class OneBoardActivity : AppCompatActivity() {
+class MyOneBoardActivity : AppCompatActivity() {
     lateinit var title: TextView
     lateinit var content: TextView
     lateinit var delete: Button
@@ -30,7 +28,7 @@ class OneBoardActivity : AppCompatActivity() {
     lateinit var backbt_myoneboard:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_boardread)
+        setContentView(R.layout.myboard_read)
         val id:Long
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         title=findViewById(R.id.one_title)
@@ -79,16 +77,16 @@ class OneBoardActivity : AppCompatActivity() {
                             service.deletePost(postDeleteBoard).enqueue(object : Callback<Void> {
                                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                     if (response.isSuccessful) {
-                                        Toast.makeText(this@OneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this@MyOneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
 
-                                        val intent = Intent(this@OneBoardActivity, MainActivity::class.java)
+                                        val intent = Intent(this@MyOneBoardActivity, MainActivity::class.java)
                                         finishAffinity()
                                         startActivity(intent)
                                     }
                                 }
 
                                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                                    Toast.makeText(this@OneBoardActivity, "다시 버튼을 눌러주세요", Toast.LENGTH_SHORT)
+                                    Toast.makeText(this@MyOneBoardActivity, "다시 버튼을 눌러주세요", Toast.LENGTH_SHORT)
                                         .show()
                                 }
 
