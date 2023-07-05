@@ -1,6 +1,5 @@
-package com.example.talent_trading_market_kt.memberfunction
+package com.example.talent_trading_market_kt.memberfunction.register
 
-import android.graphics.Color.red
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -9,6 +8,7 @@ import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.NickCheckDTO
+import com.example.talent_trading_market_kt.memberfunction.api.MemberFunctionApi
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,7 +31,7 @@ class RegisterMember : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.register_page)
 
         nickname = findViewById(R.id.nickname)
         nicknamebt = findViewById(R.id.nickcheckButton)

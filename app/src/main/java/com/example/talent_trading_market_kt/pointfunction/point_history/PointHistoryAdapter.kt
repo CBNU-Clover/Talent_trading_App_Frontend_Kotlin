@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.pointfunction
+package com.example.talent_trading_market_kt.pointfunction.point_history
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.pointresponse.PointHistory
@@ -16,7 +15,7 @@ class PointHistoryAdapter(var my_point_history: List<PointHistory>): RecyclerVie
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.point_history,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_point_history,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view)
     }

@@ -9,7 +9,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.payfunction.PayMentActivity
-import org.w3c.dom.Text
 
 class HotTradeOneBoardActivity : AppCompatActivity() {
     lateinit var writerNickname:TextView
@@ -21,7 +20,7 @@ class HotTradeOneBoardActivity : AppCompatActivity() {
     lateinit var back_button:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.one_search_board)
+        setContentView(R.layout.one_board_page)
         var Id:String
         writerNickname=findViewById(R.id.searchone_writer)
         title=findViewById(R.id.searchone_title)

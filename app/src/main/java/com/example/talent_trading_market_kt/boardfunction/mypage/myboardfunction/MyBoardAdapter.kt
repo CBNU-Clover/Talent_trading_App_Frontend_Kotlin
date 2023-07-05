@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 
-class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<BoardAdapter.CustomViewHolder>()
+class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<MyBoardAdapter.CustomViewHolder>()
 {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.board_item,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_board,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
@@ -24,7 +24,7 @@ class BoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter<B
                 //val postDeleteBoard=PostDeleteBoard()
                 //postDeleteBoard.delete_id=id
                 //Toast.makeText(parent.context,"Id:${boards.id} 제목:${boards.postName} 내용:${boards.content}",Toast.LENGTH_SHORT).show()
-                val intent=Intent(parent.context, OneBoardActivity::class.java)
+                val intent=Intent(parent.context, MyOneBoardActivity::class.java)
                 intent.putExtra("postName",boards.postName)
                 intent.putExtra("content",boards.content)
                 intent.putExtra("Id",boards.id.toString())

@@ -9,13 +9,13 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadBoardActivity
-import com.example.talent_trading_market_kt.pointfunction.MyPointActivity
-import com.example.talent_trading_market_kt.pointfunction.PointFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
+import com.example.talent_trading_market_kt.pointfunction.point_history.MyPointActivity
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import com.example.talent_trading_market_kt.tradingfunction.TradingHistoryActivity
-import kotlinx.android.synthetic.main.activity_mypage.*
+import com.example.talent_trading_market_kt.tradingfunction.trading_history.TradingHistoryActivity
+import kotlinx.android.synthetic.main.mypage.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +23,7 @@ import retrofit2.Response
 class Fragment3_MyPage:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view:View=inflater.inflate(R.layout.activity_mypage,container,false)
+        val view:View=inflater.inflate(R.layout.mypage,container,false)
         val myboard:ImageButton=view.findViewById(R.id.history_btn)
         val mypoint_btn:ImageButton=view.findViewById(R.id.mypoint_btn)
         val show_point_mypage:TextView=view.findViewById(R.id.show_mypage_point)
@@ -41,7 +41,7 @@ class Fragment3_MyPage:Fragment() {
 
         myboard.setOnClickListener {
             val activity = requireActivity()
-            val intent = Intent(activity, ReadBoardActivity::class.java)
+            val intent = Intent(activity, ReadMyBoardActivity::class.java)
             activity.startActivity(intent)
         }
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)

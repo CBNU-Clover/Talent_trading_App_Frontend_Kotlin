@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_searchresult.*
+import kotlinx.android.synthetic.main.show_search_result_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +22,7 @@ class SearchBoardActivity : AppCompatActivity() {
     lateinit var search_bt:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_searchresult)
+        setContentView(R.layout.show_search_result_page)
         postname=findViewById(R.id.search_postName)
         search_bt=findViewById(R.id.search_button)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)

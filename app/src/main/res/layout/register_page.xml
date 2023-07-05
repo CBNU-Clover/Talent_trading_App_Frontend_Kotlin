@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".memberfunction.RegisterMember">
+    tools:context=".memberfunction.register.RegisterMember">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.tradingfunction
+package com.example.talent_trading_market_kt.tradingfunction.trading_history
 
 
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ class TradingHistoryAdapter(var tradeList: List<TradingHistory>): RecyclerView.A
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.trade_history,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_trading_history,parent,false)
         return CustomViewHolder(view)
     }
 

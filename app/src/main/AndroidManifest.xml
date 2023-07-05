@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Talenttradingmarketkt"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".tradingfunction.TradingHistoryActivity"
+            android:name=".tradingfunction.trading_history.TradingHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".boardfunction.mainmenu.hottrade.HotTradeOneBoardActivity"
@@ -24,10 +24,10 @@
             android:name=".payfunction.PayMentActivity"
             android:exported="false" />
         <activity
-            android:name=".pointfunction.MyPointActivity"
+            android:name=".pointfunction.point_history.MyPointActivity"
             android:exported="false" />
         <activity
-            android:name=".pointfunction.ChargePointActivity"
+            android:name=".pointfunction.charge_point.ChargePointActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -39,19 +39,19 @@
             android:name=".boardfunction.postsearch.SearchBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.mypage.myboardfunction.OneBoardActivity"
+            android:name=".boardfunction.mypage.myboardfunction.MyOneBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.mypage.myboardfunction.ReadBoardActivity"
+            android:name=".boardfunction.mypage.myboardfunction.ReadMyBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.MakeBoardActivity"
+            android:name=".boardfunction.board_page.makeboard_page.MakeBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.BoardMainActivity"
+            android:name=".boardfunction.board_page.board_page_main.BoardMainActivity"
             android:exported="false" />
         <activity
-            android:name=".memberfunction.LoginActivity"
+            android:name=".memberfunction.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".memberfunction.RegisterMember" />
+        <activity android:name=".memberfunction.register.RegisterMember" />
     </application>
 
 </manifest>

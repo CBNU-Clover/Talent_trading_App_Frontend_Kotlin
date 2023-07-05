@@ -1,7 +1,6 @@
-package com.example.talent_trading_market_kt.pointfunction
+package com.example.talent_trading_market_kt.pointfunction.api
 
-import com.example.talent_trading_market_kt.pointfunction.pointDTO.ChargePointDTO
-import com.example.talent_trading_market_kt.response.PostGetAllBoard
+import com.example.talent_trading_market_kt.dto.pointfunctiondto.ChargePointDTO
 import com.example.talent_trading_market_kt.response.pointresponse.PointHistory
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
 import retrofit2.Call

@@ -1,19 +1,21 @@
 package com.example.talent_trading_market_kt
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.talent_trading_market_kt.databinding.MainBinding
+import com.example.talent_trading_market_kt.databinding.MainPageBinding
+import com.example.talent_trading_market_kt.databinding.NavigationBottonBarBinding
 import com.example.talent_trading_market_kt.fragment.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: MainBinding
+    private lateinit var binding: NavigationBottonBarBinding
     //lateinit var button: Button
     //lateinit var board_bt:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=MainBinding.inflate(layoutInflater)
+        binding= NavigationBottonBarBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Fragment1_Home())
         binding.bottomNavigationView.setOnItemSelectedListener {

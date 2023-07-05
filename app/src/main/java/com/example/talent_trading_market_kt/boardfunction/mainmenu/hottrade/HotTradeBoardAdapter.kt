@@ -6,22 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
-import com.example.talent_trading_market_kt.response.PostGetAllBoard
-import com.example.talent_trading_market_kt.response.PostSearchResult
-import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import java.lang.Exception
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 
 class HotTradeBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Adapter<HotTradeBoardAdapter.CustomViewHolder>()
 {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotTradeBoardAdapter.CustomViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.hottrade_list,parent,false)
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.item_hottrade,parent,false)
         // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {

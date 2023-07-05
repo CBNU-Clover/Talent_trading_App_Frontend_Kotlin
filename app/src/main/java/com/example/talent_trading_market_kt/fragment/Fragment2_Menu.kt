@@ -1,26 +1,22 @@
 package com.example.talent_trading_market_kt.fragment
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.BoardFunctionApi
-import com.example.talent_trading_market_kt.boardfunction.MakeBoardActivity
-import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadBoardActivity
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.board_page.makeboard_page.MakeBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardAdapter
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
-import com.example.talent_trading_market_kt.response.PostSearchResult
+import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.activity_board.*
-import kotlinx.android.synthetic.main.activity_searchresult.*
+import kotlinx.android.synthetic.main.allboard.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,7 +24,7 @@ import retrofit2.Response
 class Fragment2_Menu:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view=inflater.inflate(R.layout.activity_board,container,false)
+        val view=inflater.inflate(R.layout.allboard,container,false)
         val boardwrite:ImageButton=view.findViewById(R.id.write_button)
         val search_bt:ImageButton=view.findViewById(R.id.search_button)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)

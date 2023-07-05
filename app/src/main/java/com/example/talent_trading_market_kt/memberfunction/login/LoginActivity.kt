@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.memberfunction
+package com.example.talent_trading_market_kt.memberfunction.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.LoginDTO
+import com.example.talent_trading_market_kt.memberfunction.register.RegisterMember
+import com.example.talent_trading_market_kt.memberfunction.api.MemberFunctionApi
 import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.*
@@ -23,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.login_page)
 
         id=findViewById(R.id.login_Nickname)
         password=findViewById(R.id.login_passWord)
