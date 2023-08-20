@@ -26,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="300dp"
             android:orientation="vertical">
 
             <ImageView
@@ -34,32 +34,9 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/cloverlogo2">
+                android:src="@drawable/logonew">
 
             </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:text="로그인이 필요합니다!"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:textColor="@color/black"
-                android:textSize="25dp">
-
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Clover"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:textColor="@color/black"
-                android:textSize="18dp">
-
-            </TextView>
 
         </LinearLayout>
 
@@ -74,15 +51,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:hint="닉네임"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:background="@drawable/border_gray"
+                android:hint="ID"
                 android:inputType="text"
-                android:singleLine="true"></EditText>
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="23dp"
+                android:textColorHint="#C7C7C7"></EditText>
 
             <EditText
                 android:id="@+id/login_passWord"
@@ -90,14 +66,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:drawableStart="@drawable/ic_baseline_https_24"
-                android:drawableLeft="@drawable/ic_baseline_https_24"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:hint="비밀번호"
+                android:background="@drawable/border_gray"
+                android:hint="PASS"
                 android:inputType="textPassword"
                 android:padding="10dp"
+                android:textSize="23dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="#C7C7C7"></EditText>
 
             <Button
                 android:id="@+id/Login"
@@ -107,6 +82,7 @@
                 android:layout_marginTop="10dp"
                 android:text="로그인"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:background="@drawable/border_green1"
                 android:textColor="@color/white"
                 android:textSize="20dp">
             </Button>
@@ -119,8 +95,9 @@
                 android:layout_marginTop="10dp"
                 android:text="회원가입"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:textColor="@color/white"
-                android:textSize="18dp"></Button>
+                android:background="@drawable/border_green2"
+                android:textColor="#3DC181"
+                android:textSize="18dp" />
         </LinearLayout>
     </LinearLayout>
 
