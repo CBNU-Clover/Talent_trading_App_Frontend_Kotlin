@@ -24,7 +24,7 @@
             android:layout_marginEnd="365dp"
             android:layout_marginRight="365dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/backbutton"
+            android:background="@drawable/ic_14"
             android:backgroundTint="#282928"></ImageButton>
 
         <TextView
@@ -39,7 +39,7 @@
             android:fontFamily="@font/malgunbd"
             android:text="채팅"
             android:textColor="@color/black"
-            android:textSize="28dp">
+            android:textSize="23dp">
 
         </TextView>
 
@@ -52,7 +52,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/searchic"
+            android:background="@drawable/ic_22"
             android:backgroundTint="#282928"></ImageButton>
 
     </RelativeLayout>

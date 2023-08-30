@@ -20,59 +20,32 @@
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/backbutton"
-                android:backgroundTint="#282928"></ImageButton>
+                android:background="@drawable/ic_14"
+                android:backgroundTint="#282928"
+                ></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/malgunbd"
-                android:text="거래 랭킹"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="랭킹"
                 android:textColor="@color/black"
-                android:textSize="25dp">
+                android:textSize="23dp">
 
             </TextView>
 
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/malgunbd"
-                android:text="랭킹"
-                android:textColor="@color/black"
-                android:textSize="17dp" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:background="#FFFFFF"
-                android:backgroundTint="#FFFFFF"
-                android:src="@drawable/crown" />
-
-
-        </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="461dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/round_border"
+            android:layout_height="480dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -88,7 +61,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="닉네임"
-                android:textColor="@color/black"
+                android:textColor="#3DC181"
+                android:fontFamily="@font/pretendard_semibold"
                 android:textSize="15dp" />
 
             <TextView
@@ -98,7 +72,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="레이팅"
-                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textColor="#3DC181"
                 android:textSize="15dp" />
 
             <TextView
@@ -108,7 +83,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="등급"
-                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textColor="#3DC181"
                 android:textSize="15dp" />
 
             </LinearLayout>
@@ -117,10 +93,76 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_width="315dp"
+                android:layout_margin="25dp"
+                android:layout_height="394dp" />
 
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <TextView
+        android:layout_width="43dp"
+        android:layout_height="18dp"
+        android:text="내 순위"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="15dp"
+            android:textColor="#3DC181"
+        android:layout_gravity="center" />
+
+        <LinearLayout
+        android:layout_width="361dp"
+        android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/border_green2"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="닉네임00"
+            android:textColor="#C0C0C0"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="00000"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="#C0C0C0"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="000"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="#C0C0C0"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+        
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

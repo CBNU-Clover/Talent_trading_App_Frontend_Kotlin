@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:orientation="vertical">
 
 
@@ -24,47 +24,18 @@
             app:queryHint="검색어를 입력하세요!" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/round_border"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="추천 키워드"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="361dp"
+                android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="헬스"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:padding="5dp"
-                    android:background="@drawable/round_border2"
-                    android:textSize="13dp" />
 
-                <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="안드로이드 스튜디오"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:padding="5dp"
-                android:background="@drawable/round_border2"
-                android:textSize="13dp" />
+
 
 
 
@@ -73,7 +44,5 @@
 
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

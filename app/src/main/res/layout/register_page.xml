@@ -23,8 +23,8 @@
 
             <ImageButton
                 android:id="@+id/backbt_register"
-                android:layout_width="20dp"
-                android:layout_height="40dp"
+                android:layout_width="22dp"
+                android:layout_height="33dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ic_14"
@@ -51,9 +51,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:orientation="vertical" >
 
                 <TextView
@@ -72,9 +72,8 @@
 
                     <EditText
                         android:id="@+id/nickname"
-                        android:layout_width="wrap_content"
+                        android:layout_width="227dp"
                         android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 닉네임"
@@ -83,20 +82,32 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/nickcheckButton"
-                        android:layout_width="wrap_content"
+                        android:layout_width="121dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
-                        android:text="확인"
+                        android:text="중복확인"
                         android:background="@drawable/search_border"
-                        android:textColor="@color/#5C5C5C"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+                    
+
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:textSize="15dp"
+                    android:text="!이미 사용중인 닉네임 입니다!"
+                    android:textColor="@color/red">
+
+                </TextView>
 
                 <TextView
                     android:id="@+id/signIDtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:text="이메일"
                     android:textColor="@color/black"
@@ -110,9 +121,8 @@
 
                     <EditText
                         android:id="@+id/email"
-                        android:layout_width="wrap_content"
+                        android:layout_width="227dp"
                         android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 이메일"
@@ -121,20 +131,30 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/emailcheckButton"
-                        android:layout_width="wrap_content"
+                        android:layout_width="121dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/search_border"
-                        android:text="확인"
-                        android:textColor="@color/white"
+                        android:text="중복확인"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:textSize="15dp"
+                    android:text="!이미 사용중인 닉네임 입니다!"
+                    android:textColor="@color/red">
+
+                </TextView>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
                     android:text="이름"
                     android:textColor="@color/black"
                     android:textSize="18dp"
@@ -143,7 +163,7 @@
 
                 <EditText
                     android:id="@+id/name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="361dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
@@ -167,7 +187,7 @@
 
                 <EditText
                     android:id="@+id/password"
-                    android:layout_width="wrap_content"
+                    android:layout_width="361dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
@@ -189,21 +209,21 @@
 
                 <EditText
                     android:id="@+id/phone_number"
-                    android:layout_width="wrap_content"
+                    android:layout_width="361dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
                     android:ems="10"
-                    android:hint=" 전화번호"
+                    android:hint=" 010-0000-0000"
                     android:inputType="textPersonName"
                     android:text="" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/registerButton"
-                    android:layout_width="346dp"
-                    android:layout_height="40dp"
+                    android:layout_width="360dp"
+                    android:layout_height="54dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="143dp"
                     android:background="@drawable/border_gray"
                     android:text="가입하기"
                     android:textColor="@color/white"
