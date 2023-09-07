@@ -9,66 +9,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:background="#8D8D8D"
+            android:layout_height="393dp">
 
 
             <ImageButton
-                android:id="@+id/backbt_myoneboard"
+                android:id="@+id/back_button"
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backbutton"
                 android:backgroundTint="#282928"></ImageButton>
 
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/malgunbd"
-                android:text="내 글"
-                android:textColor="@color/black"
-                android:textSize="28dp">
-            </TextView>
-
-
             <!--<ImageButton
-                android:id="@+id/popup_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="343dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/ic_21"
+                android:backgroundTint="#282928"></ImageButton>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/dots"
-                android:layout_marginLeft="120dp"
                 android:backgroundTint="#282928"></ImageButton>-->
-
 
         </RelativeLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="104dp"
+            android:background="@drawable/border_gray"
             android:orientation="horizontal">
+
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_margin="20dp"
                 android:src="@drawable/cloverlogo2" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="20dp"
+
+                android:layout_weight="1"
                 android:orientation="vertical">
 
 
@@ -77,23 +73,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="닉네임"
+                    android:hint="닉네임"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/my_board_price"
+                    android:id="@+id/searchone_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="작성일자"
+                    android:text="4.9"
                     android:textColor="@color/black"
                     android:textSize="11dp" />
 
+
+
             </LinearLayout>
+
+            <!--<TextView
+                android:id="@+id/tradestate"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square_border"
+                android:layout_marginTop="10dp"
+                android:text="거래가능"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="5dp"/>-->
         </LinearLayout>
-
-
 
 
         <LinearLayout
@@ -107,76 +115,162 @@
                 android:id="@+id/one_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="제목"
+                android:layout_marginTop="50dp"
+                android:hint="제목 0000 제작해 드립니다."
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textColorHint="@color/black"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/readboard_price"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="30,000원"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="카테고리"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="2분 전"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:text="평균시세 | "
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/readboard_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:hint="20,000"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:hint=" - "
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:hint="50,000"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
 
             <TextView
                 android:id="@+id/one_content"
-                android:layout_width="wrap_content"
+                android:layout_width="334dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="내용"
+                android:layout_marginTop="57dp"
+                android:hint="시와 별빛이 위에 걱정도 별 언덕 별이 새워 사랑과 봅니다. 가득 하나에 마디씩 이름을 멀듯이, 봅니다."
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/tradestate"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:background="@drawable/square_border"
-                android:layout_marginTop="10dp"
-                android:text="거래가능"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="5dp"/>
+            <LinearLayout
+                android:layout_width="393dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:layout_width="28dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_11"
+                    android:backgroundTint="#D8D8D8"></ImageButton>
+
+                <TextView
+                    android:id="@+id/board_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="37dp"
+                    android:layout_marginTop="5dp"
+                    android:text="30,000원 -"
+                    android:textColor="@color/black"
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/border_green1"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" ></Button>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
 
-    </LinearLayout>
-
-
-    <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
 
-
-            <Button
-                android:id="@+id/delete_button"
-                android:layout_width="wrap_content"
+            <!--<Button
+                android:id="@+id/payment_button"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:textColor="@color/white"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="삭제" />
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="거래하기"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />-->
+
 
         </RelativeLayout>
 

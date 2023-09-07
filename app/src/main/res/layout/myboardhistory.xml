@@ -33,7 +33,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/malgunbd"
-                android:text="내가 쓴 글"
+                android:text="내글 목록"
                 android:textColor="@color/black"
                 android:textSize="28dp">
             </TextView>

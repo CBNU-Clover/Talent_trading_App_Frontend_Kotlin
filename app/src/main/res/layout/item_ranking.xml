@@ -13,10 +13,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A5A2A2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,11 +24,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:fontFamily="@font/malgunbd"
+                android:gravity="center"
+                android:fontFamily="@font/pretendard_medium"
                 android:layout_weight="1"
                 android:layout_marginTop="3dp"
-                android:text="닉네임"
-                android:textColor="#000000"
+                android:text="닉네임00"
+                android:textColor="#C0C0C0"
                 android:textSize="15dp" />
 
             <TextView
@@ -40,11 +37,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:fontFamily="@font/malgunbd"
+                android:gravity="center"
+                android:fontFamily="@font/pretendard_medium"
                 android:layout_weight="1"
             android:layout_marginTop="3dp"
             android:text="레이팅"
-            android:textColor="#000000"
+            android:textColor="#C0C0C0"
             android:textSize="14dp" />
 
             <TextView
@@ -52,11 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
             android:background="#FFFFFF"
-            android:fontFamily="@font/malgunbd"
+                android:fontFamily="@font/pretendard_medium"
             android:layout_marginTop="3dp"
             android:text="등급"
-            android:textColor="#000000"
+            android:textColor="#C0C0C0"
             android:textSize="14dp" />
 
 

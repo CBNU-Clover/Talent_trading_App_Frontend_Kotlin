@@ -69,7 +69,7 @@
             android:textSize="20dp"
             android:inputType="number"
             android:fontFamily="@font/pretendard_semibold"
-            android:hint=" 00000"
+            android:hint="  00000"
             android:textColorHint="#C7C7C7"
             android:layout_marginTop="13dp"
             android:layout_marginLeft="16dp"

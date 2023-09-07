@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:background="#8D8D8D"
-            android:layout_height="60dp">
+            android:layout_height="393dp">
 
 
             <ImageButton

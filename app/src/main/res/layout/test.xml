@@ -12,29 +12,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="홍길동"
-        android:textSize="22dp"
+        android:text="닉네임00"
+        android:textSize="23dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/pretendard_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imgbtn_quit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/ic_14"
         app:layout_constraintBottom_toBottomOf="@+id/txt_TItle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_TItle"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+        app:layout_constraintTop_toTopOf="@+id/txt_TItle"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="96dp"
         android:text="2023년 7월 21일"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,10 +43,10 @@
 
     <EditText
         android:id="@+id/edt_message"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="310dp"
+        android:layout_height="63dp"
         android:background="@android:color/transparent"
-        android:hint="메시지 입력"
+        android:hint="메시지 보내기"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textColor="@color/black"
@@ -53,7 +54,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_submit"
         app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_messages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/list_talk_item_mine" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/divider_bottom"
@@ -70,48 +88,52 @@
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="전송"
+        android:text="보내기"
         android:textColor="@color/black"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/edt_message" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_messages"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:listitem="@layout/list_talk_item_mine" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView"
         android:layout_width="51dp"
         android:layout_height="48dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="66dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/cloverlogo2"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtn_quit"
+        app:layout_constraintVertical_bias="0.533" />
 
     <TextView
-        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_semibold"
         android:text="게시글 제목"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="68dp" />
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_TItle"
+        app:layout_constraintVertical_bias="0.884" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/pretendard_medium"
         android:text="가격"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="89dp" />
+        android:textColor="#8D8D8D"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
