@@ -22,7 +22,7 @@
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/backbutton"
+                android:background="@drawable/ic_14"
                 android:backgroundTint="#282928"></ImageButton>
 
             <TextView
@@ -31,64 +31,135 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/malgunbd"
-                android:text="글쓰기"
+                android:text="게시글 작성"
                 android:textColor="@color/black"
-                android:textSize="25dp">
+                android:textSize="23dp">
 
             </TextView>
 
         </RelativeLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="600dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="제목"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
 
             <EditText
                 android:id="@+id/title"
-                android:layout_width="386dp"
+                android:layout_width="361dp"
+                android:layout_height="39dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/border_gray"
+                android:ems="10"
+                android:hint=" 제목"
+                android:textSize="18dp"
+                android:textColorHint="#C7C7C7"
+                android:inputType="textPassword"
+                android:text="" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:hint="제목"
-                android:padding="10dp"
-                android:inputType="text"
+                android:layout_marginBottom="5dp"
+                android:text="카테고리"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
+            <EditText
+                android:layout_width="176dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray"
+                android:inputType="number"
+                android:padding="10dp"
+                android:text="카테고리 선택"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="#C7C7C7"></EditText>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="내용"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
 
             <EditText
                 android:id="@+id/content"
-                android:layout_width="385dp"
+                android:layout_width="361dp"
                 android:layout_height="300dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/border_gray"
                 android:gravity="top"
-                android:hint="내용을 입력하세요."
+                android:hint=" 거래하고자 하는 내용을 자세하게 입력해주세요."
                 android:padding="10dp"
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="#C7C7C7"></EditText>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="가격"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/makeboard_price"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_width="176dp"
+                android:layout_height="39dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumbarunpenb"
                 android:gravity="top"
                 android:hint="가격을 입력하세요.."
+                android:background="@drawable/border_gray"
                 android:inputType="number"
                 android:padding="10dp"
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="#C7C7C7"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="사진첨부"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
         </LinearLayout>
+
+        </ScrollView>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,12 +168,12 @@
 
             <Button
                 android:id="@+id/make_content"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
+                android:layout_width="360dp"
+                android:layout_height="54dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:text="작성"
+                android:background="@drawable/border_gray"
+                android:text="작성완료"
                 android:textColor="@color/white"
                 android:textSize="20dp"></Button>
 

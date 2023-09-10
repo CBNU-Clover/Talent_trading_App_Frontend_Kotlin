@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF">
 
@@ -20,7 +21,7 @@
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/backbutton"
+                android:background="@drawable/ic_14"
                 android:backgroundTint="#282928"></ImageButton>
 
             <TextView
@@ -28,10 +29,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/malgunbd"
+                android:fontFamily="@font/pretendard_semibold"
                 android:text="포인트"
                 android:textColor="@color/black"
-                android:textSize="25dp">
+                android:textSize="23dp">
 
             </TextView>
 
@@ -40,15 +41,27 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal">
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="MY 포인트"
+                android:gravity="end"
+                android:textColor="#3DC181"
+                android:textSize="15dp" />
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="@drawable/round_border"
+                android:layout_width="361dp"
+                android:layout_height="148dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/border_green1"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -56,12 +69,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/cloverlogo3"></ImageView>
 
 
                     <TextView
@@ -69,13 +76,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginEnd="5dp"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:text="40000 포인트"
-                        android:gravity="end"
-                        android:textColor="@color/black"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="22dp"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:text="200,000"
+                        android:textColor="@color/white"
                         android:textSize="22dp" />
+
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -85,25 +93,28 @@
 
                     <TextView
                         android:id="@+id/charge_point"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="123dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="5dp"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/malgunbd"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:background="@drawable/border_gray"
+                        android:gravity="center"
                         android:text="충전"
-                        android:textColor="@color/black"
-                        android:textSize="21dp" />
+                        android:textColor="#3DC181"
+                        android:textSize="18dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="123dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="5dp"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:fontFamily="@font/malgunbd"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:background="@drawable/border_gray"
+                        android:gravity="center"
                         android:text="송금"
-                        android:textColor="@color/black"
-                        android:textSize="21dp" />
+                        android:textColor="#3DC181"
+                        android:textSize="18dp" />
 
 
 
@@ -117,12 +128,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="end"
+                android:text="포인트 거래 내역"
+                android:textColor="#5C5C5C"
+                android:textSize="15dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/my_point_history"
+                android:layout_margin="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

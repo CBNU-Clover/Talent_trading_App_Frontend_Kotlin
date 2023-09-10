@@ -19,7 +19,7 @@
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/backbutton"
+                android:background="@drawable/ic_14"
                 android:backgroundTint="#282928" />
 
             <TextView
@@ -27,10 +27,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/malgunbd"
+                android:fontFamily="@font/pretendard_semibold"
                 android:text="거래기록"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="23dp" />
 
         </RelativeLayout>
 
@@ -41,14 +41,6 @@
             android:layout_margin="5dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/malgunbd"
-                android:text="내 거래기록"
-                android:textColor="@color/black"
-                android:textSize="17dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Trading_History_view"

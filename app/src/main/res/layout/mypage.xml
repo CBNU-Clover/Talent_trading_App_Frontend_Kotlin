@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,19 +21,19 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/malgunbd"
+                android:fontFamily="@font/pretendard_semibold"
                 android:text="마이페이지"
                 android:textColor="@color/black"
                 android:textSize="25dp" />
 
             <ImageButton
                 android:id="@+id/setting_ic"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="30dp"
+                android:layout_height="31dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/settingic"
+                android:background="@drawable/ic_15"
                 android:backgroundTint="#282928" />
         </RelativeLayout>
 
@@ -40,31 +41,74 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="20dp"
-            android:background="@drawable/round_border"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="85dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:src="@drawable/cloverlogo2">
+                android:src="@drawable/ic_29"
+                app:tint="#C0C0C0">
 
             </ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
+                
+                
+                <LinearLayout
+                    android:layout_width="104dp"
+                    android:layout_height="18dp"
+                    android:orientation="horizontal">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID00"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / "
+                        android:textColor="#757575"
+                        android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/nickname_mypage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="닉네임"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16dp" />
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textColor="#757575"
+                    android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="복대동"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등급"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textSize="15dp" />
+
+
+
+
 
                 <!--<TextView
                     android:layout_width="wrap_content"
@@ -94,81 +138,162 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="26dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
-
-
-            <ImageButton
+            
+            <TextView
                 android:id="@+id/trading_history_bt"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/trade"
-                android:backgroundTint="#282928" />
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:background="@drawable/border_gray"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="거래 기록"/>
 
-            <ImageButton
+            <TextView
                 android:id="@+id/history_btn"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/file"
-                android:backgroundTint="#282928" />
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border_gray"
+                android:gravity="center"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="내글 목록"/>
 
-            <ImageButton
+            <TextView
                 android:id="@+id/mypoint_btn"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/point"
-                android:backgroundTint="#282928" />
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/border_gray"
+                android:gravity="center"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="포인트"/>
 
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="62dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
 
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_marginLeft="4dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="내 거래기록"
-            android:textColor="@color/black"
-            android:textSize="12dp" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="19dp"
+                android:src="@drawable/ic_29"
+                app:tint="#C0C0C0"/>
 
             <TextView
-            android:layout_width="70dp"
-            android:layout_height="16dp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="내 글 목록"
-            android:textColor="@color/black"
-            android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="16dp"
-                android:textAlignment="center"
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:layout_marginLeft="11dp"
-                android:fontFamily="@font/malgunbd"
-                android:text="포인트"
-                android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="정보 수정하기"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="140dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_14"
+                app:tint="#C0C0C0"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="19dp"
+                android:src="@drawable/ic_12"
+                app:tint="#C0C0C0"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_gravity=""
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="수신함"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="140dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_14"
+                app:tint="#C0C0C0"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="19dp"
+                android:src="@drawable/ic_18"
+                app:tint="#C0C0C0"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="53dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:text="고객센터"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="140dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_14"
+                app:tint="#C0C0C0"/>
 
 
         </LinearLayout>
