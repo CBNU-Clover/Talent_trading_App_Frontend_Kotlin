@@ -21,7 +21,7 @@
             android:name=".boardfunction.mainmenu.hottrade.HotTradeOneBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".payfunction.PayMentActivity"
+            android:name=".chatfunction.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".pointfunction.point_history.MyPointActivity"

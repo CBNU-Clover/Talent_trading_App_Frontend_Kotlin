@@ -36,9 +36,9 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: SearchBoardAdapter.CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
-        holder.writerNickname.text=boardList.get(position).writerNickname
+        //holder.writerNickname.text=boardList.get(position).writerNickname
         holder.title.text=boardList.get(position).postName
-        holder.content.text=boardList.get(position).content
+       // holder.content.text=boardList.get(position).content
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.date.text= boardList.get(position).date
     }
@@ -49,8 +49,8 @@ class SearchBoardAdapter(val boardList: List<PostSearchResult>): RecyclerView.Ad
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val title=itemView.findViewById<TextView>(R.id.all_title) // 제목
-        val content=itemView.findViewById<TextView>(R.id.all_content) // 내용
-        val writerNickname=itemView.findViewById<TextView>(R.id.all_writer) // 작성자
+        //val content=itemView.findViewById<TextView>(R.id.all_content) // 내용
+        //val writerNickname=itemView.findViewById<TextView>(R.id.all_writer) // 작성자
         val price=itemView.findViewById<TextView>(R.id.all_price)
         val date=itemView.findViewById<TextView>(R.id.all_time)
     }

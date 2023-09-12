@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
-                android:text="제목 000구해요"
+                android:id="@+id/all_title"
                 android:fontFamily="@font/pretendard_medium"
                 android:textSize="18dp"
                 android:textColor="@color/black"/>
@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
-                android:text="0000원-"
+                android:id="@+id/all_price"
                 android:fontFamily="@font/pretendard_medium"
                 android:textSize="15dp"
                 android:textColor="#3DC181"/>
@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="14dp"
-                    android:text="1분 전"
+                    android:id="@+id/all_time"
                     android:fontFamily="@font/pretendard_medium"
                     android:textSize="12dp"
                     android:textColor="#C0C0C0"/>

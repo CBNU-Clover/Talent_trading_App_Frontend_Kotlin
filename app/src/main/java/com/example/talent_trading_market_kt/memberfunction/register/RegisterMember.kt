@@ -69,7 +69,7 @@ class RegisterMember : AppCompatActivity() {
                             }
                             else
                             {
-                                check_nickname_result.text=message
+                                check_nickname_result.text="!이미 사용중인 닉네임 입니다!"
                                 check_nickname_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.red))
                             }
                         }
@@ -99,12 +99,12 @@ class RegisterMember : AppCompatActivity() {
                                 val message: String? = response.body()
                                 if(message=="중복되는 이메일이 있습니다!!")
                                 {
-                                    check_email_result.text=message
+                                    check_email_result.text="!이미 사용중인 이메일 입니다!"
                                     check_email_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.red))
                                 }
                                 else
                                 {
-                                    check_email_result.text=message
+                                    check_email_result.text="중복되는 이메일이 없습니다"
                                     check_email_result.setTextColor(ContextCompat.getColor(this@RegisterMember, R.color.lime_green))
                                 }
                             }

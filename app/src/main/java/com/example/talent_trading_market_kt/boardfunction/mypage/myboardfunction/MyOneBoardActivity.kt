@@ -36,7 +36,7 @@ class MyOneBoardActivity : AppCompatActivity() {
         delete=findViewById(R.id.delete_button)
         readboard_price=findViewById(R.id.readboard_price)
         writer_nickname=findViewById(R.id.writer_nickname)
-        backbt_myoneboard=findViewById(R.id.backbt_myoneboard)
+        //backbt_myoneboard=findViewById(R.id.backbt_myoneboard)
         backbt_myoneboard.setOnClickListener {
             finish()
         }
@@ -55,7 +55,7 @@ class MyOneBoardActivity : AppCompatActivity() {
         }
         if(intent.hasExtra("date"))
         {
-            my_board_price.text=intent.getStringExtra("date")
+            //my_board_price.text=intent.getStringExtra("date")
         }
         if(intent.hasExtra("writer_nickname"))
         {

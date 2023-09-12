@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.payment_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+/*
 class PayMentActivity : AppCompatActivity() {
     lateinit var payment:Button
     lateinit var pay_title:TextView
@@ -52,7 +52,7 @@ class PayMentActivity : AppCompatActivity() {
         if(intent.hasExtra("pay_price"))
         {
 
-            board_final_price.text=intent.getStringExtra("pay_price")
+          *//*  board_final_price.text=intent.getStringExtra("pay_price")*//*
 
         }
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
@@ -126,9 +126,9 @@ class PayMentActivity : AppCompatActivity() {
             {
                 Toast.makeText(this@PayMentActivity, "잔액이 부족합니다", Toast.LENGTH_SHORT).show()
             }
-            
+
 
             //결제가 이루어진다.
         }
     }
-}
+}*/

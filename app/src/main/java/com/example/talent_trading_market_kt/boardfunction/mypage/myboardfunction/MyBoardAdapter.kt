@@ -40,10 +40,10 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
         holder.title.text=boardList.get(position).postName
-        holder.content.text=boardList.get(position).content
+        //holder.content.text=boardList.get(position).content
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.my_date.text=boardList.get(position).date
-        holder.writer.text=boardList.get(position).writer_nickname
+        //holder.writer.text=boardList.get(position).writer_nickname
     }
 
     override fun getItemCount(): Int {
@@ -52,10 +52,10 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val title=itemView.findViewById<TextView>(R.id.all_title) // 제목
-        val content=itemView.findViewById<TextView>(R.id.all_content) // 내용
+        //val content=itemView.findViewById<TextView>(R.id.all_content) // 내용
         val price=itemView.findViewById<TextView>(R.id.all_price)//가격
         val my_date=itemView.findViewById<TextView>(R.id.all_time) // 작성일자
-        val writer=itemView.findViewById<TextView>(R.id.all_writer)
+       // val writer=itemView.findViewById<TextView>(R.id.all_writer)
     }
 
 }

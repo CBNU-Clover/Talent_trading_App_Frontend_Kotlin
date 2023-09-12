@@ -27,7 +27,7 @@ class Fragment1_Home:Fragment() {
             service.postsearch(postSearch).enqueue(object : Callback<List<PostSearchResult>> {
                 override fun onResponse(call: Call<List<PostSearchResult>>, response: Response<List<PostSearchResult>>) {
                     if (response.isSuccessful) {
-                        var searchboardList:List<PostSearchResult>;
+                        /*var searchboardList:List<PostSearchResult>;
                         searchboardList= response.body()!!;
                         hottrade_view.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.HORIZONTAL,false)
@@ -36,7 +36,7 @@ class Fragment1_Home:Fragment() {
                         realtime_view.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.HORIZONTAL,false)
                         realtime_view.setHasFixedSize(true)
-                        realtime_view.adapter= HotTradeBoardAdapter(searchboardList)
+                        realtime_view.adapter= HotTradeBoardAdapter(searchboardList)*/
                     }
                 }
 

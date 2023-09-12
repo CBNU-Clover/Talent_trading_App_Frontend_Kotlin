@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.payfunction.PayMentActivity
+//import com.example.talent_trading_market_kt.payfunction.PayMentActivity
 
 class SearchOneBoardActivity : AppCompatActivity() {
     lateinit var writerNickname:TextView
@@ -26,7 +26,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         writerNickname=findViewById(R.id.searchone_writer)
         title=findViewById(R.id.searchone_title)
         content=findViewById(R.id.searchone_content)
-        payment_button=findViewById(R.id.payment_button)
+        //payment_button=findViewById(R.id.payment_button)
         board_price=findViewById(R.id.board_price)
         searchone_date=findViewById(R.id.searchone_date)
         searchone_content=findViewById(R.id.searchone_content)
@@ -36,7 +36,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
             finish()
         }
         payment_button.setOnClickListener {
-            val intent=Intent(this,PayMentActivity::class.java)
+            //val intent=Intent(this,PayMentActivity::class.java)
             intent.putExtra("pay_title",title.text)
             intent.putExtra("pay_price",board_price.text)
             intent.putExtra("pay_Id",Id)

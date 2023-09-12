@@ -13,6 +13,7 @@ import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.board_page.makeboard_page.MakeBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardAdapter
+import com.example.talent_trading_market_kt.chatfunction.ChatActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
@@ -28,9 +29,14 @@ class Fragment2_Menu:Fragment() {
         val boardwrite:ImageButton=view.findViewById(R.id.write_button)
         val search_bt:ImageButton=view.findViewById(R.id.search_button)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        boardwrite.setOnClickListener {
+       /* boardwrite.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, MakeBoardActivity::class.java)
+            activity.startActivity(intent)
+        }*/
+        boardwrite.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, ChatActivity::class.java)
             activity.startActivity(intent)
         }
         search_bt.setOnClickListener {
