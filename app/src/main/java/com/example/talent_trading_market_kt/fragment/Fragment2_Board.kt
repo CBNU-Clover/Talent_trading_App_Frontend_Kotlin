@@ -22,23 +22,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Fragment2_Menu:Fragment() {
+class Fragment2_Board:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view=inflater.inflate(R.layout.allboard,container,false)
         val boardwrite:ImageButton=view.findViewById(R.id.write_button)
         val search_bt:ImageButton=view.findViewById(R.id.search_button)
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-       /* boardwrite.setOnClickListener {
+       boardwrite.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, MakeBoardActivity::class.java)
             activity.startActivity(intent)
-        }*/
-        boardwrite.setOnClickListener {
+        }
+        /*boardwrite.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, ChatActivity::class.java)
             activity.startActivity(intent)
-        }
+        }*/
         search_bt.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, SearchBoardActivity::class.java)

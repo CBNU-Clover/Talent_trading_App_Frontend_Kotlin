@@ -2,6 +2,7 @@ package com.example.talent_trading_market_kt.boardfunction.api
 
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
@@ -21,4 +22,7 @@ interface BoardFunctionApi{
 
     @POST("/api/vi/boards/postsearch")
     fun postsearch(@Body postSearch: PostSearch):Call<List<PostSearchResult>>
+
+    @GET("/api/vi/boards/read/{postId}")
+    fun readPost(@Path("postId") roomId:Long):Call<PostReadResponse>
 }

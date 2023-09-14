@@ -79,7 +79,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/searchone_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4.9"
@@ -136,6 +135,7 @@
             android:textSize="14dp"
             android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/searchone_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -231,6 +231,7 @@
                 android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/chat"
                     android:layout_width="154dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center"

@@ -1,18 +1,12 @@
 package com.example.talent_trading_market_kt.retrofit
 
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonDeserializer
 import okhttp3.Interceptor
-import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.io.IOException
-import java.net.CookieManager
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 class RetrofitConnection {
     var INSTANCE: Retrofit? = null
@@ -20,7 +14,7 @@ class RetrofitConnection {
     // 객체를 하나만 생성하는 싱글톤 패턴을 적용합니다.
     companion object {
         // API 서버의 주소가 BASE_URL이 됩니다.
-        private const val BASE_URL ="http://192.168.45.166:8080" /*"http://gk417gun.kro.kr:10003/"*/
+        private const val BASE_URL ="http://192.168.45.239:8080" /*"http://gk417gun.kro.kr:10003/"*/
         private var INSTANCE: Retrofit? = null
         private val okHttpClient = OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build() //Client 생성
 

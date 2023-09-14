@@ -24,6 +24,9 @@
             android:name=".chatfunction.ChatActivity"
             android:exported="false" />
         <activity
+            android:name=".boardfunction.mypage.myboardfunction.MyPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".pointfunction.point_history.MyPointActivity"
             android:exported="false" />
         <activity

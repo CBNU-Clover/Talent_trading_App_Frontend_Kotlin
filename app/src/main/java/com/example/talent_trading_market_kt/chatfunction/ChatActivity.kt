@@ -24,7 +24,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var talkAdapter: TalkAdapter
     lateinit var stompConnection:Disposable
     lateinit var topic:Disposable
-    val URL="ws://192.168.45.166:8080/ws/websocket"
+    val URL="ws://192.168.45.239:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -32,12 +32,35 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         .connectTimeout(10, TimeUnit.SECONDS)
         .build()
     val stomp = StompClient(client, intervalMillis).apply { this@apply.url = URL }
-    //var changeType = false
     var s= ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.chatlist_page)
         binding.talk.addTextChangedListener(this)
+        /*binding.talk.setOnClickListener {
+            // 채팅 화면을 가장 아래로 스크롤합니다.
+            binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
+        }*/
+        binding.talk.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.chat.postDelayed({
+                    binding.chat.smoothScrollToPosition(talkAdapter.lst.size - 1)
+                }, 200)
+            }
+        }
+       binding.linearLayoutTalk.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.chat.postDelayed({
+                    binding.chat.smoothScrollToPosition(talkAdapter.lst.size - 1)
+                }, 200)
+            }
+        }
+        /*binding.talk.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                // 포커스를 얻을 때 채팅 화면을 가장 아래로 스크롤합니다.
+                binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
+            }
+        }*/
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
         binding.chat.setHasFixedSize(false)
@@ -60,6 +83,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                         }
                         talkAdapter.notifyDataSetChanged()
                     }
+                    binding.chat.scrollToPosition(talkAdapter.lst.size-1)
                 }
 
                 override fun onFailure(call: retrofit2.Call<List<ChatHistoryDTO>?>, t: Throwable) {
@@ -115,6 +139,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
     override fun onClick(view: View?) {
+
         when(view?.id){
             R.id.submit_talk->{
                 val jsonObject=JSONObject()
@@ -133,6 +158,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
         this.s = s.toString()
     }
 
@@ -141,16 +167,10 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     fun submitTalk(content:String,type:String) {
-        /*val talk = if (changeType) {
-            Talk(s, "right")
-        } else {
-            Talk(s, "left")
-        }*/
         val talk=Talk(content,type)
         talkAdapter.addItem(talk)
         binding.chat.smoothScrollToPosition(talkAdapter.lst.size-1)
         talkAdapter.notifyItemChanged(talkAdapter.lst.size-1)
-        //changeType = !changeType
         binding.talk.text = null
     }
 }
