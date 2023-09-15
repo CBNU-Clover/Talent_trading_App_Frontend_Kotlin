@@ -75,6 +75,7 @@
                         android:id="@+id/nickname"
                         android:layout_width="227dp"
                         android:layout_height="40dp"
+                        android:paddingLeft="5dp"
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 닉네임"
@@ -85,10 +86,10 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/nickcheckButton"
                         android:layout_width="121dp"
-                        android:layout_height="40dp"
+                        android:layout_height="39dp"
                         android:layout_marginLeft="10dp"
                         android:text="중복확인"
-                        android:background="@drawable/search_border"
+                        android:background="@drawable/border_green2"
                         android:fontFamily="@font/pretendard_semibold"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -131,6 +132,7 @@
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 이메일"
+                        android:paddingLeft="5dp"
                         android:inputType="textPassword"
                         android:fontFamily="@font/pretendard_medium"
                         android:text="" />
@@ -138,9 +140,9 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/emailcheckButton"
                         android:layout_width="121dp"
-                        android:layout_height="40dp"
+                        android:layout_height="39dp"
                         android:layout_marginLeft="10dp"
-                        android:background="@drawable/search_border"
+                        android:background="@drawable/border_green2"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="중복확인"
                         android:textColor="@color/black"
@@ -178,6 +180,7 @@
                     android:background="@drawable/border_gray"
                     android:ems="10"
                     android:hint=" 이름"
+                    android:paddingLeft="5dp"
                     android:inputType="textPassword"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
@@ -204,6 +207,7 @@
                     android:background="@drawable/border_gray"
                     android:ems="10"
                     android:hint=" 비밀번호"
+                    android:paddingLeft="5dp"
                     android:fontFamily="@font/pretendard_medium"
                     android:inputType="textPassword"
                     android:text="" />
@@ -227,7 +231,8 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
                     android:ems="10"
-                    android:hint=" 010-0000-0000"
+                    android:hint=" 010 0000 0000"
+                    android:paddingLeft="5dp"
                     android:inputType="textPersonName"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
