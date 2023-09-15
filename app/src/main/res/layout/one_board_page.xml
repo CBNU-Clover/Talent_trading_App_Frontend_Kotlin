@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:orientation="vertical">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="#8D8D8D"
-            android:layout_height="393dp">
+            android:layout_height="393dp"
+            android:background="#8D8D8D">
 
 
             <ImageButton
@@ -63,7 +67,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -72,10 +75,10 @@
                     android:id="@+id/searchone_writer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:hint="닉네임"
                     android:textColor="@color/black"
-                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -83,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:text="4.9"
                     android:textColor="@color/black"
-                    android:textSize="11dp" />
+                    android:textSize="15dp" />
 
 
 
@@ -116,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:hint="제목 0000 제작해 드립니다."
+                android:fontFamily="@font/pretendard_semibold"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="20dp"
@@ -141,6 +145,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="2분 전"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/pretendard_semibold"
                     android:layout_marginLeft="20dp"
                     android:textSize="14dp"
                     android:textStyle="bold" />
@@ -193,16 +198,284 @@
             </LinearLayout>
 
 
-
-
             <TextView
                 android:id="@+id/searchone_content"
                 android:layout_width="334dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="57dp"
+                android:fontFamily="@font/pretendard_semibold"
                 android:hint="시와 별빛이 위에 걱정도 별 언덕 별이 새워 사랑과 봅니다. 가득 하나에 마디씩 이름을 멀듯이, 봅니다."
                 android:textColor="@color/black"
                 android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="39dp"
+                android:text="리뷰"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginLeft="18dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.9"
+                    android:textColor="@color/black"
+                    android:textSize="34dp"/>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="bottom"
+                    app:tint="#C0C0C0"/>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/ic_10"
+                    app:tint="#C0C0C0"/>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_10"
+                    app:tint="#C0C0C0"/>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/ic_10"
+                    app:tint="#C0C0C0"/>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_10"
+                    app:tint="#C0C0C0"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="334dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="클로버를 통한 이용자들의 평가 입니다."
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="47dp"
+                android:text="포토 후기 3개"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="15dp" />
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/cloverlogo2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="구매 후기 30개"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/baseline_account_circle_24"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="닉네임"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/pretendard_semibold"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_10"
+                            android:layout_gravity="center"
+                            app:tint="#C0C0C0"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_10"
+                            android:layout_gravity="center"
+                            app:tint="#C0C0C0"/>
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_10"
+                            android:layout_gravity="center"
+                            app:tint="#C0C0C0"/>
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_10"
+                            android:layout_gravity="center"
+                            app:tint="#C0C0C0"/>
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_10"
+                            android:layout_gravity="center"
+                            app:tint="#C0C0C0"/>
+
+                        <TextView
+                            android:layout_width="21dp"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="6dp"
+                            android:text="5.0"
+                            android:textSize="15dp"
+                            android:textColor="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="6dp"
+                            android:text="|"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/pretendard_regular"
+                            android:textColor="#757575"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="6dp"
+                            android:text="23.07.21 16:32"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/pretendard_regular"
+                            android:textColor="#D9D9D9"
+                            />
+
+
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="작업일 : "
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="10일"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="|"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="가격 : "
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="15만원 - 20만원"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작업도 빠르고 좋아용"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:fontFamily="@font/pretendard_regular"
+                android:layout_marginTop="17dp"/>
+
+
 
             <LinearLayout
                 android:layout_width="393dp"
@@ -223,7 +496,7 @@
                 android:id="@+id/board_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                    android:layout_marginLeft="37dp"
+                    android:layout_marginLeft="35dp"
                 android:layout_marginTop="5dp"
                 android:text="30,000원 -"
                 android:textColor="@color/black"
@@ -235,10 +508,10 @@
                     android:layout_width="154dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginLeft="13dp"
                     android:background="@drawable/border_green1"
                     android:text="채팅하기"
-                    android:textColor="@color/white"
+                    android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold" ></Button>
 
@@ -273,4 +546,6 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

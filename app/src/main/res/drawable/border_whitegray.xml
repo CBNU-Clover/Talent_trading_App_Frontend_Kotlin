@@ -3,7 +3,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="10dp"
     android:shape="rectangle">
-    <!-- 배경 색 설정 / 제가 color에 지정한 색입니다 ㅎㅎ -->
+    <!-- 배경 색 설정  -->
     <solid android:color="#FFFFFF" />
     <!-- 모서리 곡선 설정 -->
     <corners
@@ -14,5 +14,5 @@
     <!-- 선 크기 및 색 지정 -->
     <stroke
         android:width="2dp"
-        android:color="#3DC181" />
+        android:color="#BFBFBF" />
 </shape>

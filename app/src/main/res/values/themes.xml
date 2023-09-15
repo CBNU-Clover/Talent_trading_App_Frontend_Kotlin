@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Talenttradingmarketkt" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Talenttradingmarketkt" parent="Theme.AppCompat.Light">
         <item name="windowNoTitle">true</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">#45BC81</item>

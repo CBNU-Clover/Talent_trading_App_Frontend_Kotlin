@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:theme="@style/ThemeOverlay.Vellog_login.FullscreenContainer"
+    tools:context=".Signup">
 
 
 
@@ -73,19 +75,21 @@
                         android:id="@+id/nickname"
                         android:layout_width="227dp"
                         android:layout_height="40dp"
+                        android:paddingLeft="5dp"
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 닉네임"
+                        android:inputType="textPassword"
                         android:fontFamily="@font/pretendard_medium"
                         android:text="" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/nickcheckButton"
                         android:layout_width="121dp"
-                        android:layout_height="40dp"
+                        android:layout_height="39dp"
                         android:layout_marginLeft="10dp"
                         android:text="중복확인"
-                        android:background="@drawable/border_green1"
+                        android:background="@drawable/border_green2"
                         android:fontFamily="@font/pretendard_semibold"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -98,7 +102,7 @@
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:textSize="15dp"
-                    android:id="@+id/checkidresult"
+                    android:text="!이미 사용중인 닉네임 입니다!"
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/red">
 
@@ -128,15 +132,17 @@
                         android:background="@drawable/border_gray"
                         android:ems="10"
                         android:hint=" 이메일"
+                        android:paddingLeft="5dp"
+                        android:inputType="textPassword"
                         android:fontFamily="@font/pretendard_medium"
                         android:text="" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/emailcheckButton"
                         android:layout_width="121dp"
-                        android:layout_height="40dp"
+                        android:layout_height="39dp"
                         android:layout_marginLeft="10dp"
-                        android:background="@drawable/border_green1"
+                        android:background="@drawable/border_green2"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="중복확인"
                         android:textColor="@color/black"
@@ -148,7 +154,7 @@
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:textSize="15dp"
-                    android:id="@+id/checkemailresult"
+                    android:text="!이미 사용중인 닉네임 입니다!"
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/red">
 
@@ -174,6 +180,8 @@
                     android:background="@drawable/border_gray"
                     android:ems="10"
                     android:hint=" 이름"
+                    android:paddingLeft="5dp"
+                    android:inputType="textPassword"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
 
@@ -199,6 +207,7 @@
                     android:background="@drawable/border_gray"
                     android:ems="10"
                     android:hint=" 비밀번호"
+                    android:paddingLeft="5dp"
                     android:fontFamily="@font/pretendard_medium"
                     android:inputType="textPassword"
                     android:text="" />
@@ -222,7 +231,8 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
                     android:ems="10"
-                    android:hint=" 010-0000-0000"
+                    android:hint=" 010 0000 0000"
+                    android:paddingLeft="5dp"
                     android:inputType="textPersonName"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
@@ -233,7 +243,7 @@
                     android:layout_height="54dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="143dp"
-                    android:background="@drawable/border_green1"
+                    android:background="@drawable/border_gray"
                     android:fontFamily="@font/pretendard_semibold"
                     android:text="가입하기"
                     android:textColor="@color/white"
