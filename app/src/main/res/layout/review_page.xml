@@ -29,7 +29,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/malgunbd"
-                android:text="후기 작성"
+                android:text="후기"
                 android:textColor="@color/black"
                 android:textSize="23dp">
 

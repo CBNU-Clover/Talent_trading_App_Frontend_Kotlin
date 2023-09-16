@@ -16,6 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="60dp">
 
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_14"
+                android:backgroundTint="#282928"
+                ></ImageButton>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,35 +154,35 @@
             <TextView
                 android:id="@+id/trading_history_bt"
                 android:layout_width="100dp"
-                android:layout_height="53dp"
-                android:background="@drawable/border_gray"
+                android:layout_height="50dp"
+                android:background="@drawable/border_whitegray"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:fontFamily="@font/pretendard_semibold"
                 android:textSize="18dp"
-                android:textColor="#5C5C5C"
+                android:textColor="#707070"
                 android:text="거래 기록"/>
 
             <TextView
                 android:id="@+id/history_btn"
                 android:layout_width="100dp"
-                android:layout_height="53dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/border_gray"
+                android:background="@drawable/border_whitegray"
                 android:gravity="center"
                 android:fontFamily="@font/pretendard_semibold"
                 android:textSize="18dp"
-                android:textColor="#5C5C5C"
+                android:textColor="#707070"
                 android:text="내글 목록"/>
 
             <TextView
                 android:id="@+id/mypoint_btn"
                 android:layout_width="100dp"
-                android:layout_height="53dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/border_gray"
+                android:background="@drawable/border_whitegray"
                 android:gravity="center"
                 android:fontFamily="@font/pretendard_semibold"
                 android:textSize="18dp"
@@ -187,6 +195,7 @@
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:layout_marginLeft="20dp"
+            android:background="@drawable/border_darkgray"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
@@ -224,6 +233,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:background="@drawable/border_darkgray"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
@@ -263,6 +273,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:background="@drawable/border_darkgray"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
