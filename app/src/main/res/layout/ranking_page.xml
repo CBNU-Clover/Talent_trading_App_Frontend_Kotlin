@@ -36,6 +36,19 @@
 
             </TextView>
 
+            <ImageButton
+                android:layout_width="27dp"
+                android:layout_height="29dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/ic_18"
+                android:backgroundTint="#282928"></ImageButton>
+
 
         </RelativeLayout>
 
