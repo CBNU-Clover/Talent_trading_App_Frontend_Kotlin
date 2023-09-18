@@ -1,6 +1,5 @@
 package com.example.talent_trading_market_kt.reviewfunction.makereview
 
-import android.media.Rating
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RatingBar
