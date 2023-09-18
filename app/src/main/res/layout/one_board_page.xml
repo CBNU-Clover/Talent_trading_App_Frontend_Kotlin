@@ -208,14 +208,28 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginTop="39dp"
-                android:text="리뷰"
-                android:fontFamily="@font/pretendard_semibold"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/ic_14"
+                    />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
