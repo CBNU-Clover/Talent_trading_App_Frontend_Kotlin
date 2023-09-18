@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:theme="@style/ThemeOverlay.Vellog_login.FullscreenContainer"
-    tools:context=".Signup">
+    android:background="#ffffff">
 
 
 
@@ -99,10 +97,10 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/checkidresult"
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:textSize="15dp"
-                    android:text="!이미 사용중인 닉네임 입니다!"
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/red">
 
@@ -151,10 +149,10 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/checkemailresult"
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:textSize="15dp"
-                    android:text="!이미 사용중인 닉네임 입니다!"
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/red">
 

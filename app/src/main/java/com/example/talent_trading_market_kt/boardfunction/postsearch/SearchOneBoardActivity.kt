@@ -13,6 +13,7 @@ import com.example.talent_trading_market_kt.chatfunction.ChatActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import com.example.talent_trading_market_kt.reviewfunction.makereview.ReviewWrite
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,7 +45,8 @@ class SearchOneBoardActivity : AppCompatActivity() {
             finish()
         }
         chat_button.setOnClickListener {
-            val intent=Intent(this,ChatActivity::class.java)
+            val intent=Intent(this,ReviewWrite::class.java)
+            intent.putExtra("postId",Id.toString())
             startActivity(intent)
         }
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)

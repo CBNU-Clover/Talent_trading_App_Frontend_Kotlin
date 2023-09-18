@@ -510,7 +510,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="13dp"
                     android:background="@drawable/border_green1"
-                    android:text="채팅하기"
+                    android:text="리뷰작성"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold" ></Button>

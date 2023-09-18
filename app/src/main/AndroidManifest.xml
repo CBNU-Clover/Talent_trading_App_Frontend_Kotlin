@@ -21,6 +21,9 @@
             android:name=".boardfunction.mainmenu.hottrade.HotTradeOneBoardActivity"
             android:exported="false" />
         <activity
+            android:name=".reviewfunction.makereview.ReviewWrite"
+            android:exported="false" />
+        <activity
             android:name=".chatfunction.ChatActivity"
             android:exported="false" />
         <activity

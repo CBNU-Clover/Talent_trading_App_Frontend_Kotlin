@@ -16,6 +16,9 @@ import com.gmail.bishoybasily.stomp.lib.StompClient
 import io.reactivex.disposables.Disposable
 import okhttp3.OkHttpClient
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
 
@@ -67,8 +70,8 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         binding.chat.layoutManager = LinearLayoutManager(this)
         val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
         if (service != null) {
-            service.ChatHistory().enqueue(object : retrofit2.Callback<List<ChatHistoryDTO>> {
-                override fun onResponse(call: retrofit2.Call<List<ChatHistoryDTO>>, response: retrofit2.Response<List<ChatHistoryDTO>>) {
+            service.ChatHistory().enqueue(object : Callback<List<ChatHistoryDTO>> {
+                override fun onResponse(call: Call<List<ChatHistoryDTO>>, response: Response<List<ChatHistoryDTO>>) {
                     if (response.isSuccessful) {
                         var chatlist = response.body() ?: emptyList()
                         for (chatHistoryDTO in chatlist) {
@@ -86,7 +89,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     binding.chat.scrollToPosition(talkAdapter.lst.size-1)
                 }
 
-                override fun onFailure(call: retrofit2.Call<List<ChatHistoryDTO>?>, t: Throwable) {
+                override fun onFailure(call: Call<List<ChatHistoryDTO>?>, t: Throwable) {
                     Toast.makeText(this@ChatActivity, "오류", Toast.LENGTH_SHORT)
                         .show()
                 }
