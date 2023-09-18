@@ -2,70 +2,185 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:fontFamily="@font/malgunbd"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:text="아이디"
-            android:textColor="#000000"
-            android:textSize="17dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:fontFamily="@font/malgunbd"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
-            android:text="거래날짜"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="#FFFFFF"
-            android:fontFamily="@font/malgun"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
-            android:text="글내용"
-            android:textColor="#000000"
-            android:textSize="14dp" />
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/baseline_account_circle_24"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:orientation="horizontal">
+            android:layout_height="50dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:fontFamily="@font/malgun"
-                android:layout_marginBottom="3dp"
-                android:text="3분전"
-                android:textSize="12dp" />
+                android:text="닉네임"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textSize="15dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_gravity="center"
+                    app:tint="#C0C0C0"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_gravity="center"
+                    app:tint="#C0C0C0"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_gravity="center"
+                    app:tint="#C0C0C0"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_gravity="center"
+                    app:tint="#C0C0C0"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_10"
+                    android:layout_gravity="center"
+                    app:tint="#C0C0C0"/>
+
+                <TextView
+                    android:layout_width="21dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="5.0"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="|"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#757575"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="23.07.21 16:32"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="#D9D9D9"
+                    />
+
+
+
+
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="6dp"
+            android:text="작업일 : "
+            android:textSize="15dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="#757575"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="6dp"
+            android:text="10일"
+            android:textSize="15dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="#757575"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="6dp"
+            android:text="|"
+            android:textSize="15dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="#757575"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="6dp"
+            android:text="가격 : "
+            android:textSize="15dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="#757575"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="6dp"
+            android:text="15만원 - 20만원"
+            android:textSize="15dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="#757575"
+            />
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="작업도 빠르고 좋아용"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="2dp"/>
+
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
