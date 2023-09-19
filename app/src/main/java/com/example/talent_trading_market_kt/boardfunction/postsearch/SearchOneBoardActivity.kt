@@ -71,39 +71,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
             })
         }
 
-
-        /* payment_button.setOnClickListener {
-             //val intent=Intent(this,PayMentActivity::class.java)
-             intent.putExtra("pay_title",title.text)
-             intent.putExtra("pay_price",board_price.text)
-             intent.putExtra("pay_Id",Id)
-             intent.putExtra("pay_date",searchone_date.text)
-             intent.putExtra("pay_content",searchone_content.text)
-             startActivity(intent)
-         }*/
-        /*if(intent.hasExtra("Search_writerNickname"))
-        {
-            writerNickname.text=intent.getStringExtra("Search_writerNickname")
-
-        }
-        if(intent.hasExtra("Search_postName"))
-        {
-            title.text=intent.getStringExtra("Search_postName")
-
-        }
-        if(intent.hasExtra("Search_content"))
-        {
-            content.text=intent.getStringExtra("Search_content")
-        }
-        if(intent.hasExtra("Search_price"))
-        {
-            board_price.text=intent.getStringExtra("Search_price")+"원"
-        }
-        if(intent.hasExtra("Search_date"))
-        {
-            searchone_date.text=intent.getStringExtra("Search_date")
-        }*/
-
     }
 }
 

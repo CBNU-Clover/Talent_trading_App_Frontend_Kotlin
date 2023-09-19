@@ -7,11 +7,12 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ChatFunctionApi {
     //채팅 기록 가져오기
-    @GET("/api/vi/chat/chat_history/376")
-    fun ChatHistory(): Call<List<ChatHistoryDTO>>
+    @GET("/api/vi/chat/chat_history/{roomId}")
+    fun ChatHistory(@Path("roomId") roomId:Long): Call<List<ChatHistoryDTO>>
 
     //채팅방 만들기
     @POST("/api/vi/chat/create_room")

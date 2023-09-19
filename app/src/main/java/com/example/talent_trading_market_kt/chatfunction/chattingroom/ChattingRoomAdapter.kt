@@ -2,12 +2,14 @@
 package com.example.talent_trading_market_kt.chatfunction.chattingroom
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
 import com.example.talent_trading_market_kt.chatfunction.response.ChattingRoomListDTO
 
 class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): RecyclerView.Adapter<ChattingRoomAdapter.CustomViewHolder>()
@@ -17,16 +19,11 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
-                /*val search_boards: PostSearchResult =boardList.get(curPos)
-                val id: Long? =search_boards.id
-                val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
-                intent.putExtra("Search_writerNickname",search_boards.writerNickname)
-                intent.putExtra("Search_postName",search_boards.postName)
-                intent.putExtra("Search_content",search_boards.content)
-                intent.putExtra("Search_Id",search_boards.id.toString())
-                intent.putExtra("Search_price",search_boards.price.toString())
-                intent.putExtra("Search_date",search_boards.date)
-                parent.context.startActivity(intent)*/
+                val chattingRoom:ChattingRoomListDTO=chattingRoomList.get(curPos)
+                val intent= Intent(parent.context,ChatActivity::class.java)
+                intent.putExtra("roomId",chattingRoom.roomId.toString())
+                intent.putExtra("seller",chattingRoom.seller)
+                parent.context.startActivity(intent)
 
             }
         }

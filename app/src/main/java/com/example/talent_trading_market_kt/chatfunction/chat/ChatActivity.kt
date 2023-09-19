@@ -29,7 +29,8 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var talkAdapter: TalkAdapter
     lateinit var stompConnection:Disposable
     lateinit var topic:Disposable
-    val URL="ws://192.168.45.239:8080/ws/websocket"
+    var roomId:Long=0
+    val URL="ws://192.168.45.30:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -42,6 +43,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.chatlist_page)
         binding.talk.addTextChangedListener(this)
+        var seller:String
         /*binding.talk.setOnClickListener {
             // 채팅 화면을 가장 아래로 스크롤합니다.
             binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
@@ -66,20 +68,22 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
             }
         }*/
+        roomId= intent.getStringExtra("roomId").toString().toLong()
+        seller= intent.getStringExtra("seller").toString()
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
         binding.chat.setHasFixedSize(false)
         binding.chat.layoutManager = LinearLayoutManager(this)
         val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
         if (service != null) {
-            service.ChatHistory().enqueue(object : Callback<List<ChatHistoryDTO>> {
+            service.ChatHistory(roomId).enqueue(object : Callback<List<ChatHistoryDTO>> {
                 override fun onResponse(call: Call<List<ChatHistoryDTO>>, response: Response<List<ChatHistoryDTO>>) {
                     if (response.isSuccessful) {
                         var chatlist = response.body() ?: emptyList()
                         for (chatHistoryDTO in chatlist) {
                             val sender = chatHistoryDTO.sender
                             val content = chatHistoryDTO.content
-                            val talk = if (sender == "striker") {
+                            val talk = if (sender ==seller) {
                                 Talk(content.toString(), "left")
                             } else {
                                 Talk(content.toString(), "right")
@@ -103,11 +107,11 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 Event.Type.OPENED -> {
 
                     // subscribe
-                    topic = stomp.join("/sub/chatroom/376")
+                    topic = stomp.join("/sub/chatroom/${roomId}")
                         .subscribe {it->
                             val content=JSONObject(it).get("content")
                             val sender=JSONObject(it).get("sender")
-                            if(sender=="striker")
+                            if(sender==seller)
                             {
                               val talk= Talk(content.toString(),"left")
 
@@ -150,7 +154,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 val jsonObject=JSONObject()
                 jsonObject.put("type","MESSAGE")
                 jsonObject.put("sender","messi")
-                jsonObject.put("roomId",376)
+                jsonObject.put("roomId",roomId)
                 jsonObject.put("content",s)
                 stomp.send("/pub/chatroom",jsonObject.toString()).subscribe()
                 submitTalk(s,"right")
