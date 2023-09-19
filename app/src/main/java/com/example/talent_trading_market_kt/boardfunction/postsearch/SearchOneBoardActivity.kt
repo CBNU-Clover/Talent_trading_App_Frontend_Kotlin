@@ -9,9 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
-import com.example.talent_trading_market_kt.chatfunction.ChatActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
-import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.makereview.ReviewWrite
 import retrofit2.Call

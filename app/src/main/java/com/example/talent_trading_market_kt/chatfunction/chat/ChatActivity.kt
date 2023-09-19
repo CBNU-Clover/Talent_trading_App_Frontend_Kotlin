@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.chatfunction
+package com.example.talent_trading_market_kt.chatfunction.chat
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
+import com.example.talent_trading_market_kt.chatfunction.dto.ChatHistoryDTO
 import com.example.talent_trading_market_kt.databinding.ChatlistPageBinding
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.gmail.bishoybasily.stomp.lib.Event
@@ -107,7 +109,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                             val sender=JSONObject(it).get("sender")
                             if(sender=="striker")
                             {
-                              val talk=Talk(content.toString(),"left")
+                              val talk= Talk(content.toString(),"left")
 
                                 runOnUiThread{
                                     talkAdapter.addItem(talk)
@@ -170,7 +172,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     fun submitTalk(content:String,type:String) {
-        val talk=Talk(content,type)
+        val talk= Talk(content,type)
         talkAdapter.addItem(talk)
         binding.chat.smoothScrollToPosition(talkAdapter.lst.size-1)
         talkAdapter.notifyItemChanged(talkAdapter.lst.size-1)

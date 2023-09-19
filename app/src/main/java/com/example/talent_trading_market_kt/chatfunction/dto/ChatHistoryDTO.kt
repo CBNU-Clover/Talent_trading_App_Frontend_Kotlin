@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.chatfunction
+package com.example.talent_trading_market_kt.chatfunction.dto
 
 class ChatHistoryDTO {
     val Id: Long? = null
