@@ -7,11 +7,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
+import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
+import com.example.talent_trading_market_kt.chatfunction.chat.MakeChatRoom
+import com.example.talent_trading_market_kt.chatfunction.dto.ChattingRoomDTO
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import com.example.talent_trading_market_kt.reviewfunction.makereview.ReviewWrite
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +33,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.one_board_page)
         var Id:Long
+
         writerNickname=findViewById(R.id.searchone_writer)
         title=findViewById(R.id.searchone_title)
         chat_button=findViewById(R.id.chat)
@@ -43,9 +48,33 @@ class SearchOneBoardActivity : AppCompatActivity() {
             finish()
         }
         chat_button.setOnClickListener {
-            val intent=Intent(this,ReviewWrite::class.java)
-            intent.putExtra("postId",Id.toString())
-            startActivity(intent)
+            val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
+            if (service != null) {
+                var chattingRoomDTO= ChattingRoomDTO()
+                chattingRoomDTO.postId=Id
+                chattingRoomDTO.seller=writerNickname.text.toString()
+                service.createRoom(chattingRoomDTO).enqueue(object : Callback<Long> {
+                    override fun onResponse(call: Call<Long>, response: Response<Long>) {
+                        if(response.isSuccessful)
+                        {
+                            val roomId=response.body()
+                            if(roomId!=null)
+                            {
+                                val intent=Intent(this@SearchOneBoardActivity,ChatActivity::class.java)
+                                intent.putExtra("roomId",roomId.toString())
+                                intent.putExtra("seller",writerNickname.text.toString())
+                                startActivity(intent)
+                            }
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<Long?>, t: Throwable) {
+                        Toast.makeText(this@SearchOneBoardActivity, "오류", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+            }
         }
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 

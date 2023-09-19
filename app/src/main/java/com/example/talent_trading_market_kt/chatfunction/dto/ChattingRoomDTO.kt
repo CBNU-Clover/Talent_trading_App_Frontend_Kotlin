@@ -1,6 +1,6 @@
 package com.example.talent_trading_market_kt.chatfunction.dto
 
 class ChattingRoomDTO {
-    val postId: Long? = null
-    val seller: String? = null
+    var postId: Long? = null
+    var seller: String? = null
 }
