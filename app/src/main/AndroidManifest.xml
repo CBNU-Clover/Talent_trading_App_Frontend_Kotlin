@@ -24,8 +24,10 @@
             android:name=".reviewfunction.makereview.ReviewWrite"
             android:exported="false" />
         <activity
-            android:name=".chatfunction.ChatActivity"
+            android:name=".chatfunction.chat.ChatActivity"
             android:exported="false" />
+        <activity android:name=".reviewfunction.allreview.AllReview"
+            android:exported="false"></activity>
         <activity
             android:name=".boardfunction.mypage.myboardfunction.MyPageActivity"
             android:exported="false" />

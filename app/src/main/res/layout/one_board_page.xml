@@ -223,6 +223,7 @@
                     android:textSize="20dp" />
 
                 <ImageButton
+                    android:id="@+id/goreview"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="5dp"
@@ -362,7 +363,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="25dp"
                     android:background="@drawable/border_green1"
-                    android:text="리뷰작성"
+                    android:text="채팅하기"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold" ></Button>
