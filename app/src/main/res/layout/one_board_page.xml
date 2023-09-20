@@ -226,7 +226,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/ic_14"
+                    android:background="@drawable/img_3"
                     />
             </LinearLayout>
 
@@ -294,7 +294,7 @@
                 android:textColor="@color/black"
                 android:textSize="12dp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -309,13 +309,13 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
-                android:src="@drawable/cloverlogo2"/>
+                android:src="@drawable/cloverlogo2"/>-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="구매 후기 30개"
                 android:textColor="@color/black"
                 android:fontFamily="@font/pretendard_semibold"
@@ -337,18 +337,18 @@
                 android:orientation="horizontal">
 
 
-                <ImageButton
+                <!--<ImageButton
                     android:layout_width="28dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/ic_11"
-                    android:backgroundTint="#D8D8D8"></ImageButton>
+                    android:backgroundTint="#D8D8D8"></ImageButton>-->
 
                 <TextView
                 android:id="@+id/board_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:text="30,000원 -"
                 android:textColor="@color/black"
@@ -360,7 +360,7 @@
                     android:layout_width="154dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="13dp"
+                    android:layout_marginLeft="25dp"
                     android:background="@drawable/border_green1"
                     android:text="리뷰작성"
                     android:textColor="#FFFFFF"
