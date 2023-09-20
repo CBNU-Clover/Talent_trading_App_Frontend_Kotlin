@@ -1,4 +1,4 @@
-package com.example.talent_trading_market_kt.chatfunction
+package com.example.talent_trading_market_kt.chatfunction.chat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -61,7 +61,7 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         :RecyclerView.ViewHolder(binding.root){
     }
 
-    fun addItem(talk:Talk){
+    fun addItem(talk: Talk){
         lst.add(talk)
     }
 

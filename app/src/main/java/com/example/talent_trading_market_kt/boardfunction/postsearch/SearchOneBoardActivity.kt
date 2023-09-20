@@ -2,17 +2,21 @@
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
-import com.example.talent_trading_market_kt.chatfunction.ChatActivity
+import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
+import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
+import com.example.talent_trading_market_kt.chatfunction.dto.ChattingRoomDTO
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
-import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import com.example.talent_trading_market_kt.reviewfunction.allreview.AllReview
 import com.example.talent_trading_market_kt.reviewfunction.makereview.ReviewWrite
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,10 +31,12 @@ class SearchOneBoardActivity : AppCompatActivity() {
     lateinit var searchone_content:TextView
     lateinit var back_button:ImageButton
     lateinit var chat_button:Button
+    lateinit var go_review_bt:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.one_board_page)
         var Id:Long
+
         writerNickname=findViewById(R.id.searchone_writer)
         title=findViewById(R.id.searchone_title)
         chat_button=findViewById(R.id.chat)
@@ -40,14 +46,44 @@ class SearchOneBoardActivity : AppCompatActivity() {
         searchone_date=findViewById(R.id.searchone_date)
         searchone_content=findViewById(R.id.searchone_content)
         back_button=findViewById(R.id.back_button)
+        go_review_bt=findViewById(R.id.goreview)
         Id= intent.getStringExtra("Search_Id").toString().toLong()
         back_button.setOnClickListener {
             finish()
         }
-        chat_button.setOnClickListener {
-            val intent=Intent(this,ReviewWrite::class.java)
+        go_review_bt.setOnClickListener {
+            val intent=Intent(this@SearchOneBoardActivity,AllReview::class.java)
             intent.putExtra("postId",Id.toString())
             startActivity(intent)
+        }
+        chat_button.setOnClickListener {
+            val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
+            if (service != null) {
+                var chattingRoomDTO= ChattingRoomDTO()
+                chattingRoomDTO.postId=Id
+                chattingRoomDTO.seller=writerNickname.text.toString()
+                service.createRoom(chattingRoomDTO).enqueue(object : Callback<Long> {
+                    override fun onResponse(call: Call<Long>, response: Response<Long>) {
+                        if(response.isSuccessful)
+                        {
+                            val roomId=response.body()
+                            if(roomId!=null)
+                            {
+                                val intent=Intent(this@SearchOneBoardActivity,ChatActivity::class.java)
+                                intent.putExtra("roomId",roomId.toString())
+                                intent.putExtra("seller",writerNickname.text.toString())
+                                startActivity(intent)
+                            }
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<Long?>, t: Throwable) {
+                        Toast.makeText(this@SearchOneBoardActivity, "오류", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+            }
         }
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 
@@ -72,39 +108,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
 
             })
         }
-
-
-        /* payment_button.setOnClickListener {
-             //val intent=Intent(this,PayMentActivity::class.java)
-             intent.putExtra("pay_title",title.text)
-             intent.putExtra("pay_price",board_price.text)
-             intent.putExtra("pay_Id",Id)
-             intent.putExtra("pay_date",searchone_date.text)
-             intent.putExtra("pay_content",searchone_content.text)
-             startActivity(intent)
-         }*/
-        /*if(intent.hasExtra("Search_writerNickname"))
-        {
-            writerNickname.text=intent.getStringExtra("Search_writerNickname")
-
-        }
-        if(intent.hasExtra("Search_postName"))
-        {
-            title.text=intent.getStringExtra("Search_postName")
-
-        }
-        if(intent.hasExtra("Search_content"))
-        {
-            content.text=intent.getStringExtra("Search_content")
-        }
-        if(intent.hasExtra("Search_price"))
-        {
-            board_price.text=intent.getStringExtra("Search_price")+"원"
-        }
-        if(intent.hasExtra("Search_date"))
-        {
-            searchone_date.text=intent.getStringExtra("Search_date")
-        }*/
 
     }
 }
