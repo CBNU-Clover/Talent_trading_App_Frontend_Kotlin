@@ -155,16 +155,6 @@
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
-        </LinearLayout>
-
-        </ScrollView>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical">
 
             <Button
                 android:id="@+id/make_content"
@@ -176,9 +166,13 @@
                 android:text="작성완료"
                 android:textColor="@color/white"
                 android:textSize="20dp"></Button>
-
-
         </LinearLayout>
+
+        </ScrollView>
+
+
+
+
 
 
     </LinearLayout>
