@@ -29,6 +29,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/review_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="닉네임"
@@ -94,6 +95,7 @@
                     android:textColor="#757575"
                     />
                 <TextView
+                    android:id="@+id/review_date"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginLeft="6dp"
@@ -171,6 +173,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/content_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="작업도 빠르고 좋아용"

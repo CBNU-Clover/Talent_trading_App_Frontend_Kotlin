@@ -30,7 +30,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var stompConnection:Disposable
     lateinit var topic:Disposable
     var roomId:Long=0
-    val URL="ws://192.168.45.30:8080/ws/websocket"
+    val URL="ws://192.168.45.157:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
