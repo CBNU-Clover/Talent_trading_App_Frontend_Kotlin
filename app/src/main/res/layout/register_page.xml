@@ -44,7 +44,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,7 +132,7 @@
                         android:ems="10"
                         android:hint=" 이메일"
                         android:paddingLeft="5dp"
-                        android:inputType="text"
+                        android:inputType="textEmailAddress"
                         android:fontFamily="@font/pretendard_medium"
                         android:text="" />
 
@@ -179,7 +180,7 @@
                     android:ems="10"
                     android:hint=" 이름"
                     android:paddingLeft="5dp"
-                    android:inputType="textPassword"
+                    android:inputType="textPersonName"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
 
@@ -231,7 +232,7 @@
                     android:ems="10"
                     android:hint=" 010 0000 0000"
                     android:paddingLeft="5dp"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:fontFamily="@font/pretendard_medium"
                     android:text="" />
 
@@ -241,7 +242,7 @@
                     android:layout_height="54dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="143dp"
-                    android:background="@drawable/border_gray"
+                    android:background="@drawable/border_green1"
                     android:fontFamily="@font/pretendard_semibold"
                     android:text="가입하기"
                     android:textColor="@color/white"
