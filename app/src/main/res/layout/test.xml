@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="닉네임00"
-        android:textSize="23dp"
-        android:textColor="@color/black"
         android:fontFamily="@font/pretendard_semibold"
+        android:text="닉네임00"
+        android:textColor="@color/black"
+        android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:background="@drawable/ic_14"
         app:layout_constraintBottom_toBottomOf="@+id/txt_TItle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_TItle"/>
+        app:layout_constraintTop_toTopOf="@+id/txt_TItle" />
 
     <TextView
         android:id="@+id/textView2"
@@ -110,6 +110,7 @@
         app:layout_constraintVertical_bias="0.533" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_semibold"
@@ -136,6 +137,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toEndOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_darkgray"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="결제하기"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
