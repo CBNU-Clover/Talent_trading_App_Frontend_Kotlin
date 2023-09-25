@@ -4,7 +4,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -13,8 +12,9 @@ import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.myboard_read.*
+import com.example.talent_trading_market_kt.reviewfunction.allreview.AllReview
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,45 +22,57 @@ import retrofit2.Response
 class MyOneBoardActivity : AppCompatActivity() {
     lateinit var title: TextView
     lateinit var content: TextView
-    lateinit var delete: Button
-    lateinit var readboard_price:TextView
-    lateinit var writer_nickname:TextView
+    lateinit var writer:TextView
+    lateinit var date:TextView
+    lateinit var delete: ImageButton
+    lateinit var price:TextView
     lateinit var backbt_myoneboard:ImageButton
+    lateinit var go_review_bt:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.myboard_read)
-        val id:Long
-        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        title=findViewById(R.id.one_title)
-        content=findViewById(R.id.one_content)
+        val Id:Long
+        Id= intent.getStringExtra("my_postId").toString().toLong()
         delete=findViewById(R.id.delete_button)
-        readboard_price=findViewById(R.id.readboard_price)
-        writer_nickname=findViewById(R.id.writer_nickname)
+        writer=findViewById(R.id.mypage_writer)
+        title=findViewById(R.id.mypage_title)
+        date=findViewById(R.id.mypage_date)
+        price=findViewById(R.id.myboard_price)
+        content=findViewById(R.id.myboard_content)
+        backbt_myoneboard=findViewById(R.id.myboard_back_button)
+        go_review_bt=findViewById(R.id.myboard_review_bt)
+
         //backbt_myoneboard=findViewById(R.id.backbt_myoneboard)
         backbt_myoneboard.setOnClickListener {
             finish()
         }
-        if(intent.hasExtra("postName"))
-        {
-            title.text=intent.getStringExtra("postName")
+        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 
-        }
-        if(intent.hasExtra("content"))
+        if(service!=null)
         {
-            content.text=intent.getStringExtra("content")
-        }
-        if(intent.hasExtra("price"))
-        {
-            readboard_price.text=intent.getStringExtra("price")+"원"
-        }
-        if(intent.hasExtra("date"))
-        {
-            //my_board_price.text=intent.getStringExtra("date")
-        }
-        if(intent.hasExtra("writer_nickname"))
-        {
-            writer_nickname.text=intent.getStringExtra("writer_nickname")
+            service.readPost(Id).enqueue(object : Callback<PostReadResponse> {
+                override fun onResponse(call: Call<PostReadResponse>, response: Response<PostReadResponse>) {
+                    if (response.isSuccessful) {
+                        var post: PostReadResponse
+                        post=response.body()!!
+                        writer.text=post.writerNickname
+                        title.text=post.postName
+                        content.text=post.content
+                        date.text=post.date
+                        price.text=post.price.toString()+"원"
+                    }
+                }
 
+                override fun onFailure(call: Call<PostReadResponse?>, t: Throwable) {
+
+                }
+
+            })
+        }
+        go_review_bt.setOnClickListener {
+            val intent=Intent(this@MyOneBoardActivity, AllReview::class.java)
+            intent.putExtra("postId",Id.toString())
+            startActivity(intent)
         }
 
         delete.setOnClickListener {
@@ -73,7 +85,7 @@ class MyOneBoardActivity : AppCompatActivity() {
                         if(service!=null)
                         {
                             val postDeleteBoard= PostDeleteBoard()
-                            postDeleteBoard.delete_id= intent.getStringExtra("Id")
+                            postDeleteBoard.delete_id= Id.toString()
                             service.deletePost(postDeleteBoard).enqueue(object : Callback<Void> {
                                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                     if (response.isSuccessful) {

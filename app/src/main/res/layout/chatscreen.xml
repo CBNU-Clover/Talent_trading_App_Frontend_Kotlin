@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="binding"
+            type="com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
+
 
     <TextView
         android:id="@+id/txt_TItle"
@@ -21,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgbtn_quit"
+        android:id="@+id/chat_quit"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
@@ -78,7 +86,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/divider_bottom"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
         android:background="#B6B6B6"
         app:layout_constraintBottom_toTopOf="@+id/talk"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,6 +103,7 @@
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onClick"
         app:layout_constraintTop_toTopOf="@+id/talk" />
 
     <ImageView
@@ -106,10 +115,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtn_quit"
+        app:layout_constraintTop_toBottomOf="@+id/chat_quit"
         app:layout_constraintVertical_bias="0.533" />
 
     <TextView
+        android:id="@+id/chat_postname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_semibold"
@@ -139,3 +149,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

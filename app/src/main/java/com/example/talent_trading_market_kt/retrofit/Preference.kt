@@ -11,4 +11,9 @@ class Prefs(context: Context) {
         set(value) {
             prefs.edit().putString("token", value).apply()
         }
+    var nickname:String?
+    get()=prefs.getString("nickname",null)
+        set(value) {
+            prefs.edit().putString("nickname", value).apply()
+        }
 }

@@ -43,9 +43,11 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is LeftViewHolder){
             holder.binding.leftTalk.text = lst[position].talkContent
+            holder.binding.leftDate.text=lst[position].talkdate
         }
         else if (holder is RightViewHolder){
             holder.binding.rightTalk.text = lst[position].talkContent
+            holder.binding.rightDate.text=lst[position].talkdate
         }
     }
 
