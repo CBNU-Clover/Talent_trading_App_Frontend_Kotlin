@@ -173,7 +173,7 @@
 
 
 
-                <TextView
+                <!--<TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -188,7 +188,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:src="@drawable/cloverlogo2"/>
+                    android:src="@drawable/cloverlogo2"/>-->
 
                 <TextView
                     android:layout_width="match_parent"
