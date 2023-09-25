@@ -107,7 +107,7 @@ class MakeChatRoom : AppCompatActivity(), TextWatcher, View.OnClickListener {
                             val sender=JSONObject(it).get("sender")
                             if(sender==seller)
                             {
-                                val talk= Talk(content.toString(),"left")
+                                val talk= Talk(content.toString(),"오전 9시 42분","left")
 
                                 runOnUiThread{
                                     talkAdapter.addItem(talk)
@@ -157,7 +157,7 @@ class MakeChatRoom : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     fun submitTalk(content:String,type:String) {
-        val talk= Talk(content,type)
+        val talk= Talk(content,"오전 9시 42분t",type)
         talkAdapter.addItem(talk)
         binding.chat.smoothScrollToPosition(talkAdapter.lst.size-1)
         talkAdapter.notifyItemChanged(talkAdapter.lst.size-1)

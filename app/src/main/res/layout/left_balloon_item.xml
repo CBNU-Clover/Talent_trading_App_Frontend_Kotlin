@@ -20,7 +20,20 @@
             android:padding="10dp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txt_date"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/left_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/left_talk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/left_talk"
+            app:layout_constraintVertical_bias="0.8" />
+
     </LinearLayout>
 </layout>

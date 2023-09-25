@@ -1,6 +1,7 @@
 package com.example.talent_trading_market_kt.memberfunction.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -51,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
                             message = response.body().toString()
                             // 토큰을 저장한다.
                             App.prefs.token=message
+                            App.prefs.nickname=loginDTO.nickname
+
                             Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             finishAffinity()

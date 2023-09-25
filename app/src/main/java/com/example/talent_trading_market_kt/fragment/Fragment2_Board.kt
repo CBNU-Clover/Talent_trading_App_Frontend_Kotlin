@@ -32,16 +32,12 @@ class Fragment2_Board:Fragment() {
             val intent = Intent(activity, MakeBoardActivity::class.java)
             activity.startActivity(intent)
         }
-        /*boardwrite.setOnClickListener {
-            val activity = requireActivity()
-            val intent = Intent(activity, ChatActivity::class.java)
-            activity.startActivity(intent)
-        }*/
         search_bt.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, SearchBoardActivity::class.java)
             activity.startActivity(intent)
         }
+
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         val postSearch= PostSearch()
         if(service!=null)
@@ -55,6 +51,7 @@ class Fragment2_Board:Fragment() {
                             LinearLayoutManager.VERTICAL,false)
                         boards.setHasFixedSize(true)
                         boards.adapter= SearchBoardAdapter(searchboardList)
+
                     }
                 }
 

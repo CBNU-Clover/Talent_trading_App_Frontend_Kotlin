@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
 import com.example.talent_trading_market_kt.chatfunction.response.ChattingRoomListDTO
+import com.example.talent_trading_market_kt.retrofit.App
 
 class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): RecyclerView.Adapter<ChattingRoomAdapter.CustomViewHolder>()
 {
@@ -22,7 +23,16 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
                 val chattingRoom:ChattingRoomListDTO=chattingRoomList.get(curPos)
                 val intent= Intent(parent.context,ChatActivity::class.java)
                 intent.putExtra("roomId",chattingRoom.roomId.toString())
-                intent.putExtra("seller",chattingRoom.seller)
+                if(chattingRoom.seller!=App.prefs.nickname)
+                {
+                    intent.putExtra("seller",chattingRoom.seller)
+                }
+                else
+                {
+                    intent.putExtra("seller",chattingRoom.buyer)
+                }
+                intent.putExtra("post_name",chattingRoom.postname)
+                intent.putExtra("post_price",chattingRoom.post_price)
                 parent.context.startActivity(intent)
 
             }
@@ -30,7 +40,14 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
     }
 
     override fun onBindViewHolder(holder: ChattingRoomAdapter.CustomViewHolder, position: Int) {
-        holder.chat_seller.text=chattingRoomList.get(position).seller
+        if(chattingRoomList.get(position).seller==App.prefs.nickname)
+        {
+            holder.chat_otherperson.text=chattingRoomList.get(position).buyer
+        }
+        else
+        {
+            holder.chat_otherperson.text=chattingRoomList.get(position).seller
+        }
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +55,7 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
     }
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
-        val chat_seller=itemView.findViewById<TextView>(R.id.chat_seller)
+        val chat_otherperson=itemView.findViewById<TextView>(R.id.chat_otherperson)
     }
 
 }

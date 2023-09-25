@@ -7,6 +7,7 @@ import android.widget.*
 import com.example.talent_trading_market_kt.MainActivity
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardAdapter
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
@@ -19,6 +20,8 @@ class MakeBoardActivity : AppCompatActivity() {
     lateinit var write_bt:Button
     lateinit var makeboard_price:EditText
     lateinit var backbt_makeboard:ImageButton
+    lateinit var searchBoardAdapter: SearchBoardAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,8 +54,8 @@ class MakeBoardActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Toast.makeText(this@MakeBoardActivity, "게시물 쓰기 완료", Toast.LENGTH_SHORT).show()
                             val intent=Intent(this@MakeBoardActivity,MainActivity::class.java)
-                            finishAffinity()
                             startActivity(intent)
+                            finish()
                         }
                     }
 
