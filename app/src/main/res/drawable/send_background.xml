@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F2F3F5" /> <!-- 배경 색상 설정 -->
+            <corners android:topLeftRadius="30dp" android:topRightRadius="30dp" /> <!-- 윗부분을 둥글게 만드는 설정 -->
+        </shape>
+    </item>
+</layer-list>
