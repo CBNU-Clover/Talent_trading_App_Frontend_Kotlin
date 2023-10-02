@@ -42,7 +42,6 @@ class MyOneBoardActivity : AppCompatActivity() {
         backbt_myoneboard=findViewById(R.id.myboard_back_button)
         go_review_bt=findViewById(R.id.myboard_review_bt)
 
-        //backbt_myoneboard=findViewById(R.id.backbt_myoneboard)
         backbt_myoneboard.setOnClickListener {
             finish()
         }
@@ -74,7 +73,7 @@ class MyOneBoardActivity : AppCompatActivity() {
             intent.putExtra("postId",Id.toString())
             startActivity(intent)
         }
-
+        val readMyBoardActivity=ReadMyBoardActivity.readMyBoardActivity
         delete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder
@@ -90,9 +89,9 @@ class MyOneBoardActivity : AppCompatActivity() {
                                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                     if (response.isSuccessful) {
                                         Toast.makeText(this@MyOneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
-
-                                        val intent = Intent(this@MyOneBoardActivity, MainActivity::class.java)
-                                        finishAffinity()
+                                        readMyBoardActivity?.finish()
+                                        finish()
+                                        val intent = Intent(this@MyOneBoardActivity, ReadMyBoardActivity::class.java)
                                         startActivity(intent)
                                     }
                                 }

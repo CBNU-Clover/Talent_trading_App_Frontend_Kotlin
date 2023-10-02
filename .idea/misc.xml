@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/background_talk_mine.xml" value="0.157" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/background_talk_other.xml" value="0.157" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_darkgray.xml" value="0.157" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_gray.xml" value="0.157" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_https_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
@@ -80,7 +84,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/review_list.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/review_page.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/review_write_page.xml" value="0.19384057971014493" />
-        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/right_balloon_item.xml" value="0.4532871972318339" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/right_balloon_item.xml" value="0.2249488752556237" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/searchboardlist_item.xml" value="0.128125" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/searchresult_item.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/show_search_result_page.xml" value="0.22418478260869565" />
@@ -93,7 +97,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

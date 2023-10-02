@@ -42,41 +42,19 @@
                 android:layout_height="20dp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_gravity="center"
-                    app:tint="#C0C0C0"/>
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_gravity="center"
-                    app:tint="#C0C0C0"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_gravity="center"
-                    app:tint="#C0C0C0"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_gravity="center"
-                    app:tint="#C0C0C0"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_gravity="center"
-                    app:tint="#C0C0C0"/>
-
+                <RatingBar
+                    android:id="@+id/review_rating"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:progressTint="#FFD400"
+                    android:progressBackgroundTint="#C0C0C0"
+                    android:stepSize="1" />
                 <TextView
+                    android:id="@+id/review_score"
                     android:layout_width="21dp"
                     android:layout_height="18dp"
                     android:layout_marginLeft="6dp"

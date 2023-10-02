@@ -16,16 +16,20 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class ReadMyBoardActivity : AppCompatActivity() {
-    lateinit var backbt_myboard:ImageButton
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.myboardhistory)
-        backbt_myboard=findViewById(R.id.backbt_myboard)
+    companion object{
+        var readMyBoardActivity:ReadMyBoardActivity?=null
+    }
+    override fun onResume()
+    {
+        super.onResume()
+        updateMyBoard()
+
+    }
+    private fun updateMyBoard()
+    {
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        backbt_myboard.setOnClickListener {
-            finish()
-        }
         if(service!=null)
         {
             service.getAllboard().enqueue(object : Callback<List<PostGetAllBoard>> {
@@ -46,7 +50,16 @@ class ReadMyBoardActivity : AppCompatActivity() {
 
             })
         }
-
+    }
+    lateinit var backbt_myboard:ImageButton
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.myboardhistory)
+        backbt_myboard=findViewById(R.id.backbt_myboard)
+        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        backbt_myboard.setOnClickListener {
+            finish()
+        }
     }
 
 }

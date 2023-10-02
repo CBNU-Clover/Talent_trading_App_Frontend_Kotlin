@@ -39,7 +39,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_postprice:TextView
 
     var roomId:Long=0
-    val URL="ws://192.168.45.251:8080/ws/websocket"
+    val URL="ws://서버주소/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -184,7 +184,11 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
                 val calendar = Calendar.getInstance()
                 val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
-                val hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+                var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+                if(hour>12)
+                {
+                    hour=hour-12
+                }
                 val minute = calendar.get(Calendar.MINUTE)
 
                 val formattedTime = "$amOrPm $hour:$minute"

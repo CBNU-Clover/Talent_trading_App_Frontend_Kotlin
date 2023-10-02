@@ -23,21 +23,12 @@ import retrofit2.Response
 
 class Fragment2_Board:Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view=inflater.inflate(R.layout.allboard,container,false)
-        val boardwrite:ImageButton=view.findViewById(R.id.write_button)
-        val search_bt:ImageButton=view.findViewById(R.id.search_button)
-       boardwrite.setOnClickListener {
-            val activity = requireActivity()
-            val intent = Intent(activity, MakeBoardActivity::class.java)
-            activity.startActivity(intent)
-        }
-        search_bt.setOnClickListener {
-            val activity = requireActivity()
-            val intent = Intent(activity, SearchBoardActivity::class.java)
-            activity.startActivity(intent)
-        }
+    override fun onResume() {
+        super.onResume()
+        updateFragmentData()
+    }
 
+    private fun updateFragmentData() {
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         val postSearch= PostSearch()
         if(service!=null)
@@ -61,7 +52,26 @@ class Fragment2_Board:Fragment() {
 
             })
         }
-        
+    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view=inflater.inflate(R.layout.allboard,container,false)
+        val boardwrite:ImageButton=view.findViewById(R.id.write_button)
+        val search_bt:ImageButton=view.findViewById(R.id.search_button)
+
+
+       boardwrite.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, MakeBoardActivity::class.java)
+            activity.startActivity(intent)
+        }
+        search_bt.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, SearchBoardActivity::class.java)
+            activity.startActivity(intent)
+        }
+
+        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        val postSearch= PostSearch()
         return view
     }
 }
