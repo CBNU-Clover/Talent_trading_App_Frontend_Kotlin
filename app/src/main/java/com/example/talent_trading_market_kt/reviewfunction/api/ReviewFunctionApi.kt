@@ -17,4 +17,7 @@ interface ReviewFunctionApi {
     //게시물마다의 모든 리뷰 가져오기 api
     @GET("/api/vi/review/getAllPostReview/{postId}")
     fun getAllPostReview(@Path("postId") postId:Long): Call<List<ReviewReadResponse>>
+
+    @GET("/api/vi/review/getPostAvg/{postId}")
+    fun getPostAvg(@Path("postId") postId:Long): Call<Double>
 }

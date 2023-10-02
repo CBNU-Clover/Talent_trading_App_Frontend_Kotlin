@@ -32,7 +32,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
         }
 
     val service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
-
     makereview_bt.setOnClickListener {
         val review_content = review_content.text.toString()
         val reviewWriteDTO = ReviewWriteDTO()
