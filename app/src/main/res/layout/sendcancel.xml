@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="203dp"
-        android:layout_height="94dp"
+        android:layout_height="122dp"
         android:background="@drawable/send_background"
         android:orientation="vertical"
         android:padding="14dp"
@@ -19,7 +19,16 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:textSize="20dp"
+            android:text="송금 완료!"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textColor="#3DC181"/>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="17dp"
+            android:layout_marginTop="4dp"
             android:textSize="14dp"
             android:text="200,000원 송금요청"
             android:fontFamily="@font/pretendard_medium"
@@ -55,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:fontFamily="@font/pretendard_medium"
-            android:text="송금 하기"
+            android:text="송금 취소"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="#FFFFFF"
