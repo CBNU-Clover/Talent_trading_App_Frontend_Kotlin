@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
@@ -15,7 +14,6 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBoardAdapter.CustomViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.item_board,parent,false)
-        // parent ( 리사이클뷰를 적용할 activity ) 와 boarlist_item xml 화면을 붙인다(inflate)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
@@ -34,6 +32,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         holder.title.text=boardList.get(position).postName
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.date.text= boardList.get(position).date
+        holder.review_size.text= boardList.get(position).review_size.toString()
     }
 
     override fun getItemCount(): Int {
@@ -44,6 +43,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         val title=itemView.findViewById<TextView>(R.id.all_title) // 제목
         val price=itemView.findViewById<TextView>(R.id.all_price)
         val date=itemView.findViewById<TextView>(R.id.all_time)
+        val review_size=itemView.findViewById<TextView>(R.id.board_review_size)
     }
 
 }

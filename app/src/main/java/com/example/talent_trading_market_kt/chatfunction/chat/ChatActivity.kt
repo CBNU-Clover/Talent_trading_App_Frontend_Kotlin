@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -24,6 +26,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.security.AccessController.getContext
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -39,7 +42,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_postprice:TextView
 
     var roomId:Long=0
-    val URL="ws://서버주소/ws/websocket"
+    val URL="ws://cloverx.kro.kr:10003/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -48,6 +51,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         .build()
     val stomp = StompClient(client, intervalMillis).apply { this@apply.url = URL }
     var s= ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.chatscreen)
@@ -56,43 +60,21 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         chat_person=findViewById(R.id.txt_TItle)
         chat_postname=findViewById(R.id.chat_postname)
         chat_postprice=findViewById(R.id.textView)
-        chat_backbt.setOnClickListener {
-            finish()
-        }
         var seller:String
         var postname:String
         var postprice:String
-        /*binding.talk.setOnClickListener {
-            // 채팅 화면을 가장 아래로 스크롤합니다.
-            binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
-        }*/
-       /* binding.talk.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.chat.postDelayed({
-                    binding.chat.smoothScrollToPosition(talkAdapter.lst.size - 1)
-                }, 200)
-            }
+
+        chat_backbt.setOnClickListener {
+            finish()
         }
-       binding.linearLayoutTalk.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.chat.postDelayed({
-                    binding.chat.smoothScrollToPosition(talkAdapter.lst.size - 1)
-                }, 200)
-            }
-        }*/
-        /*binding.talk.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                // 포커스를 얻을 때 채팅 화면을 가장 아래로 스크롤합니다.
-                binding.chat.scrollToPosition(talkAdapter.itemCount - 1)
-            }
-        }*/
+
         roomId= intent.getStringExtra("roomId").toString().toLong()
         seller= intent.getStringExtra("seller").toString()
-        postname= intent.getStringExtra("post_name").toString()
-        postprice=intent.getStringExtra("post_price").toString()
+        postname= intent.getStringExtra("board_name").toString()
+        postprice=intent.getStringExtra("board_price").toString()
         chat_person.text=seller
         chat_postname.text=postname
-        chat_postprice.text=postprice+"원"
+        chat_postprice.text=postprice
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
         binding.chat.setHasFixedSize(false)
@@ -173,7 +155,6 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
     override fun onClick(view: View?) {
-
         when(view?.id){
             R.id.submit_talk->{
                 val jsonObject = JSONObject()
@@ -190,13 +171,22 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     hour=hour-12
                 }
                 val minute = calendar.get(Calendar.MINUTE)
+                if(minute<10)
+                {
+                    val formattedTime = "$amOrPm $hour:0$minute"
+                    jsonObject.put("date", formattedTime)
 
-                val formattedTime = "$amOrPm $hour:$minute"
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"right")
+                }
+                else
+                {
+                    val formattedTime = "$amOrPm $hour:$minute"
+                    jsonObject.put("date", formattedTime)
 
-                jsonObject.put("date", formattedTime)
-
-                stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                submitTalk(s,formattedTime,"right")
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"right")
+                }
             }
         }
     }

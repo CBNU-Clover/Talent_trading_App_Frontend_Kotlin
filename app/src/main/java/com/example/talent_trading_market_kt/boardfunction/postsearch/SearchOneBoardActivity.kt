@@ -2,27 +2,74 @@
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
 import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
 import com.example.talent_trading_market_kt.chatfunction.dto.ChattingRoomDTO
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.allreview.AllReview
-import com.example.talent_trading_market_kt.reviewfunction.makereview.ReviewWrite
+import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
+import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewReadResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SearchOneBoardActivity : AppCompatActivity() {
+    override fun onResume() {
+        super.onResume()
+        updateBoard()
+    }
+    private fun updateBoard()
+    {
+        var Id:Long
+        Id= intent.getStringExtra("Search_Id").toString().toLong()
+        //게시물 리뷰 평점 가져오는 것
+        val service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
+        if(service!=null)
+        {
+            service.getPostAvg(Id).enqueue(object : Callback<Double> {
+                override fun onResponse(call: Call<Double>, response: Response<Double>) {
+                    if (response.isSuccessful) {
+                        var rating_av :Double
+                        rating_av=response.body()!!
+                        one_av.text=rating_av.toInt().toFloat().toString()
+                        one_rating_av.rating=rating_av.toFloat()
+                        one_rating_av_up.text=rating_av.toInt().toFloat().toString()
+                    }
+                }
+
+                override fun onFailure(call: Call<Double?>, t: Throwable) {
+
+                }
+
+            })
+        }
+
+        //리뷰 총 갯수 가져오는 API
+        if(service!=null)
+        {
+            service.getAllPostReview(Id).enqueue(object : Callback<List<ReviewReadResponse>> {
+                override fun onResponse(call: Call<List<ReviewReadResponse>>, response: Response<List<ReviewReadResponse>>) {
+                    if (response.isSuccessful) {
+                        var reviewlist:List<ReviewReadResponse>;
+                        reviewlist= response.body()!!;
+                        one_reviewsize.text="구매 후기 "+reviewlist.size.toString()+"개"
+                    }
+                }
+
+                override fun onFailure(call: Call<List<ReviewReadResponse>?>, t: Throwable) {
+
+                }
+
+            })
+        }
+    }
     lateinit var writerNickname:TextView
     lateinit var title:TextView
     lateinit var content:TextView
@@ -31,65 +78,112 @@ class SearchOneBoardActivity : AppCompatActivity() {
     lateinit var searchone_content:TextView
     lateinit var back_button:ImageButton
     lateinit var chat_button:Button
-    lateinit var go_review_bt:ImageButton
+    lateinit var go_review_bt:Button
+    lateinit var one_av:TextView
+    lateinit var one_rating_av:RatingBar
+    lateinit var one_rating_av_up:TextView
+    lateinit var one_reviewsize:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.one_board_page)
         var Id:Long
-
+        one_reviewsize=findViewById(R.id.one_reviewsize)
         writerNickname=findViewById(R.id.searchone_writer)
         title=findViewById(R.id.searchone_title)
         chat_button=findViewById(R.id.chat)
         content=findViewById(R.id.searchone_content)
-        //payment_button=findViewById(R.id.payment_button)
+        one_av=findViewById(R.id.one_av)
+        one_rating_av=findViewById(R.id.one_rating_av)
         board_price=findViewById(R.id.board_price)
         searchone_date=findViewById(R.id.searchone_date)
         searchone_content=findViewById(R.id.searchone_content)
         back_button=findViewById(R.id.back_button)
         go_review_bt=findViewById(R.id.goreview)
+        one_rating_av_up=findViewById(R.id.one_rating_av_up)
         Id= intent.getStringExtra("Search_Id").toString().toLong()
+        
+        //뒤로 가기 버튼
         back_button.setOnClickListener {
             finish()
         }
+        
+        //리뷰 보러가는 버튼
         go_review_bt.setOnClickListener {
             val intent=Intent(this@SearchOneBoardActivity,AllReview::class.java)
             intent.putExtra("postId",Id.toString())
             startActivity(intent)
         }
+        
+        //채팅하기 버튼
         chat_button.setOnClickListener {
-            val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
-            if (service != null) {
-                var chattingRoomDTO= ChattingRoomDTO()
-                chattingRoomDTO.postId=Id
-                chattingRoomDTO.seller=writerNickname.text.toString()
-                service.createRoom(chattingRoomDTO).enqueue(object : Callback<Long> {
-                    override fun onResponse(call: Call<Long>, response: Response<Long>) {
-                        if(response.isSuccessful)
-                        {
-                            val roomId=response.body()
-                            if(roomId!=null)
+            if(writerNickname.text== App.prefs.nickname)
+            {
+                Toast.makeText(this@SearchOneBoardActivity, "자신의 게시물입니다!!", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            else
+            {
+                val service = RetrofitConnection.getInstance().create(ChatFunctionApi::class.java)
+                if(service !=null)
+                {
+                    service.confirmChattingRoom(Id).enqueue(object :Callback<Int>{
+                        override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                            if(response.isSuccessful)
                             {
-                                val intent=Intent(this@SearchOneBoardActivity,ChatActivity::class.java)
-                                intent.putExtra("roomId",roomId.toString())
-                                intent.putExtra("seller",writerNickname.text.toString())
-                                startActivity(intent)
+                                val confirm=response.body()
+                                if(confirm==1)
+                                {
+                                    Toast.makeText(this@SearchOneBoardActivity, "채팅방이 이미 있습니다!!", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+                                else if(confirm==0)
+                                {
+                                    var chattingRoomDTO= ChattingRoomDTO()
+                                    chattingRoomDTO.postId=Id
+                                    chattingRoomDTO.seller=writerNickname.text.toString()
+                                    service.createRoom(chattingRoomDTO).enqueue(object : Callback<Long> {
+                                        override fun onResponse(call: Call<Long>, response: Response<Long>) {
+                                            if(response.isSuccessful)
+                                            {
+                                                val roomId=response.body()
+                                                if(roomId!=null)
+                                                {
+                                                    val intent=Intent(this@SearchOneBoardActivity,ChatActivity::class.java)
+                                                    intent.putExtra("roomId",roomId.toString())
+                                                    intent.putExtra("seller",writerNickname.text.toString())
+                                                    intent.putExtra("board_name",title.text.toString())
+                                                    intent.putExtra("board_price",board_price.text.toString())
+                                                    startActivity(intent)
+                                                }
+                                            }
+
+                                        }
+
+                                        override fun onFailure(call: Call<Long?>, t: Throwable) {
+                                            Toast.makeText(this@SearchOneBoardActivity, "오류", Toast.LENGTH_SHORT)
+                                                .show()
+                                        }
+                                    })
+                                }
                             }
                         }
 
-                    }
+                        override fun onFailure(call: Call<Int>, t: Throwable) {
+                            Toast.makeText(this@SearchOneBoardActivity, "오류", Toast.LENGTH_SHORT)
+                                .show()
+                        }
 
-                    override fun onFailure(call: Call<Long?>, t: Throwable) {
-                        Toast.makeText(this@SearchOneBoardActivity, "오류", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                })
+                    })
+                }
             }
-        }
-        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
 
-        if(service!=null)
+        }
+
+        //한 게시물의 정보 가져오는 API
+        val boardservice = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        if(boardservice!=null)
         {
-            service.readPost(Id).enqueue(object : Callback<PostReadResponse> {
+            boardservice.readPost(Id).enqueue(object : Callback<PostReadResponse> {
                 override fun onResponse(call: Call<PostReadResponse>, response: Response<PostReadResponse>) {
                     if (response.isSuccessful) {
                         var post:PostReadResponse
@@ -98,7 +192,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
                         title.text=post.postName
                         content.text=post.content
                         searchone_date.text=post.date
-                        board_price.text=post.price.toString()+"원"
+                        board_price.text=post.price.toString()+"원~"
                     }
                 }
 

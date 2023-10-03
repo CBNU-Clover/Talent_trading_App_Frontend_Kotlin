@@ -82,9 +82,10 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/one_rating_av_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.9"
+                    android:text="0.0"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
@@ -118,7 +119,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:hint="제목 0000 제작해 드립니다."
                 android:fontFamily="@font/pretendard_semibold"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
@@ -233,48 +233,24 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/one_av"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.9"
+                    android:text="0.0"
                     android:textColor="@color/black"
                     android:textSize="34dp"/>
 
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_10"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="bottom"
-                    app:tint="#C0C0C0"/>
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="bottom"
-                    android:src="@drawable/ic_10"
-                    app:tint="#C0C0C0"/>
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_10"
-                    app:tint="#C0C0C0"/>
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="bottom"
-                    android:src="@drawable/ic_10"
-                    app:tint="#C0C0C0"/>
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_10"
-                    app:tint="#C0C0C0"/>
+                <RatingBar
+                    android:id="@+id/one_rating_av"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressBackgroundTint="#C0C0C0"
+                    android:progressTint="#FFD400"
+                    android:rating="0"
+                    android:stepSize="1" />
 
             </LinearLayout>
 
@@ -306,6 +282,7 @@
                 android:src="@drawable/cloverlogo2"/>-->
 
             <TextView
+                android:id="@+id/one_reviewsize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -355,8 +332,7 @@
                 <TextView
                 android:id="@+id/board_price"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content" android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:text="30,000원 -"
                 android:textColor="@color/black"

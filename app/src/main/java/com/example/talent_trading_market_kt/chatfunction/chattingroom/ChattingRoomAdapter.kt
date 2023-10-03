@@ -31,8 +31,8 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
                 {
                     intent.putExtra("seller",chattingRoom.buyer)
                 }
-                intent.putExtra("post_name",chattingRoom.postname)
-                intent.putExtra("post_price",chattingRoom.post_price)
+                intent.putExtra("board_name",chattingRoom.postname)
+                intent.putExtra("board_price",chattingRoom.post_price+"원~")
                 parent.context.startActivity(intent)
 
             }

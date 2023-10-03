@@ -25,7 +25,8 @@
             android:exported="false" />
         <activity
             android:name=".chatfunction.chat.ChatActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".reviewfunction.allreview.AllReview"
             android:exported="false"></activity>
         <activity

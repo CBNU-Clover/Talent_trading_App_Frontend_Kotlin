@@ -1,11 +1,11 @@
 package com.example.talent_trading_market_kt.reviewfunction.makereview
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RatingBar
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewWriteDTO
@@ -16,20 +16,47 @@ import retrofit2.Response
 
 class ReviewWrite : AppCompatActivity() {
     lateinit var makereview_bt:Button
+    lateinit var rv_write_title:TextView
+    lateinit var rv_write_price:TextView
+    lateinit var rv_write_backbt:ImageButton
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.review_write_page)
     var Id: Long
     val ratingBar:RatingBar=findViewById(R.id.ratingBar)
+    rv_write_title=findViewById(R.id.rv_write_title)
+    rv_write_price=findViewById(R.id.rv_write_price)
+    rv_write_backbt=findViewById(R.id.rv_write_backbt)
     Id = intent.getStringExtra("postId").toString().toLong()
     var userRating:Long=0
-
+    rv_write_backbt.setOnClickListener {
+        finish()
+    }
     makereview_bt = findViewById(R.id.make_review)
     ratingBar.onRatingBarChangeListener=
         RatingBar.OnRatingBarChangeListener{
             ratingBar, rating, fromUser ->
             userRating= rating.toLong()
         }
+    val service2 = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+    if(service2!=null)
+    {
+        service2.readPost(Id).enqueue(object : Callback<PostReadResponse> {
+            override fun onResponse(call: Call<PostReadResponse>, response: Response<PostReadResponse>) {
+                if (response.isSuccessful) {
+                    var post: PostReadResponse
+                    post=response.body()!!
+                    rv_write_title.text=post.postName
+                    rv_write_price.text=post.price.toString()+"원"
+                }
+            }
+
+            override fun onFailure(call: Call<PostReadResponse?>, t: Throwable) {
+
+            }
+
+        })
+    }
 
     val service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
     makereview_bt.setOnClickListener {

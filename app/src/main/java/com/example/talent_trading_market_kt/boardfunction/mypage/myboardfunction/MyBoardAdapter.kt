@@ -34,6 +34,7 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
         holder.title.text=boardList.get(position).postName
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.my_date.text=boardList.get(position).date
+        holder.my_review_size.text=boardList.get(position).my_review_size.toString()
     }
 
     override fun getItemCount(): Int {
@@ -44,6 +45,7 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
         val title=itemView.findViewById<TextView>(R.id.all_title) // 제목
         val price=itemView.findViewById<TextView>(R.id.all_price)//가격
         val my_date=itemView.findViewById<TextView>(R.id.all_time) // 작성일자
+        var my_review_size=itemView.findViewById<TextView>(R.id.board_review_size)
     }
 
 }

@@ -28,16 +28,16 @@ class PointHistoryAdapter(var my_point_history: List<PointHistory>): RecyclerVie
         if(my_point_history.get(position).status=="입금")
         {
             holder.point_status.text=my_point_history.get(position).status
-            holder.point_status.setTextColor(Color.RED)
+            holder.point_status.setTextColor(Color.parseColor("#3DC181"));
             holder.trade_point_amount.text= "+"+my_point_history.get(position).amount.toString()+"원"
-            holder.trade_point_amount.setTextColor(Color.RED)
+            holder.trade_point_amount.setTextColor(Color.parseColor("#3DC181"))
         }
         else
         {
             holder.point_status.text=my_point_history.get(position).status
             holder.point_status.setTextColor(Color.BLUE)
             holder.trade_point_amount.text= "-"+my_point_history.get(position).amount.toString()+"원"
-            holder.trade_point_amount.setTextColor(Color.BLUE)
+            holder.trade_point_amount.setTextColor(Color.BLACK)
         }
         holder.point_balance.text=my_point_history.get(position).balance.toString()+"원"
         holder.point_time.text=my_point_history.get(position).date

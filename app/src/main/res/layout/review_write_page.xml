@@ -17,6 +17,7 @@
 
 
             <ImageButton
+                android:id="@+id/rv_write_backbt"
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
@@ -69,6 +70,7 @@
 
 
                         <TextView
+                            android:id="@+id/rv_write_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -79,6 +81,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/rv_write_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="100,000원"

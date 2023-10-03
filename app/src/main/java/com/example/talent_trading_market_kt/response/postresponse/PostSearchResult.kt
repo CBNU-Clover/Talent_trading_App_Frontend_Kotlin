@@ -9,5 +9,6 @@ class PostSearchResult{
     var content: String?=null
     var price:Long?=null
     var date:String?=null
+    var review_size:Long?=null
 }
 

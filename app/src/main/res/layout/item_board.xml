@@ -67,13 +67,14 @@
                     app:tint="#C0C0C0" />
 
                 <TextView
+                    android:id="@+id/board_review_size"
                     android:layout_width="wrap_content"
-                    android:layout_height="14dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="4"
                     android:fontFamily="@font/pretendard_medium"
-                    android:textSize="12dp"
-                    android:textColor="#C0C0C0"/>
+                    android:text="4"
+                    android:textColor="#C0C0C0"
+                    android:textSize="12dp" />
 
                 <ImageView
                     android:layout_width="14dp"

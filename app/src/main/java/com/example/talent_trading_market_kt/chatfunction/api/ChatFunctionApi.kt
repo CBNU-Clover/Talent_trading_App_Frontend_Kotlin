@@ -22,4 +22,8 @@ interface ChatFunctionApi {
     @GET("/api/vi/chat/rooms")
     fun Rooms():Call<List<ChattingRoomListDTO>>
 
+    //그 게시글이 이미 채팅방이 존재하는지 검사
+    @GET("/api/vi/chat/confirm_chattingroom/{postId}")
+    fun confirmChattingRoom(@Path("postId")postId:Long):Call<Int>
+
 }

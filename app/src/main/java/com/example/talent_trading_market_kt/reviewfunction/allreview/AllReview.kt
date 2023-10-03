@@ -3,12 +3,15 @@ package com.example.talent_trading_market_kt.reviewfunction.allreview
 import android.content.Intent
 import android.media.Rating
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewReadResponse
@@ -72,6 +75,9 @@ class AllReview  : AppCompatActivity() {
     lateinit var Allreview_score:TextView
     lateinit var review_rating_av: RatingBar
     lateinit var Allreview_size:TextView
+    lateinit var rv_title:TextView
+    lateinit var rv_price:TextView
+    lateinit var rv_backbt:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.review_page)
@@ -80,8 +86,33 @@ class AllReview  : AppCompatActivity() {
         Allreview_score=findViewById(R.id.Allreview_score)
         review_rating_av=findViewById(R.id.review_rating_av)
         Allreview_size=findViewById(R.id.Allreview_size)
+        rv_title=findViewById(R.id.rv_title)
+        rv_price=findViewById(R.id.rv_price)
+        rv_backbt=findViewById(R.id.rv_backbt)
         Id = intent.getStringExtra("postId").toString().toLong()
 
+        rv_backbt.setOnClickListener {
+            finish()
+        }
+        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        if(service!=null)
+        {
+            service.readPost(Id).enqueue(object : Callback<PostReadResponse> {
+                override fun onResponse(call: Call<PostReadResponse>, response: Response<PostReadResponse>) {
+                    if (response.isSuccessful) {
+                        var post: PostReadResponse
+                        post=response.body()!!
+                        rv_title.text=post.postName
+                        rv_price.text=post.price.toString()+"원~"
+                    }
+                }
+
+                override fun onFailure(call: Call<PostReadResponse?>, t: Throwable) {
+
+                }
+
+            })
+        }
 
         write_review_bt.setOnClickListener {
             val intent= Intent(this@AllReview,ReviewWrite::class.java)

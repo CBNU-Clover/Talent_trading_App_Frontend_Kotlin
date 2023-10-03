@@ -17,6 +17,7 @@
 
 
             <ImageButton
+                android:id="@+id/rv_backbt"
                 android:layout_width="50dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
@@ -69,19 +70,19 @@
 
 
                         <TextView
+                            android:id="@+id/rv_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/pretendard_semibold"
-                            android:text="제목 0000 제작해 드립니다."
                             android:textColor="@color/black"
                             android:textSize="18dp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/rv_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="100,000원"
                             android:textColor="#8D8D8D"
                             android:textSize="15dp" />
 
@@ -104,7 +105,7 @@
                         android:id="@+id/Allreview_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4.9"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="36dp"/>
 
