@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/border_darkgray"
                 android:hint="ID"
-                android:inputType="text"
+                android:inputType="textMultiLine|textNoSuggestions"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
@@ -68,12 +68,23 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_darkgray"
                 android:hint="PASS"
-                android:inputType="textPassword"
+                android:inputType="textPassword|textNoSuggestions"
                 android:padding="10dp"
                 android:textSize="23dp"
                 android:fontFamily="@font/pretendard_semibold"
                 android:textColor="@color/black"
                 android:textColorHint="#C7C7C7"></EditText>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:textSize="13dp"
+                android:layout_marginTop="7dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/pretendard_regular"
+                android:textColor="@color/red">
+
+            </TextView>
             
             
 
@@ -84,7 +95,7 @@
                 android:layout_height="59dp"
                 android:layout_gravity="center"
                 android:background="@drawable/border_green1"
-                android:layout_marginTop="86dp"
+                android:layout_marginTop="79dp"
                 android:text="로그인"
                 android:textColor="@color/white"
                 android:fontFamily="@font/pretendard_semibold"
