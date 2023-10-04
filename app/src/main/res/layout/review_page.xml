@@ -119,7 +119,7 @@
                         android:progressBackgroundTint="#C0C0C0"
                         android:progressTint="#FFD400"
                         android:rating="0"
-                        android:stepSize="1" />
+                        android:stepSize="0.5" />
 
                 </LinearLayout>
 

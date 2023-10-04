@@ -38,9 +38,10 @@ class SearchOneBoardActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var rating_av :Double
                         rating_av=response.body()!!
-                        one_av.text=rating_av.toInt().toFloat().toString()
+                        val formattedRating=String.format("%.1f",rating_av)
+                        one_av.text=formattedRating.toFloat().toString()
                         one_rating_av.rating=rating_av.toFloat()
-                        one_rating_av_up.text=rating_av.toInt().toFloat().toString()
+                        one_rating_av_up.text=formattedRating.toFloat().toString()
                     }
                 }
 

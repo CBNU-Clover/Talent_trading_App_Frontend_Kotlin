@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -48,6 +49,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/boardlist_item.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chat_list.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatlist_page.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatplus.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatroom_page.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatscreen.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chattingroom.xml" value="0.1" />
@@ -86,6 +88,8 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/right_balloon_item.xml" value="0.2249488752556237" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/searchboardlist_item.xml" value="0.128125" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/searchresult_item.xml" value="0.2" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/send.xml" value="0.18478260869565216" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/sendcancel.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/show_search_result_page.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/test.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/trade_history.xml" value="0.2" />
@@ -96,7 +100,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

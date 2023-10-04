@@ -59,7 +59,8 @@ class AllReview  : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var rating_av :Double
                         rating_av=response.body()!!
-                        Allreview_score.text=rating_av.toInt().toFloat().toString()
+                        val formattedRating=String.format("%.1f",rating_av)
+                        Allreview_score.text=formattedRating.toFloat().toString()
                         review_rating_av.rating=rating_av.toFloat()
                     }
                 }

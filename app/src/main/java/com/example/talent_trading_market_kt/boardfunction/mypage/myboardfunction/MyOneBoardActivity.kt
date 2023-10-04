@@ -40,9 +40,10 @@ class MyOneBoardActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var rating_av :Double
                         rating_av=response.body()!!
-                        myrating.text=rating_av.toInt().toFloat().toString()
+                        val formattedRating=String.format("%.1f",rating_av)
+                        myrating.text=formattedRating.toFloat().toString()
                         myrating_av.rating=rating_av.toFloat()
-                        myboard_rating.text=rating_av.toInt().toFloat().toString()
+                        myboard_rating.text=formattedRating.toFloat().toString()
                     }
                 }
 

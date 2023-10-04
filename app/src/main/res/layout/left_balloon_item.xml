@@ -14,6 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
+            android:maxWidth="250dp"
             android:background="@drawable/background_talk_other"
             android:gravity="start|center_vertical"
             android:linksClickable="true"

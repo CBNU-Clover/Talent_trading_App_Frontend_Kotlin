@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var password:EditText
     lateinit var button:Button
     lateinit var register_button:Button
+    lateinit var login_text:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         password=findViewById(R.id.login_passWord)
         button=findViewById(R.id.Login)
         register_button=findViewById(R.id.register_btn)
+        login_text=findViewById(R.id.login_text)
         id.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -66,15 +69,15 @@ class LoginActivity : AppCompatActivity() {
             val pwStr=password.text.toString()
             if((id.length()==0)&&(password.length()!=0))
             {
-                Toast.makeText(this@LoginActivity, "닉네임을 입력해주세요!!", Toast.LENGTH_SHORT).show()
+                login_text.text="!닉네임을 입력해주세요!"
             }
             else if((id.length()!=0)&&(password.length()==0))
             {
-                Toast.makeText(this@LoginActivity, "비밀번호를 입력해주세요!!", Toast.LENGTH_SHORT).show()
+                login_text.text="!비밀번호를 입력해주세요!"
             }
             else if((id.length()==0)&&(password.length()==0))
             {
-                Toast.makeText(this@LoginActivity, "입력해주세요!!", Toast.LENGTH_SHORT).show()
+                login_text.text="!입력해주세요!"
             }
             else if((id.length()!=0)&&(password.length()!=0))
             {
@@ -89,20 +92,18 @@ class LoginActivity : AppCompatActivity() {
                                 message = response.body().toString()
                                 if(message=="!회원 정보가 없습니다!")
                                 {
-                                    Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+                                    login_text.text=message
                                     id.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.red))
                                 }
                                 else if(message=="!비밀번호가 틀립니다!")
                                 {
-                                    Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+                                    login_text.text=message
                                     password.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.red))
                                 }
                                 else
                                 {
                                     App.prefs.token=message
                                     App.prefs.nickname=loginDTO.nickname
-
-                                    Toast.makeText(this@LoginActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                     finishAffinity()
                                     startActivity(intent)
