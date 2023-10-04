@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="361dp"
-        android:layout_height="65dp"
+        android:layout_height="66dp"
         android:orientation="horizontal">
 
 
@@ -21,7 +22,7 @@
 
         <LinearLayout
             android:layout_width="288dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="7dp"
             android:orientation="vertical">
@@ -49,6 +50,11 @@
 
 
     </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#D9D9D9"/>
 
 
 
