@@ -68,6 +68,7 @@
                     android:layout_height="39dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
+                    android:singleLine="true"
                     android:ems="10"
                     android:fontFamily="@font/pretendard_medium"
                     android:hint=" 제목"

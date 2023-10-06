@@ -76,7 +76,8 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:src="@drawable/boardmain_ic"
+        android:src="@drawable/ic_24"
+        app:tint="@color/white"
         app:backgroundTint="#3DC181"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout" />

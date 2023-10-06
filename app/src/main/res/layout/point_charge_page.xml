@@ -36,10 +36,14 @@
 
         </RelativeLayout>
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
 
         
@@ -55,7 +59,6 @@
             android:textStyle="bold"
             />
 
-        </LinearLayout>
 
 
 
@@ -75,31 +78,34 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="460dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/charge_button"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:text="충전하기"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:background="@drawable/border_green1"
-                android:textStyle="bold" />
+                android:layout_height="80dp"
+                android:layout_marginTop="370dp"
+                android:orientation="vertical">
 
+                <Button
+                    android:id="@+id/charge_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="충전하기"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_green1"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        
-        
-    </LinearLayout>
 
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
