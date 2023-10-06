@@ -20,7 +20,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/backlogin"
+            android:id="@+id/search_backbt"
             android:layout_width="50dp"
             android:layout_height="45dp"
             android:background="@drawable/ic_14"

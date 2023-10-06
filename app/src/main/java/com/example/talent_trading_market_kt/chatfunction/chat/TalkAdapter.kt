@@ -66,5 +66,4 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun addItem(talk: Talk){
         lst.add(talk)
     }
-
 }

@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.MyPageActivity
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
@@ -19,39 +21,22 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Fragment3_Home:Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view=inflater.inflate(R.layout.main_page,container,false)
         val mypage: ImageView =view.findViewById(R.id.mypage)
-        val postSearch= PostSearch()
-        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        val home_search_bt:ImageButton=view.findViewById(R.id.searchButton)
+        val home_search:EditText=view.findViewById(R.id.home_search)
         mypage.setOnClickListener {
             val activity = requireActivity()
             val intent = Intent(activity, MyPageActivity::class.java)
             activity.startActivity(intent)
         }
-        if(service!=null)
-        {
-            service.postsearch(postSearch).enqueue(object : Callback<List<PostSearchResult>> {
-                override fun onResponse(call: Call<List<PostSearchResult>>, response: Response<List<PostSearchResult>>) {
-                    if (response.isSuccessful) {
-                        /*var searchboardList:List<PostSearchResult>;
-                        searchboardList= response.body()!!;
-                        hottrade_view.layoutManager= LinearLayoutManager(requireContext(),
-                            LinearLayoutManager.HORIZONTAL,false)
-                        hottrade_view.setHasFixedSize(true)
-                        hottrade_view.adapter= HotTradeBoardAdapter(searchboardList)
-                        realtime_view.layoutManager= LinearLayoutManager(requireContext(),
-                            LinearLayoutManager.HORIZONTAL,false)
-                        realtime_view.setHasFixedSize(true)
-                        realtime_view.adapter= HotTradeBoardAdapter(searchboardList)*/
-                    }
-                }
-
-                override fun onFailure(call: Call<List<PostSearchResult>?>, t: Throwable) {
-
-                }
-
-            })
+        home_search_bt.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, SearchBoardActivity::class.java)
+            intent.putExtra("home_search",home_search.text.toString())
+            activity.startActivity(intent)
         }
 
 

@@ -4,8 +4,12 @@
       <map>
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/background_talk_mine.xml" value="0.157" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/background_talk_other.xml" value="0.157" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/baseline_account_circle_24.xml" value="0.1645" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/baseline_add_24.xml" value="0.1645" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_darkgray.xml" value="0.157" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_gray.xml" value="0.157" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_green1.xml" value="0.1645" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/border_green2.xml" value="0.1645" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_https_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
@@ -65,7 +69,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/list_talk_item_mine.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/login_page.xml" value="0.176" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/main.xml" value="0.109375" />
-        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/main_page.xml" value="0.128125" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/main_page.xml" value="0.264" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/myboard_read.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/myboardhistory.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/myboardlist_item.xml" value="0.23369565217391305" />
