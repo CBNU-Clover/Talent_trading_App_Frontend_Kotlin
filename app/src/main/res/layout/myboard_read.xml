@@ -249,43 +249,53 @@
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="38dp"
-                    android:layout_marginLeft="18dp"
-                    android:orientation="horizontal">
+                    android:layout_width="361dp"
+                    android:layout_height="99dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/border_gray"
+                    android:layout_marginTop="18dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/myboard_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0"
+                            android:textColor="@color/black"
+                            android:textSize="34dp"/>
+
+                        <RatingBar
+                            android:id="@+id/myrating_av"
+                            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:progressBackgroundTint="#C0C0C0"
+                            android:progressTint="#FFD400"
+                            android:rating="0"
+                            android:stepSize="0.5" />
+
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/myboard_rating"
-                        android:layout_width="wrap_content"
+                        android:layout_width="334dp"
                         android:layout_height="wrap_content"
-                        android:text="0.0"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/pretendard_regular"
+                        android:hint="클로버를 통한 이용자들의 평가 입니다."
                         android:textColor="@color/black"
-                        android:textSize="34dp"/>
-
-                    <RatingBar
-                        android:id="@+id/myrating_av"
-                        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:isIndicator="true"
-                        android:numStars="5"
-                        android:progressBackgroundTint="#C0C0C0"
-                        android:progressTint="#FFD400"
-                        android:rating="0"
-                        android:stepSize="1" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="334dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="3dp"
-                    android:fontFamily="@font/pretendard_regular"
-                    android:hint="클로버를 통한 이용자들의 평가 입니다."
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
 
                 <!--<TextView
                     android:layout_width="match_parent"
