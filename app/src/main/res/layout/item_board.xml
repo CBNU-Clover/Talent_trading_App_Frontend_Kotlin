@@ -17,6 +17,7 @@
 
 
         <ImageView
+            android:id="@+id/board_image"
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:src="@drawable/img_2"

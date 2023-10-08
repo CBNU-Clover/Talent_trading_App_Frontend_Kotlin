@@ -2,9 +2,11 @@
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
@@ -33,6 +35,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
+        holder.board_image.setImageBitmap(boardList.get(position).image?.let { BitmapFactory.decodeByteArray(boardList.get(position).image, 0, it.size) })
     }
 
     override fun getItemCount(): Int {
@@ -44,6 +47,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         val price=itemView.findViewById<TextView>(R.id.all_price)
         val date=itemView.findViewById<TextView>(R.id.all_time)
         val review_size=itemView.findViewById<TextView>(R.id.board_review_size)
+        val board_image=itemView.findViewById<ImageView>(R.id.board_image)
     }
 
 }

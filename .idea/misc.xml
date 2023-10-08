@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/ic_phone.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/round_border.xml" value="0.1" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/round_border2.xml" value="0.1" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/send_background.xml" value="0.1645" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/drawable/square_border.xml" value="0.1575" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_board.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/activity_board_main.xml" value="0.24947916666666667" />
