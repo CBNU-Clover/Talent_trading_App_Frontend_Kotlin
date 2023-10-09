@@ -1,6 +1,5 @@
 package com.example.talent_trading_market_kt.response.postresponse
 
-import java.time.LocalDateTime
 
 class PostSearchResult{
     var id: Long?=null
@@ -10,6 +9,6 @@ class PostSearchResult{
     var price:Long?=null
     var date:String?=null
     var review_size:Long?=null
-    var image:ByteArray?=null
+    //var image:ByteArray?=null
 }
 

@@ -63,16 +63,16 @@ class MakeBoardActivity : AppCompatActivity() {
             postBoardDTO.postName=postname
             postBoardDTO.content=content
             postBoardDTO.price=makeprice
-            if(board_photo1!=null)
+            /*if(board_photo1!=null)
             {
                 val bitmap=(board_photo1.drawable as BitmapDrawable).bitmap
                 val stream=ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
 
                 postImage=stream.toByteArray()
+                postBoardDTO.image=postImage
                 stream.close()
-            }
-            postBoardDTO.image=postImage
+            }*/
             if(service!=null)
             {
                 service.make_board(postBoardDTO).enqueue(object : Callback<Long?> {

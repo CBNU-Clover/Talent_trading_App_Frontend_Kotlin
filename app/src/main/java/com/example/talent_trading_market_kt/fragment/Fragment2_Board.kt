@@ -2,6 +2,7 @@ package com.example.talent_trading_market_kt.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,9 +36,14 @@ class Fragment2_Board:Fragment() {
         {
             service.postsearch(postSearch).enqueue(object : Callback<List<PostSearchResult>> {
                 override fun onResponse(call: Call<List<PostSearchResult>>, response: Response<List<PostSearchResult>>) {
+                    Log.v("Shinhyo", "서버랑 통신은 됨")
                     if (response.isSuccessful) {
                         var searchboardList:List<PostSearchResult>;
                         searchboardList= response.body()!!;
+                       /* for( i in 0 until searchboardList.size)
+                        {
+                            Log.v("Shinhyo", searchboardList.get(i).content.toString())
+                        }*/
                         boards.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.VERTICAL,false)
                         boards.setHasFixedSize(true)
@@ -54,6 +60,7 @@ class Fragment2_Board:Fragment() {
         }
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.v("Shinhyo","board_게시판")
         val view=inflater.inflate(R.layout.allboard,container,false)
         val boardwrite:ImageButton=view.findViewById(R.id.write_button)
         val search_bt:ImageButton=view.findViewById(R.id.search_button)
@@ -70,8 +77,7 @@ class Fragment2_Board:Fragment() {
             activity.startActivity(intent)
         }
 
-        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        val postSearch= PostSearch()
+
         return view
     }
 }

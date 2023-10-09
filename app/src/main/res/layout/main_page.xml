@@ -100,7 +100,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="340dp"
             android:background="@drawable/search_border"
             android:orientation="vertical"
             android:layout_margin="16dp">
@@ -137,8 +137,9 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/realtime_trade"
                 android:layout_width="match_parent"
-                android:layout_height="235dp"
+                android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never" />
 
@@ -147,7 +148,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="340dp"
             android:orientation="vertical"
             android:background="@drawable/search_border"
             android:layout_margin="15dp">
@@ -174,8 +175,9 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hottrade"
                 android:layout_width="match_parent"
-                android:layout_height="235dp"
+                android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never" />
 

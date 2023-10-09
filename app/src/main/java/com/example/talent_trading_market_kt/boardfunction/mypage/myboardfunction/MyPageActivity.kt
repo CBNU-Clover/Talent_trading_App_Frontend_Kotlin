@@ -3,6 +3,7 @@ package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunctio
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.talent_trading_market_kt.R
@@ -15,12 +16,14 @@ class MyPageActivity : AppCompatActivity() {
     lateinit var point_bt:TextView
     lateinit var myboard:TextView
     lateinit var trading_history_bt:TextView
+    lateinit var mypage_backbt: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage)
         point_bt=findViewById(R.id.mypoint_btn)
         myboard=findViewById(R.id.history_btn)
         trading_history_bt=findViewById(R.id.trading_history_bt)
+        mypage_backbt=findViewById(R.id.mypage_backbt)
         //거래기록 버튼
         trading_history_bt.setOnClickListener {
             val intent = Intent(this, TradingHistoryActivity::class.java)
@@ -37,6 +40,9 @@ class MyPageActivity : AppCompatActivity() {
         point_bt.setOnClickListener {
             val intent = Intent(this, MyPointActivity::class.java)
             startActivity(intent)
+        }
+        mypage_backbt.setOnClickListener {
+            finish()
         }
     }
 }

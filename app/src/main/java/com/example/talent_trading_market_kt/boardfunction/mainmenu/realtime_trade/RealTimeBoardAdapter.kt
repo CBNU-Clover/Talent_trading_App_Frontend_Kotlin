@@ -1,6 +1,6 @@
+package com.example.talent_trading_market_kt.boardfunction.mainmenu.realtime_trade
 
-package com.example.talent_trading_market_kt.boardfunction.postsearch
-
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -15,16 +15,16 @@ import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import io.reactivex.Completable.error
 
-class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Adapter<SearchBoardAdapter.CustomViewHolder>()
+class RealTimeBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Adapter<RealTimeBoardAdapter.CustomViewHolder>()
 {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBoardAdapter.CustomViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RealTimeBoardAdapter.CustomViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.item_board,parent,false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
                 val search_boards: PostSearchResult =boardList.get(curPos)
                 val id: Long? =search_boards.id
-                val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
+                val intent=Intent(parent.context, SearchOneBoardActivity::class.java)
                 intent.putExtra("Search_Id",search_boards.id.toString())
                 parent.context.startActivity(intent)
 
@@ -32,22 +32,22 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         }
     }
 
-    override fun onBindViewHolder(holder: SearchBoardAdapter.CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RealTimeBoardAdapter.CustomViewHolder, position: Int) {
         //실질적으로 연결해주는 부분 // 스크롤 내릴때 지속적으로 호출이 되는 곳
         holder.title.text=boardList.get(position).postName
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
-       /* val imageData = boardList[position].image // 비트맵 데이터
+        /* val imageData = boardList[position].image // 비트맵 데이터
 
-        // Glide를 사용하여 비트맵 표시
-        Glide.with(holder.itemView.context)
-            .load(imageData) // 비트맵 데이터를 로드합니다.
-            .into(holder.board_image)*/
+         // Glide를 사용하여 비트맵 표시
+         Glide.with(holder.itemView.context)
+             .load(imageData) // 비트맵 데이터를 로드합니다.
+             .into(holder.board_image)*/
     }
 
     override fun getItemCount(): Int {
-        return boardList.size
+        return minOf(3, boardList.size)
     }
 
     class CustomViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
@@ -55,7 +55,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         val price=itemView.findViewById<TextView>(R.id.all_price)
         val date=itemView.findViewById<TextView>(R.id.all_time)
         val review_size=itemView.findViewById<TextView>(R.id.board_review_size)
-       // val board_image=itemView.findViewById<ImageView>(R.id.board_image)
+        // val board_image=itemView.findViewById<ImageView>(R.id.board_image)
     }
 
 }

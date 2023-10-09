@@ -42,7 +42,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_postprice:TextView
 
     var roomId:Long=0
-    val URL="ws://cloverx.kro.kr:10003/ws/websocket"
+    val URL="ws://192.168.45.174:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
