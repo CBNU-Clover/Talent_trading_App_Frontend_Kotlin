@@ -187,15 +187,21 @@
                         android:layout_marginLeft="22dp"
                         android:background="@drawable/border_gray" />
 
-                    <Button
-                        android:layout_width="57dp"
-                        android:layout_height="57dp"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="57dp"
+                        android:minHeight="57dp"
+                        android:adjustViewBounds="true"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/border_gray" />
 
-                    <Button
-                        android:layout_width="57dp"
-                        android:layout_height="57dp"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="57dp"
+                        android:minHeight="57dp"
+                        android:adjustViewBounds="true"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/border_gray" />
 
