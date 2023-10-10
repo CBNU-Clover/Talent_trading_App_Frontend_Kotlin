@@ -302,6 +302,7 @@
                 android:textSize="15dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/oneboard_reviews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
