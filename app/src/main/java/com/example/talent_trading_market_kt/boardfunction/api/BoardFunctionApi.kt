@@ -1,9 +1,6 @@
 package com.example.talent_trading_market_kt.boardfunction.api
 
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.*
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import retrofit2.Call
@@ -25,4 +22,7 @@ interface BoardFunctionApi{
 
     @GET("/api/vi/boards/read/{postId}")
     fun readPost(@Path("postId") roomId:Long):Call<PostReadResponse>
+
+    @GET("/api/vi/popularPost/all")
+    fun getAllPopularPost():Call<List<PopularPostResponse>>
 }

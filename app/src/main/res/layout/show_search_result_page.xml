@@ -39,7 +39,7 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pretendard_medium"
-            android:background="@null"
+            android:background="@android:color/transparent"
             android:layout_marginLeft="5dp"
             android:layout_gravity="center"
             android:ems="10"

@@ -13,14 +13,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.mainmenu.realtime_trade.RealTimeBoardAdapter
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.MyPageActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.HotTradeBoardAdapter
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardActivity
-import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardAdapter
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PopularPostResponse
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostSearch
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.allboard.*
 import kotlinx.android.synthetic.main.main_page.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,15 +46,15 @@ class Fragment3_Home:Fragment() {
             activity.startActivity(intent)
         }
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
-        val postSearch= PostSearch()
+        val postSearch=PostSearch()
         if(service!=null)
         {
-            service.postsearch(postSearch).enqueue(object : Callback<List<PostSearchResult>> {
-                override fun onResponse(call: Call<List<PostSearchResult>>, response: Response<List<PostSearchResult>>) {
-                    Log.v("Shinhyo", "서버랑 통신은 됨")
+            service.getAllPopularPost().enqueue(object : Callback<List<PopularPostResponse>> {
+                override fun onResponse(call: Call<List<PopularPostResponse>>, response: Response<List<PopularPostResponse>>) {
+                    Log.v("PopularPost", "PopularPost")
                     if (response.isSuccessful) {
-                        var searchboardList:List<PostSearchResult>;
-                        searchboardList= response.body()!!;
+                        var popularPostList:List<PopularPostResponse>;
+                        popularPostList=response.body()!!;
                         /* for( i in 0 until searchboardList.size)
                          {
                              Log.v("Shinhyo", searchboardList.get(i).content.toString())
@@ -62,12 +62,12 @@ class Fragment3_Home:Fragment() {
                         hottrade.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.VERTICAL,false)
                         hottrade.setHasFixedSize(true)
-                        hottrade.adapter= HotTradeBoardAdapter(searchboardList)
+                        hottrade.adapter= HotTradeBoardAdapter(popularPostList)
 
                     }
                 }
 
-                override fun onFailure(call: Call<List<PostSearchResult>?>, t: Throwable) {
+                override fun onFailure(call: Call<List<PopularPostResponse>?>, t: Throwable) {
 
                 }
 
@@ -88,7 +88,7 @@ class Fragment3_Home:Fragment() {
                         realtime_trade.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.VERTICAL,false)
                         realtime_trade.setHasFixedSize(true)
-                        realtime_trade.adapter= HotTradeBoardAdapter(searchboardList)
+                        realtime_trade.adapter=RealTimeBoardAdapter(searchboardList)
 
                     }
                 }

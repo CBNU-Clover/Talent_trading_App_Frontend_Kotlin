@@ -104,7 +104,7 @@ class AllReview  : AppCompatActivity() {
                         var post: PostReadResponse
                         post=response.body()!!
                         rv_title.text=post.postName
-                        rv_price.text=post.price.toString()+"원~"
+                        rv_price.text=post.price.toString()+"원"
                     }
                 }
 

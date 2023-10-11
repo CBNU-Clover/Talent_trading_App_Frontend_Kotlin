@@ -26,30 +26,38 @@ class ChargePointActivity  : AppCompatActivity() {
         val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
 
         charge_button.setOnClickListener {
-            val point_amount=point_amount.text.toString()
-            val chargePointDTO = ChargePointDTO()
-            chargePointDTO.point=point_amount.toLong()
-            if (service != null) {
-                service.charge_point(chargePointDTO).enqueue(object : Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        if (response.isSuccessful) {
-                            Toast.makeText(this@ChargePointActivity, "충전 성공", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@ChargePointActivity, MyPointActivity::class.java)
-                            finish()
-                            startActivity(intent)
+            val point=point_amount.text.toString()
+            if(point_amount.length()!=0)
+            {
+                val chargePointDTO = ChargePointDTO()
+                chargePointDTO.point=point.toLong()
+                if (service != null) {
+                    service.charge_point(chargePointDTO).enqueue(object : Callback<Void> {
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(this@ChargePointActivity, "충전 성공", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@ChargePointActivity, MyPointActivity::class.java)
+                                finish()
+                                startActivity(intent)
+                            }
+                            else
+                            {
+                                Toast.makeText(this@ChargePointActivity, "충전 실패", Toast.LENGTH_SHORT).show()
+                            }
                         }
-                        else
-                        {
-                            Toast.makeText(this@ChargePointActivity, "충전 실패", Toast.LENGTH_SHORT).show()
+
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                            Toast.makeText(this@ChargePointActivity, "다시 충전 버튼을 눌러주세요", Toast.LENGTH_SHORT).show()
                         }
-                    }
 
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                        Toast.makeText(this@ChargePointActivity, "다시 충전 버튼을 눌러주세요", Toast.LENGTH_SHORT).show()
-                    }
-
-                })
+                    })
+                }
             }
+            else
+            {
+                Toast.makeText(this@ChargePointActivity, "금액을 입력해주세요!!", Toast.LENGTH_SHORT).show()
+            }
+
 
 
         }
