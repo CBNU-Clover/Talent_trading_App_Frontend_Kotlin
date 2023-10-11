@@ -6,4 +6,5 @@ class ChattingRoomListDTO {
     val postname:String?=null
     val buyer:String?=null
     val post_price:String?=null
+    val postId:Long?=null
 }

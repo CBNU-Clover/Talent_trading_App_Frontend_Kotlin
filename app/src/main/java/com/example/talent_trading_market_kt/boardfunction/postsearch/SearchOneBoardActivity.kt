@@ -184,6 +184,9 @@ class SearchOneBoardActivity : AppCompatActivity() {
                                                                 "board_price",
                                                                 board_price.text.toString()
                                                             )
+                                                            intent.putExtra(
+                                                                "postId",Id.toString()
+                                                            )
                                                             startActivity(intent)
                                                         }
                                                     }

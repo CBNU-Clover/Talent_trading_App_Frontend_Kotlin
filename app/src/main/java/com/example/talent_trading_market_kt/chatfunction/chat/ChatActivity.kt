@@ -1,8 +1,10 @@
 package com.example.talent_trading_market_kt.chatfunction.chat
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
@@ -10,9 +12,11 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
 import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
 import com.example.talent_trading_market_kt.chatfunction.dto.ChatHistoryDTO
 import com.example.talent_trading_market_kt.databinding.ChatscreenBinding
@@ -40,6 +44,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_person:TextView
     lateinit var chat_postname:TextView
     lateinit var chat_postprice:TextView
+    lateinit var chat_plus_bt:ImageButton
 
     var roomId:Long=0
     val URL="ws://192.168.45.174:8080/ws/websocket"
@@ -60,21 +65,41 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         chat_person=findViewById(R.id.txt_TItle)
         chat_postname=findViewById(R.id.chat_postname)
         chat_postprice=findViewById(R.id.textView)
+        chat_plus_bt=findViewById(R.id.chatplus)
         var seller:String
         var postname:String
         var postprice:String
+        var Id:Long
+        roomId= intent.getStringExtra("roomId").toString().toLong()
+        seller= intent.getStringExtra("seller").toString()
+        postname= intent.getStringExtra("board_name").toString()
+        postprice=intent.getStringExtra("board_price").toString()
+        Id=intent.getStringExtra("postId").toString().toLong()
+        chat_person.text=seller
+        chat_postname.text=postname
+        chat_postprice.text=postprice
+
+
+       chat_postname.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val intent=Intent(this@ChatActivity, SearchOneBoardActivity::class.java)
+                intent.putExtra("Search_Id",Id.toString())
+                startActivity(intent)
+
+            }
+        })
+
+
 
         chat_backbt.setOnClickListener {
             finish()
         }
 
-        roomId= intent.getStringExtra("roomId").toString().toLong()
-        seller= intent.getStringExtra("seller").toString()
-        postname= intent.getStringExtra("board_name").toString()
-        postprice=intent.getStringExtra("board_price").toString()
-        chat_person.text=seller
-        chat_postname.text=postname
-        chat_postprice.text=postprice
+        chat_plus_bt.setOnClickListener {
+
+        }
+
+
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
         binding.chat.setHasFixedSize(false)
@@ -155,6 +180,41 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
     override fun onClick(view: View?) {
+        when(view?.id)
+        {
+            R.id.chatplus->{
+                val jsonObject = JSONObject()
+                jsonObject.put("type", "TRADING_REQUEST")
+                jsonObject.put("sender", App.prefs.nickname)
+                jsonObject.put("roomId", roomId)
+                jsonObject.put("content", s)
+
+                val calendar = Calendar.getInstance()
+                val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
+                var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+                if(hour>12)
+                {
+                    hour=hour-12
+                }
+                val minute = calendar.get(Calendar.MINUTE)
+                if(minute<10)
+                {
+                    val formattedTime = "$amOrPm $hour:0$minute"
+                    jsonObject.put("date", formattedTime)
+
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"trading_request")
+                }
+                else
+                {
+                    val formattedTime = "$amOrPm $hour:$minute"
+                    jsonObject.put("date", formattedTime)
+
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"trading_request")
+                }
+            }
+        }
         when(view?.id){
             R.id.submit_talk->{
                 val jsonObject = JSONObject()
@@ -190,6 +250,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
             }
         }
     }
+
 
     override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
 

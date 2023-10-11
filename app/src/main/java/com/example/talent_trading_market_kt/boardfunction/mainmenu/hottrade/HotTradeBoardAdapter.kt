@@ -2,27 +2,22 @@
 package com.example.talent_trading_market_kt.boardfunction.postsearch
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
-import io.reactivex.Completable.error
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PopularPostResponse
 
-class HotTradeBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Adapter<HotTradeBoardAdapter.CustomViewHolder>()
+class HotTradeBoardAdapter(var boardList: List<PopularPostResponse>): RecyclerView.Adapter<HotTradeBoardAdapter.CustomViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotTradeBoardAdapter.CustomViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.item_board,parent,false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
-                val search_boards: PostSearchResult =boardList.get(curPos)
+                val search_boards:PopularPostResponse =boardList.get(curPos)
                 val id: Long? =search_boards.id
                 val intent=Intent(parent.context,SearchOneBoardActivity::class.java)
                 intent.putExtra("Search_Id",search_boards.id.toString())
