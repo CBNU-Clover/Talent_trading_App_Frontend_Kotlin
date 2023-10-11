@@ -8,6 +8,7 @@ import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.databinding.LeftBalloonItemBinding
 import com.example.talent_trading_market_kt.databinding.RightBalloonItemBinding
 import com.example.talent_trading_market_kt.databinding.SendBinding
+import com.example.talent_trading_market_kt.retrofit.App
 
 
 class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -56,8 +57,9 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         else if (holder is TradingRequestViewHolder)
         {
-            holder.binding.finalPriceRequest.text=lst[position].talkContent
-            holder.binding.finalPriceRequestContent.text=lst[position].talkContent
+            holder.binding.finalPriceRequest.text=lst[position].talkContent+" 송금요청"
+            holder.binding.finalPriceRequestContent.text= App.Companion.prefs.nickname+"님이 "+lst[position].talkContent+"을 \n송금 요청했어요."
+
         }
     }
 

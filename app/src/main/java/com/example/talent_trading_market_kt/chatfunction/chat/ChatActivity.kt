@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -47,7 +48,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_plus_bt:ImageButton
 
     var roomId:Long=0
-    val URL="ws://192.168.45.174:8080/ws/websocket"
+    val URL="ws://192.168.45.42:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -96,6 +97,37 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         }
 
         chat_plus_bt.setOnClickListener {
+            Log.v("송금","들어왔어")
+            val jsonObject = JSONObject()
+            jsonObject.put("type", "TRADING_REQUEST")
+            jsonObject.put("sender", App.prefs.nickname)
+            jsonObject.put("roomId", roomId)
+            jsonObject.put("content", s)
+
+            val calendar = Calendar.getInstance()
+            val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
+            var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+            if(hour>12)
+            {
+                hour=hour-12
+            }
+            val minute = calendar.get(Calendar.MINUTE)
+            if(minute<10)
+            {
+                val formattedTime = "$amOrPm $hour:0$minute"
+                jsonObject.put("date", formattedTime)
+
+                stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request")
+            }
+            else
+            {
+                val formattedTime = "$amOrPm $hour:$minute"
+                jsonObject.put("date", formattedTime)
+
+                stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request")
+            }
 
         }
 
@@ -180,41 +212,6 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
     override fun onClick(view: View?) {
-        when(view?.id)
-        {
-            R.id.chatplus->{
-                val jsonObject = JSONObject()
-                jsonObject.put("type", "TRADING_REQUEST")
-                jsonObject.put("sender", App.prefs.nickname)
-                jsonObject.put("roomId", roomId)
-                jsonObject.put("content", s)
-
-                val calendar = Calendar.getInstance()
-                val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
-                var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
-                if(hour>12)
-                {
-                    hour=hour-12
-                }
-                val minute = calendar.get(Calendar.MINUTE)
-                if(minute<10)
-                {
-                    val formattedTime = "$amOrPm $hour:0$minute"
-                    jsonObject.put("date", formattedTime)
-
-                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                    submitTalk(s,formattedTime,"trading_request")
-                }
-                else
-                {
-                    val formattedTime = "$amOrPm $hour:$minute"
-                    jsonObject.put("date", formattedTime)
-
-                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                    submitTalk(s,formattedTime,"trading_request")
-                }
-            }
-        }
         when(view?.id){
             R.id.submit_talk->{
                 val jsonObject = JSONObject()
