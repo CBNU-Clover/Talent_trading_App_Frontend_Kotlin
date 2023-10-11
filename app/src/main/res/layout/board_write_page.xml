@@ -14,7 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="62dp">
 
 
             <ImageButton
@@ -38,6 +38,12 @@
             </TextView>
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="9dp"
+            android:background="#917B7B" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -114,10 +120,9 @@
 
                 <EditText
                     android:id="@+id/content"
-                    android:layout_width="361dp"
+                    android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
                     android:background="@drawable/border_gray"
                     android:fontFamily="@font/pretendard_medium"
                     android:gravity="top"

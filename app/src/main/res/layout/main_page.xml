@@ -21,7 +21,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="99dp">
+            android:layout_height="82dp">
 
             <ImageView
                 android:layout_width="147dp"
@@ -41,8 +41,8 @@
                 android:layout_height="24dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="52dp"
-                android:layout_marginEnd="71dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="69dp"
                 app:srcCompat="@drawable/ic_29"
                 app:tint="#A6A6A6" />
 
@@ -55,7 +55,7 @@
                 android:layout_marginTop="-25dp"
                 android:layout_marginEnd="27dp"
                 app:srcCompat="@drawable/ic_12"
-                app:tint="#A6A6A6"/>
+                app:tint="#A6A6A6" />
 
 
         </RelativeLayout>

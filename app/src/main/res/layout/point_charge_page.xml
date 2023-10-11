@@ -74,6 +74,7 @@
             android:fontFamily="@font/pretendard_semibold"
             android:hint="  00000"
             android:textColorHint="#C7C7C7"
+            android:paddingLeft="5dp"
             android:layout_marginTop="13dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
