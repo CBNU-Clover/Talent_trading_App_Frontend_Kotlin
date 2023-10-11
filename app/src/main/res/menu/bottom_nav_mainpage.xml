@@ -3,10 +3,10 @@
 
     <item android:title="랭킹"
         android:id="@+id/ranking"
-        android:icon="@drawable/ic_13"/>
+        android:icon="@drawable/ic_31"/>
     <item android:title="거래 게시판"
         android:id="@+id/board_menu"
-        android:icon="@drawable/ic_20"/>
+        android:icon="@drawable/ic_32"/>
     <item android:title="홈"
         android:id="@+id/home"
         android:icon="@drawable/ic_01"/>

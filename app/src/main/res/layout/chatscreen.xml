@@ -31,12 +31,13 @@
             android:id="@+id/txt_TItle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/pretendard_semibold"
             android:text="닉네임00"
             android:textColor="@color/black"
             android:textSize="23dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
