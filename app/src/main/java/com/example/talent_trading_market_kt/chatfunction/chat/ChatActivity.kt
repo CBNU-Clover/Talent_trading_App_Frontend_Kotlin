@@ -1,19 +1,16 @@
 package com.example.talent_trading_market_kt.chatfunction.chat
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talent_trading_market_kt.R
@@ -26,12 +23,12 @@ import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.gmail.bishoybasily.stomp.lib.Event
 import com.gmail.bishoybasily.stomp.lib.StompClient
 import io.reactivex.disposables.Disposable
+import kotlinx.android.synthetic.main.chatscreen.view.*
 import okhttp3.OkHttpClient
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.security.AccessController.getContext
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -46,6 +43,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_postname:TextView
     lateinit var chat_postprice:TextView
     lateinit var chat_plus_bt:ImageButton
+    lateinit var container:FrameLayout
 
     var roomId:Long=0
     val URL="ws://192.168.45.42:8080/ws/websocket"
@@ -70,12 +68,12 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         var seller:String
         var postname:String
         var postprice:String
-        var Id:Long
+        var postId:Long
         roomId= intent.getStringExtra("roomId").toString().toLong()
         seller= intent.getStringExtra("seller").toString()
         postname= intent.getStringExtra("board_name").toString()
         postprice=intent.getStringExtra("board_price").toString()
-        Id=intent.getStringExtra("postId").toString().toLong()
+        postId=intent.getStringExtra("postId").toString().toLong()
         chat_person.text=seller
         chat_postname.text=postname
         chat_postprice.text=postprice
@@ -84,7 +82,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
        chat_postname.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent=Intent(this@ChatActivity, SearchOneBoardActivity::class.java)
-                intent.putExtra("Search_Id",Id.toString())
+                intent.putExtra("Search_Id",postId.toString())
                 startActivity(intent)
 
             }
@@ -97,7 +95,52 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         }
 
         chat_plus_bt.setOnClickListener {
-            Log.v("송금","들어왔어")
+            val dialogView: View = LayoutInflater.from(this).inflate(R.layout.chatplus, null)
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder.setView(dialogView)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+           /* val chatPlusLayout = findViewById<ConstraintLayout>(R.id.chatplus_Id) // chatplus의 실제 ID를 사용
+            chatPlusLayout.visibility = View.VISIBLE // chatplus 레이아웃을 화면에 표시*/
+            val gopaybt = dialogView.findViewById<ImageView>(R.id.imageView6)
+
+// chatPlusButton에 클릭 리스너를 설정하거나 다른 작업을 수행합니다.
+            gopaybt.setOnClickListener {
+                // 클릭 이벤트 처리
+                val jsonObject = JSONObject()
+                s=chat_postprice.text.toString()
+                jsonObject.put("type", "TRADING_REQUEST")
+                jsonObject.put("sender", App.prefs.nickname)
+                jsonObject.put("roomId", roomId)
+                jsonObject.put("content", s)
+
+                val calendar = Calendar.getInstance()
+                val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
+                var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+                if(hour>12)
+                {
+                    hour=hour-12
+                }
+                val minute = calendar.get(Calendar.MINUTE)
+                if(minute<10)
+                {
+                    val formattedTime = "$amOrPm $hour:0$minute"
+                    jsonObject.put("date", formattedTime)
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    dialog.dismiss()
+                    submitTalk(s,formattedTime,"trading_request",postId)
+                }
+                else
+                {
+                    val formattedTime = "$amOrPm $hour:$minute"
+                    jsonObject.put("date", formattedTime)
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    dialog.dismiss()
+                    submitTalk(s,formattedTime,"trading_request",postId)
+                }
+            }
+        }
+           /* Log.v("송금","들어왔어")
             val jsonObject = JSONObject()
             jsonObject.put("type", "TRADING_REQUEST")
             jsonObject.put("sender", App.prefs.nickname)
@@ -118,7 +161,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 jsonObject.put("date", formattedTime)
 
                 stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request")
+                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request",postId)
             }
             else
             {
@@ -126,12 +169,9 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 jsonObject.put("date", formattedTime)
 
                 stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request")
+                submitTalk(chat_postprice.text.toString(),formattedTime,"trading_request",postId)
             }
-
-        }
-
-
+*/
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
         binding.chat.setHasFixedSize(false)
@@ -147,9 +187,9 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                             val content = chatHistoryDTO.content
                             val date=chatHistoryDTO.date
                             val talk = if (sender !=App.prefs.nickname) {
-                                Talk(content.toString(),date.toString(),"left")
+                                Talk(content.toString(),date.toString(),"left",postId)
                             } else {
-                                Talk(content.toString(),date.toString(), "right")
+                                Talk(content.toString(),date.toString(), "right",postId)
                             }
                             talkAdapter.addItem(talk)
                         }
@@ -177,7 +217,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                             val date=JSONObject(it).get("date")
                             if(sender!=App.prefs.nickname)
                             {
-                              val talk= Talk(content.toString(), date.toString(),"left")
+                              val talk= Talk(content.toString(), date.toString(),"left",postId)
 
                                 runOnUiThread{
                                     talkAdapter.addItem(talk)
@@ -212,6 +252,8 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
     override fun onClick(view: View?) {
+        var postId:Long
+        postId=intent.getStringExtra("postId").toString().toLong()
         when(view?.id){
             R.id.submit_talk->{
                 val jsonObject = JSONObject()
@@ -234,7 +276,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     jsonObject.put("date", formattedTime)
 
                     stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                    submitTalk(s,formattedTime,"right")
+                    submitTalk(s,formattedTime,"right",postId)
                 }
                 else
                 {
@@ -242,7 +284,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     jsonObject.put("date", formattedTime)
 
                     stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
-                    submitTalk(s,formattedTime,"right")
+                    submitTalk(s,formattedTime,"right",postId)
                 }
             }
         }
@@ -262,8 +304,8 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     }
 
-    fun submitTalk(content:String,date:String,type:String) {
-        val talk= Talk(content,date,type)
+    fun submitTalk(content:String,date:String,type:String,postId:Long) {
+        val talk= Talk(content,date,type,postId)
         talkAdapter.addItem(talk)
         binding.chat.smoothScrollToPosition(talkAdapter.lst.size-1)
         talkAdapter.notifyItemChanged(talkAdapter.lst.size-1)

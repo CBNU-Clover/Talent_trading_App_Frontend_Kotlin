@@ -19,9 +19,6 @@
             android:name=".tradingfunction.trading_history.TradingHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".boardfunction.mainmenu.hottrade.HotTradeOneBoardActivity"
-            android:exported="false" />
-        <activity
             android:name=".reviewfunction.makereview.ReviewWrite"
             android:exported="false" />
         <activity
@@ -59,6 +56,9 @@
             android:exported="false" />
         <activity
             android:name=".boardfunction.board_page.board_page_main.BoardMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payfunction.PayMentActivity"
             android:exported="false" />
         <activity
             android:name=".memberfunction.login.LoginActivity"

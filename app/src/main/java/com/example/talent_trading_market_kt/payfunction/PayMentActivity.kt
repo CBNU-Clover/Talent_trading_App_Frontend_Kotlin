@@ -1,134 +1,100 @@
 package com.example.talent_trading_market_kt.payfunction
 
-import android.content.DialogInterface
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradePost
-import com.example.talent_trading_market_kt.dto.tradefunctiondto.TradingFunctionApi
-import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
-import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
+import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
+import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
-import kotlinx.android.synthetic.main.payment_page.*
+import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-/*
+
+
 class PayMentActivity : AppCompatActivity() {
-    lateinit var payment:Button
-    lateinit var pay_title:TextView
-    lateinit var current_point:TextView
-    lateinit var final_point:TextView
-    lateinit var pay_content:TextView
-    lateinit var backbt_payment:ImageButton
-    var flag:Int=0;
+    lateinit var paypost_name: TextView
+    lateinit var paypost_money: TextView
+    lateinit var pay_seller: TextView
+    lateinit var seller_star: TextView
+    lateinit var pay_money: TextView
+    lateinit var paytotal_money: TextView
+    lateinit var payfinal_money: TextView
+    lateinit var backbt_pay:ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.payment_page)
-        payment=findViewById(R.id.payment)
-        pay_title=findViewById(R.id.pay_title)
-        current_point=findViewById(R.id.current_point)
-        final_point=findViewById(R.id.final_point)
-        pay_content=findViewById(R.id.pay_content)
-        backbt_payment=findViewById(R.id.backbt_payment)
-        backbt_payment.setOnClickListener {
+        var postId: Long
+        postId = intent.getStringExtra("postId").toString().toLong()
+        paypost_name = findViewById(R.id.paypost_name)
+        paypost_money = findViewById(R.id.paypost_money)
+        pay_seller = findViewById(R.id.pay_seller)
+        seller_star = findViewById(R.id.seller_star)
+        pay_money = findViewById(R.id.pay_money)
+        paytotal_money = findViewById(R.id.paytotal_money)
+        payfinal_money = findViewById(R.id.payfinal_money)
+        backbt_pay=findViewById(R.id.backbt_payment)
+
+        backbt_pay.setOnClickListener {
             finish()
         }
-        if(intent.hasExtra("pay_content"))
-        {
-            pay_content.text=intent.getStringExtra("pay_content")
+        paypost_name.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val intent= Intent(this@PayMentActivity, SearchOneBoardActivity::class.java)
+                intent.putExtra("Search_Id",postId.toString())
+                startActivity(intent)
 
-        }
-        if(intent.hasExtra("pay_title"))
-        {
-            pay_title.text=intent.getStringExtra("pay_title")
-
-        }
-        if(intent.hasExtra("pay_price"))
-        {
-
-          *//*  board_final_price.text=intent.getStringExtra("pay_price")*//*
-
-        }
-        val service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
-        if (service != null) {
-            service.show_point().enqueue(object : Callback<ShowPointDTO> {
-                override fun onResponse(call: Call<ShowPointDTO>, response: Response<ShowPointDTO>) {
+            }
+        })
+        val boardservice = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        if (boardservice != null) {
+            boardservice.readPost(postId).enqueue(object : Callback<PostReadResponse> {
+                override fun onResponse(
+                    call: Call<PostReadResponse>,
+                    response: Response<PostReadResponse>
+                ) {
                     if (response.isSuccessful) {
-                        var result:Long
-                        var showPointDTO= ShowPointDTO()
-                        showPointDTO= response.body()!!
-                        current_point.text= showPointDTO.point.toString()+"원"
-                        val boardFinalPriceString = board_final_price.text.toString().replace("원", "")
-                        val boardFinalPriceLong= boardFinalPriceString.toLongOrNull()
-                        if (boardFinalPriceLong != null) {
-                            result= showPointDTO.point!! - boardFinalPriceLong
-                            final_point.text = result.toString() + "원"
-                        } else {
-
-                            // 문자열을 Long으로 변환할 수 없는 경우에 대한 처리
-                        }
-                        if(showPointDTO.point!!>= boardFinalPriceLong!!)
-                        {
-                            flag=1;
-                        }
+                        var post: PostReadResponse
+                        post = response.body()!!
+                        pay_seller.text = post.writerNickname
+                        paypost_name.text = post.postName
+                        paypost_money.text = post.price.toString()
+                        pay_money.text = post.price.toString() + "원"
+                        paytotal_money.text = post.price.toString() + "원"
+                        payfinal_money.text = post.price.toString() + "원"
                     }
                 }
 
-                override fun onFailure(call: Call<ShowPointDTO>, t: Throwable) {
+                override fun onFailure(call: Call<PostReadResponse?>, t: Throwable) {
+
                 }
 
             })
         }
-
-
-
-        payment.setOnClickListener {
-            if(flag==1)
-            {
-                val builder = AlertDialog.Builder(this)
-                builder
-                    .setTitle("알림")
-                    .setMessage("거래를 진행하겠습니까?")
-                    .setPositiveButton("진행",
-                        DialogInterface.OnClickListener { dialog, id ->
-                val service = RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
-                var tradePost=TradePost()
-                tradePost.tradePost_id= intent.getStringExtra("pay_Id")?.toLong()
-                if (service != null) {
-                    service.trade(tradePost).enqueue(object : Callback<Void> {
-                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                            if (response.isSuccessful) {
-                                Toast.makeText(this@PayMentActivity, "거래 완료", Toast.LENGTH_SHORT).show()
-                                finish()
-
-                            }
-                        }
-
-                        override fun onFailure(call: Call<Void>, t: Throwable) {
-                        }
-
-                    })
+        val service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
+        if (service != null) {
+            service.getPostAvg(postId).enqueue(object : Callback<Double> {
+                override fun onResponse(call: Call<Double>, response: Response<Double>) {
+                    if (response.isSuccessful) {
+                        var rating_av: Double
+                        rating_av = response.body()!!
+                        val formattedRating = String.format("%.1f", rating_av)
+                        seller_star.text = formattedRating
+                    }
                 }
-                        })
-                    .setNegativeButton("취소",
-                        DialogInterface.OnClickListener { dialog, id ->
-                        })
-                builder.create()
-                builder.show()
-            }
-            else if(flag==0)
-            {
-                Toast.makeText(this@PayMentActivity, "잔액이 부족합니다", Toast.LENGTH_SHORT).show()
-            }
 
+                override fun onFailure(call: Call<Double?>, t: Throwable) {
 
-            //결제가 이루어진다.
+                }
+
+            })
+
         }
     }
-}*/
+}

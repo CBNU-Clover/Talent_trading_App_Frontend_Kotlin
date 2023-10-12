@@ -1,14 +1,19 @@
 package com.example.talent_trading_market_kt.chatfunction.chat
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
 import com.example.talent_trading_market_kt.databinding.LeftBalloonItemBinding
 import com.example.talent_trading_market_kt.databinding.RightBalloonItemBinding
 import com.example.talent_trading_market_kt.databinding.SendBinding
+import com.example.talent_trading_market_kt.payfunction.PayMentActivity
 import com.example.talent_trading_market_kt.retrofit.App
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -83,8 +88,16 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class RightViewHolder(val binding:RightBalloonItemBinding)
         :RecyclerView.ViewHolder(binding.root){
     }
+
     inner class TradingRequestViewHolder(val binding:SendBinding)
         :RecyclerView.ViewHolder(binding.root){
+            init {
+                binding.goPayment.setOnClickListener {
+                    val intent= Intent(binding.root.context, PayMentActivity::class.java)
+                    intent.putExtra("postId", lst[adapterPosition].postId.toString())
+                    binding.root.context.startActivity(intent)
+                }
+            }
     }
 
     fun addItem(talk: Talk){
