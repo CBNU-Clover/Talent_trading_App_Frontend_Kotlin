@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="binding"
+            type="com.example.talent_trading_market_kt.chatfunction.chat.TalkAdapter" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="203dp"
+        android:layout_height="100dp"
+        android:background="@drawable/send_background"
+        android:orientation="vertical"
+        android:padding="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="송금 요청!!"
+            android:textColor="#3DC181"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/right_finalPriceRequestContent"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="닉네임00님이 200,000원을 송금 요청했어요."
+            android:textColor="#757575"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="203dp"
+        android:layout_height="25dp"
+        android:background="@drawable/send_background2"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/go_payment_right"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/pretendard_medium"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/send_right_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전 10:23"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

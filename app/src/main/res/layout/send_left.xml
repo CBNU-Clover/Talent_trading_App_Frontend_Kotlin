@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="binding"
+            type="com.example.talent_trading_market_kt.chatfunction.chat.TalkAdapter" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +29,7 @@
             app:layout_constraintVertical_bias="0.0">
 
             <TextView
-                android:id="@+id/go_payment"
+                android:id="@+id/go_payment_left"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_gravity="center"
@@ -50,6 +56,7 @@
             app:layout_constraintVertical_bias="0.0">
 
             <TextView
+                android:id="@+id/left_final_price_request"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -58,6 +65,7 @@
                 android:textSize="14dp" />
 
             <TextView
+                android:id="@+id/left_finalPriceRequestContent"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginTop="14dp"
@@ -70,10 +78,11 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/send_left_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오전 10:23"
-            android:textSize="12dp"
+            android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/linearLayout2" />
 

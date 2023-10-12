@@ -5,4 +5,5 @@ class ChatHistoryDTO {
     val sender: String? = null
     val content: String? = null
     val date: String? = null
+    val type:String?=null
 }
