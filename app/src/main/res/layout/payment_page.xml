@@ -61,7 +61,7 @@
 
 
                 <TextView
-                    android:id="@+id/pay_title"
+                    android:id="@+id/paypost_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -72,6 +72,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/paypost_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100,000원"
@@ -121,6 +122,7 @@
 
 
                 <TextView
+                    android:id="@+id/pay_seller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -131,12 +133,13 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/seller_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/pretendard_semibold"
-                    android:text="4.9"
+                    android:text="0.0"
                     android:textColor="#8D8D8D"
                     android:textSize="15dp" />
 
@@ -184,6 +187,7 @@
                     android:textColor="#5C5C5C"
                     android:textSize="15dp" />
                 <TextView
+                    android:id="@+id/pay_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="195dp"
@@ -209,9 +213,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="195dp"
+                        android:layout_marginLeft="237dp"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="34,000원"
+                        android:text="0원"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
 
@@ -239,6 +243,7 @@
                         android:textColor="@color/black"
                         android:textSize="15dp" />
                     <TextView
+                        android:id="@+id/paytotal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="179dp"
@@ -277,6 +282,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:id="@+id/payfinal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="150dp"

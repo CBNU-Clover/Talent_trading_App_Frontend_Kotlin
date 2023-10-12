@@ -36,8 +36,9 @@ class Fragment2_Board:Fragment() {
         {
             service.postsearch(postSearch).enqueue(object : Callback<List<PostSearchResult>> {
                 override fun onResponse(call: Call<List<PostSearchResult>>, response: Response<List<PostSearchResult>>) {
-                    Log.v("Shinhyo", "서버랑 통신은 됨")
+                    Log.v("이미지", "서버랑 통신은 됨")
                     if (response.isSuccessful) {
+                        Log.v("이미지", "들어왔니?")
                         var searchboardList:List<PostSearchResult>;
                         searchboardList= response.body()!!;
                        /* for( i in 0 until searchboardList.size)
