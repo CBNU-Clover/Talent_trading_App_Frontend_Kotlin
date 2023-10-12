@@ -162,10 +162,10 @@
         android:layout_marginLeft="2dp"
         android:layout_marginBottom="4dp"/>
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="2px"-->
-<!--            android:background="#D9D9D9"/>-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#917B7B" />
 
 
     </LinearLayout>

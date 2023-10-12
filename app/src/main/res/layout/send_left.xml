@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="binding"
-            type="com.example.talent_trading_market_kt.chatfunction.chat.TalkAdapter" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,13 +44,12 @@
             android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
             <TextView
-                android:id="@+id/final_price_request"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -65,7 +58,6 @@
                 android:textSize="14dp" />
 
             <TextView
-                android:id="@+id/final_price_request_content"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginTop="14dp"
@@ -82,8 +74,8 @@
             android:layout_height="wrap_content"
             android:text="오전 10:23"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout2" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -21,7 +21,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="82dp">
+            android:layout_height="70dp">
 
             <ImageView
                 android:layout_width="147dp"
@@ -41,8 +41,8 @@
                 android:layout_height="24dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="69dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="70dp"
                 app:srcCompat="@drawable/ic_29"
                 app:tint="#A6A6A6" />
 
@@ -65,7 +65,8 @@
             android:layout_height="45dp"
             android:background="@drawable/search_border"
             android:orientation="horizontal"
-            android:layout_margin="15dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,7 +101,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="340dp"
+            android:layout_height="300dp"
             android:background="@drawable/search_border"
             android:orientation="vertical"
             android:layout_margin="16dp">
