@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:fontFamily="@font/pretendard_medium"
-                android:text="200,000원 송금요청"
+                android:text="200,000원 거래요청"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
 
@@ -70,7 +70,7 @@
                 android:layout_height="36dp"
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="닉네임00님이 200,000원을 송금 요청했어요."
+                android:text="닉네임00님이 200,000원을 거래 요청했어요."
                 android:textColor="#757575"
                 android:textSize="14dp" />
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:text="오전 10:23"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

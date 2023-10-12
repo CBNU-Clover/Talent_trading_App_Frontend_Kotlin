@@ -28,7 +28,7 @@
             android:text="거래 완료!"
             android:textColor="#3DC181"
             android:textSize="20dp" />
-
+<!--
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="17dp"
@@ -36,7 +36,7 @@
             android:fontFamily="@font/pretendard_medium"
             android:text="200,000원 송금요청"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="14dp" />-->
 
         <TextView
             android:layout_width="wrap_content"
