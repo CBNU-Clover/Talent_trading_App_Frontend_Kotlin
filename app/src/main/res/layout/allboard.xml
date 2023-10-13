@@ -15,7 +15,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="60dp"
+            android:background="@drawable/boardread_profile">
 
 
             <TextView
@@ -53,11 +54,11 @@
 
 
         </RelativeLayout>
-        <View
+        <!--<View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#917B7B" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
