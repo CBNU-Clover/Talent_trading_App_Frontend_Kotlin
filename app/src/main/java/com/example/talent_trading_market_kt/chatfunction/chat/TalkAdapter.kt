@@ -7,9 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
-import com.example.talent_trading_market_kt.databinding.LeftBalloonItemBinding
-import com.example.talent_trading_market_kt.databinding.RightBalloonItemBinding
-import com.example.talent_trading_market_kt.databinding.SendBinding
+import com.example.talent_trading_market_kt.databinding.*
 import com.example.talent_trading_market_kt.payfunction.PayMentActivity
 import com.example.talent_trading_market_kt.retrofit.App
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -20,10 +18,12 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val lst = mutableListOf<Talk>()
     val LEFT_TALK =0
     val RIGHT_TALK =1
-    val TRADING_REQUEST=2
+    val TRADING_REQUEST_RIGHT=2
+    val TRADING_REQUEST_LEFT=3
     private lateinit var leftBalloonBinding: LeftBalloonItemBinding
     private lateinit var rightBalloonBinding: RightBalloonItemBinding
-    private lateinit var sendBinding:SendBinding
+    private lateinit var sendRightBinding: SendRightBinding
+    private lateinit var sendLeftBinding: SendLeftBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
@@ -37,9 +37,13 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 rightBalloonBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.right_balloon_item,parent,false)
                 RightViewHolder(rightBalloonBinding)
             }
-            TRADING_REQUEST->{
-                sendBinding=DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.send,parent,false)
-                TradingRequestViewHolder(sendBinding)
+            TRADING_REQUEST_RIGHT->{
+                sendRightBinding=DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.send_right,parent,false)
+                TradingRequestRightViewHolder(sendRightBinding)
+            }
+            TRADING_REQUEST_LEFT->{
+                sendLeftBinding=DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.send_left,parent,false)
+                TradingRequestLeftViewHolder(sendLeftBinding)
             }
             else->{
                 throw RuntimeException("알 수 없는 viewtype error")
@@ -60,11 +64,16 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             holder.binding.rightTalk.text = lst[position].talkContent
             holder.binding.rightDate.text=lst[position].talkdate
         }
-        else if (holder is TradingRequestViewHolder)
+        else if (holder is TradingRequestRightViewHolder)
         {
-            holder.binding.finalPriceRequest.text=lst[position].talkContent+" 송금요청"
-            holder.binding.finalPriceRequestContent.text= App.Companion.prefs.nickname+"님이 "+lst[position].talkContent+"을 \n송금 요청했어요."
-
+            holder.binding.rightFinalPriceRequestContent.text=lst[position].talkContent+"을 보내주세요!"
+            holder.binding.sendRightDate.text=lst[position].talkdate
+        }
+        else if( holder is TradingRequestLeftViewHolder)
+        {
+            holder.binding.leftFinalPriceRequest.text=lst[position].talkContent+" 송금요청"
+            holder.binding.leftFinalPriceRequestContent.text= lst[position].sender+"님이 "+lst[position].talkContent+"을 \n송금 요청했어요."
+            holder.binding.sendLeftDate.text=lst[position].talkdate
         }
     }
 
@@ -73,8 +82,10 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             return LEFT_TALK
         } else if (lst[position].type == "right") {
             return RIGHT_TALK
-        } else if (lst[position].type == "trading_request") {
-            return TRADING_REQUEST
+        } else if (lst[position].type == "trading_request_right") {
+            return TRADING_REQUEST_RIGHT
+        } else if (lst[position].type == "trading_request_left") {
+            return TRADING_REQUEST_LEFT
         } else {
             return super.getItemViewType(position) // 누락된 경우 기본값 반환
         }
@@ -89,15 +100,19 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         :RecyclerView.ViewHolder(binding.root){
     }
 
-    inner class TradingRequestViewHolder(val binding:SendBinding)
+    inner class TradingRequestRightViewHolder(val binding:SendRightBinding)
         :RecyclerView.ViewHolder(binding.root){
-            init {
-                binding.goPayment.setOnClickListener {
-                    val intent= Intent(binding.root.context, PayMentActivity::class.java)
-                    intent.putExtra("postId", lst[adapterPosition].postId.toString())
-                    binding.root.context.startActivity(intent)
-                }
+
+    }
+    inner class TradingRequestLeftViewHolder(val binding:SendLeftBinding)
+        :RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.goPaymentLeft.setOnClickListener {
+                val intent= Intent(binding.root.context, PayMentActivity::class.java)
+                intent.putExtra("postId", lst[adapterPosition].postId.toString())
+                binding.root.context.startActivity(intent)
             }
+        }
     }
 
     fun addItem(talk: Talk){
