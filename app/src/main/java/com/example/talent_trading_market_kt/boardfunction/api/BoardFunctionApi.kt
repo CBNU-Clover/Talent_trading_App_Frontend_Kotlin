@@ -25,4 +25,8 @@ interface BoardFunctionApi{
 
     @GET("/api/vi/popularPost/all")
     fun getAllPopularPost():Call<List<PopularPostResponse>>
+
+    @GET("/api/vi/image/image/{imageId}")
+    fun imagetest(@Path("imageId")imageId:Long):Call<ByteArray>
+
 }

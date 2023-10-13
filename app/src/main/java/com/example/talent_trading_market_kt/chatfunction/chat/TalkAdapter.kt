@@ -6,12 +6,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talent_trading_market_kt.R
-import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
 import com.example.talent_trading_market_kt.databinding.*
 import com.example.talent_trading_market_kt.payfunction.PayMentActivity
-import com.example.talent_trading_market_kt.retrofit.App
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -41,10 +41,6 @@ class Fragment2_Board:Fragment() {
                         Log.v("이미지", "들어왔니?")
                         var searchboardList:List<PostSearchResult>;
                         searchboardList= response.body()!!;
-                       /* for( i in 0 until searchboardList.size)
-                        {
-                            Log.v("Shinhyo", searchboardList.get(i).content.toString())
-                        }*/
                         boards.layoutManager= LinearLayoutManager(requireContext(),
                             LinearLayoutManager.VERTICAL,false)
                         boards.setHasFixedSize(true)
