@@ -152,7 +152,9 @@
             android:layout_height="340dp"
             android:orientation="vertical"
             android:background="@drawable/search_border"
-            android:layout_margin="15dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
