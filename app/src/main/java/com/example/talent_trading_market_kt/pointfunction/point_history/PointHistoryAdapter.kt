@@ -35,7 +35,7 @@ class PointHistoryAdapter(var my_point_history: List<PointHistory>): RecyclerVie
         else
         {
             holder.point_status.text=my_point_history.get(position).status
-            holder.point_status.setTextColor(Color.BLUE)
+            holder.point_status.setTextColor(Color.BLACK)
             holder.trade_point_amount.text= "-"+my_point_history.get(position).amount.toString()+"원"
             holder.trade_point_amount.setTextColor(Color.BLACK)
         }
