@@ -37,16 +37,16 @@
 
             <ImageView
                 android:id="@+id/mypage"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="70dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="23dp"
                 app:srcCompat="@drawable/ic_29"
                 app:tint="#A6A6A6" />
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -55,7 +55,7 @@
                 android:layout_marginTop="-25dp"
                 android:layout_marginEnd="27dp"
                 app:srcCompat="@drawable/ic_12"
-                app:tint="#A6A6A6" />
+                app:tint="#A6A6A6" />-->
 
 
         </RelativeLayout>

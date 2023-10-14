@@ -118,11 +118,12 @@
                 android:id="@+id/searchone_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:hint="제목"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/pretendard_semibold"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20dp"
+                android:textSize="23dp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -130,14 +131,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <TextView
+            <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="카테고리"
             android:textColor="@color/black"
             android:textSize="14dp"
-            android:textStyle="bold" />
+            android:textStyle="bold" />-->
                 <TextView
                     android:id="@+id/searchone_date"
                     android:layout_width="wrap_content"
@@ -146,7 +147,7 @@
                     android:hint="2분 전"
                     android:textColor="@color/black"
                     android:fontFamily="@font/pretendard_semibold"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="3dp"
                     android:textSize="14dp"
                     android:textStyle="bold" />
 
@@ -217,7 +218,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="리뷰"
+                    android:text="후기"
                     android:fontFamily="@font/pretendard_semibold"
                     android:textColor="@color/black"
                     android:textSize="20dp" />

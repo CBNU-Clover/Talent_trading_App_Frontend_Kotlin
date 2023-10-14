@@ -28,7 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:text="포인트 충전"
-            android:fontFamily="@font/malgunbd"
+            android:fontFamily="@font/pretendard_semibold"
             android:textColor="@color/black"
             android:textSize="23dp">
 
@@ -38,8 +38,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
-            android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
