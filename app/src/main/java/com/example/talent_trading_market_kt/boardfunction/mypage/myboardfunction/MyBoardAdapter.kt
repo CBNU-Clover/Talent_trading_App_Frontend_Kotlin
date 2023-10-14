@@ -38,7 +38,7 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
         holder.my_date.text=boardList.get(position).date
         holder.my_review_size.text=boardList.get(position).my_review_size.toString()
         Glide.with(holder.itemView.context)
-            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .load("http://cloverx.kro.kr:10003/api/vi/image/image/"+boardList.get(position).image_url.toString())
             .into(holder.board_image)
     }
 
