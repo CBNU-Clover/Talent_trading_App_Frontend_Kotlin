@@ -15,8 +15,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/boardread_profile">
+            android:layout_height="60dp">
 
 
             <TextView
@@ -38,7 +37,6 @@
             </TextView>
 
 
-
             <ImageButton
                 android:id="@+id/search_button"
                 android:layout_width="37dp"
@@ -52,13 +50,13 @@
                 android:backgroundTint="#282928"></ImageButton>
 
 
-
         </RelativeLayout>
-        <!--<View
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
-            android:background="#917B7B" />-->
+            android:background="#CFCFCF" />
 
         <LinearLayout
             android:layout_width="match_parent"

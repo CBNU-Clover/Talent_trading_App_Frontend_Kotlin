@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                     android:textColorHint="#C7C7C7"
                     android:textSize="18dp" />
 
-                <TextView
+                <!--<TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -104,7 +104,7 @@
                     android:text="카테고리 선택"
                     android:textColor="@color/black"
                     android:textColorHint="#C7C7C7"
-                    android:textSize="15dp"></EditText>
+                    android:textSize="15dp"></EditText>-->
 
                 <TextView
                     android:layout_width="match_parent"

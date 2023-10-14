@@ -28,7 +28,7 @@
 
             </TextView>
 
-            <ImageButton
+            <!--<ImageButton
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:layout_alignParentTop="true"
@@ -39,7 +39,7 @@
                 android:layout_marginEnd="14dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/ic_18"
-                android:backgroundTint="#282928"></ImageButton>
+                android:backgroundTint="#282928"></ImageButton>-->
 
 
         </RelativeLayout>
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -103,6 +103,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/show_ranking"
                 android:layout_width="361dp"
+                android:layout_margin="10dp"
                 android:layout_height="438dp" />
 
         </LinearLayout>

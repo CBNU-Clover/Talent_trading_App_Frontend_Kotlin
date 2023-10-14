@@ -34,7 +34,7 @@
                 android:textColor="@color/black"
                 android:textSize="25dp" />
 
-            <ImageButton
+            <!--<ImageButton
                 android:id="@+id/setting_ic"
                 android:layout_width="30dp"
                 android:layout_height="31dp"
@@ -42,13 +42,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ic_15"
-                android:backgroundTint="#282928" />
+                android:backgroundTint="#282928" />-->
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -102,13 +102,13 @@
 
                 </LinearLayout>
 
-                <TextView
+                <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="복대동"
                     android:textColor="#757575"
                     android:fontFamily="@font/pretendard_semibold"
-                    android:textSize="15dp" />
+                    android:textSize="15dp" />-->
 
                 <TextView
                     android:layout_width="wrap_content"

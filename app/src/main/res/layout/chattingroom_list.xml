@@ -36,13 +36,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
-            android:layout_marginBottom="9dp"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="650dp"
-            android:orientation="vertical"
-            android:layout_margin="5dp">
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/chatting_room_list"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="20dp"
     android:orientation="vertical">
 
 
@@ -17,6 +17,7 @@
         <ImageView
             android:layout_width="59dp"
             android:layout_height="60dp"
+            android:layout_marginLeft="18dp"
             android:src="@drawable/baseline_account_circle_24"
             />
 
@@ -51,11 +52,11 @@
 
     </LinearLayout>
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:layout_marginTop="2dp"
-        android:background="#E6E6E6" />
+        android:background="#E6E6E6" />-->
 
 
 

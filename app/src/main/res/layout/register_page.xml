@@ -44,7 +44,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
-            android:background="#917B7B" />
+            android:background="#CFCFCF" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
