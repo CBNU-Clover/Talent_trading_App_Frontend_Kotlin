@@ -16,4 +16,19 @@ class Prefs(context: Context) {
         set(value) {
             prefs.edit().putString("nickname", value).apply()
         }
+    var serverUrl: String?
+        get() = prefs.getString("serverUrl", null)
+        set(value) {
+            prefs.edit().putString("serverUrl", value).apply()
+        }
+    var image: String?
+        get() = prefs.getString("image", null)
+        set(value) {
+            prefs.edit().putString("image", value).apply()
+        }
+    var point: String?
+        get() = prefs.getString("point", null)
+        set(value) {
+            prefs.edit().putString("point", value).apply()
+        }
 }

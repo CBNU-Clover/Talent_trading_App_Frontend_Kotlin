@@ -47,7 +47,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
                         val formattedRating = String.format("%.1f", rating_av)
                         one_av.text = formattedRating.toFloat().toString()
                         one_rating_av.rating = rating_av.toFloat()
-                        one_rating_av_up.text = formattedRating.toFloat().toString()
                     }
                 }
 
@@ -121,7 +120,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
             searchone_content = findViewById(R.id.searchone_content)
             back_button = findViewById(R.id.back_button)
             go_review_bt = findViewById(R.id.goreview)
-            one_rating_av_up = findViewById(R.id.one_rating_av_up)
             one_board_image=findViewById(R.id.oneboard_image)
             Id = intent.getStringExtra("Search_Id").toString().toLong()
 
@@ -247,7 +245,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             searchone_date.text = post.date
                             board_price.text = post.price.toString() + "원"
                             Glide.with(this@SearchOneBoardActivity)
-                                .load("http://192.168.45.42:8080/api/vi/image/image/"+post.image_url.toString())
+                                .load(App.prefs.image+post.image_url.toString())
                                 .dontAnimate()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)

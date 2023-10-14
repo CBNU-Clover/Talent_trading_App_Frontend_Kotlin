@@ -13,10 +13,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
-import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
-import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
+import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
+import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.tradingfunction.api.TradingFunctionApi
@@ -74,7 +75,7 @@ class PayMentActivity : AppCompatActivity() {
                         post = response.body()!!
                         pay_seller.text = post.writerNickname
                         paypost_name.text = post.postName
-                        paypost_money.text = post.price.toString()
+                        paypost_money.text = post.price.toString()+"원"
                         pay_money.text = post.price.toString() + "원"
                         paytotal_money.text = post.price.toString() + "원"
                         payfinal_money.text = post.price.toString() + "원"
@@ -106,42 +107,64 @@ class PayMentActivity : AppCompatActivity() {
             })
 
         }
+        val point_service = RetrofitConnection.getInstance().create(PointFunctionApi::class.java)
+        if (point_service != null) {
+            point_service.show_point().enqueue(object : Callback<ShowPointDTO> {
+                override fun onResponse(call: Call<ShowPointDTO>, response: Response<ShowPointDTO>) {
+                    if (response.isSuccessful) {
+                        var showPointDTO= ShowPointDTO()
+                        showPointDTO= response.body()!!
+                        App.prefs.point=showPointDTO.point.toString()
+                    }
+                }
 
-        val tradeservice=RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
+                override fun onFailure(call: Call<ShowPointDTO>, t: Throwable) {
+                }
+
+            })
+        }
         payment_bt.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder
-                .setTitle("알림")
-                .setMessage("정말 결제를 진행하시겠습니까?")
-                .setPositiveButton("진행",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        if(tradeservice!=null)
-                        {
-                            val tradePost=TradePost()
-                            tradePost.tradePost_id=postId
-                            tradeservice.trade(tradePost).enqueue(object : Callback<Void> {
-                                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                                    if (response.isSuccessful) {
-                                        Toast.makeText(this@PayMentActivity, "거래 성공", Toast.LENGTH_SHORT).show()
-                                        finish()
+            var price=paypost_money.text.toString().replace("원","")
+            if(App.prefs.point.toString().toLong()>=price.toLong())
+            {
+                val builder = AlertDialog.Builder(this)
+                builder
+                    .setTitle("알림")
+                    .setMessage("정말 결제를 진행하시겠습니까?")
+                    .setPositiveButton("진행",
+                        DialogInterface.OnClickListener { dialog, id ->
+                            val tradeservice=RetrofitConnection.getInstance().create(TradingFunctionApi::class.java)
+                            if(tradeservice!=null)
+                            {
+                                val tradePost=TradePost()
+                                tradePost.tradePost_id=postId
+                                tradeservice.trade(tradePost).enqueue(object : Callback<Void> {
+                                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                                        if (response.isSuccessful) {
+                                            Toast.makeText(this@PayMentActivity, "거래 성공", Toast.LENGTH_SHORT).show()
+                                            finish()
+                                        }
                                     }
-                                }
 
-                                override fun onFailure(call: Call<Void?>, t: Throwable) {
+                                    override fun onFailure(call: Call<Void?>, t: Throwable) {
 
-                                }
+                                    }
 
-                            })
+                                })
 
-                        }
+                            }
 
-                    })
-                .setNegativeButton("취소",
-                    DialogInterface.OnClickListener { dialog, id ->
-                    })
-            builder.create()
-            builder.show()
-
+                        })
+                    .setNegativeButton("취소",
+                        DialogInterface.OnClickListener { dialog, id ->
+                        })
+                builder.create()
+                builder.show()
+            }
+            else if(App.prefs.point.toString().toLong()<price.toLong())
+            {
+                Toast.makeText(this@PayMentActivity, "잔액이 부족합니다!!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

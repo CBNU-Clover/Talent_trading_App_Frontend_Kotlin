@@ -213,7 +213,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="237dp"
+                        android:layout_marginLeft="236dp"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="0원"
                         android:textColor="#5C5C5C"

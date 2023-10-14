@@ -18,8 +18,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="393dp"
-                android:background="#8D8D8D">
+                android:layout_height="393dp">
+                <ImageView
+                    android:id="@+id/my_oneboard_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
 
 
                 <ImageButton

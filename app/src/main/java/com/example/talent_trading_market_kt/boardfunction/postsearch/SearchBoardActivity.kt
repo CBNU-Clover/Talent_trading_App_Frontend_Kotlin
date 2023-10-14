@@ -31,11 +31,50 @@ class SearchBoardActivity : AppCompatActivity() {
         search_backbt = findViewById(R.id.search_backbt)
         var home_search: String
         var flag:Int
+        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
+        search_bt.setOnClickListener {
+            val postSearch = PostSearch()
+            val postname = postname
+            postSearch.postName = postname.text.toString()
+            if (service != null) {
+                service.postsearch(postSearch)
+                    .enqueue(object : Callback<List<PostSearchResult>> {
+                        override fun onResponse(
+                            call: Call<List<PostSearchResult>>,
+                            response: Response<List<PostSearchResult>>
+                        ) {
+                            if (response.isSuccessful) {
+                                var searchboardList: List<PostSearchResult>;
+                                searchboardList = response.body()!!;
+                                search_result_view.layoutManager = LinearLayoutManager(
+                                    this@SearchBoardActivity,
+                                    LinearLayoutManager.VERTICAL, false
+                                )
+                                search_result_view.setHasFixedSize(true)
+                                search_result_view.adapter = SearchBoardAdapter(searchboardList)
+                            }
+                        }
+
+                        override fun onFailure(
+                            call: Call<List<PostSearchResult>?>,
+                            t: Throwable
+                        ) {
+                            Toast.makeText(
+                                this@SearchBoardActivity,
+                                "다시 검색버튼을 눌러주세요",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+
+                    })
+            }
+
+        }
 
         search_backbt.setOnClickListener {
             finish()
         }
-        val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         home_search = intent.getStringExtra("home_search").toString()
         Log.v("Test",home_search.toString())
         if(home_search=="null")
@@ -79,46 +118,6 @@ class SearchBoardActivity : AppCompatActivity() {
 
                 })
             }
-            search_bt.setOnClickListener {
-                val postSearch = PostSearch()
-                val postname = postname
-                postSearch.postName = postname.text.toString()
-                if (service != null) {
-                    service.postsearch(postSearch)
-                        .enqueue(object : Callback<List<PostSearchResult>> {
-                            override fun onResponse(
-                                call: Call<List<PostSearchResult>>,
-                                response: Response<List<PostSearchResult>>
-                            ) {
-                                if (response.isSuccessful) {
-                                    var searchboardList: List<PostSearchResult>;
-                                    searchboardList = response.body()!!;
-                                    search_result_view.layoutManager = LinearLayoutManager(
-                                        this@SearchBoardActivity,
-                                        LinearLayoutManager.VERTICAL, false
-                                    )
-                                    search_result_view.setHasFixedSize(true)
-                                    search_result_view.adapter = SearchBoardAdapter(searchboardList)
-                                }
-                            }
-
-                            override fun onFailure(
-                                call: Call<List<PostSearchResult>?>,
-                                t: Throwable
-                            ) {
-                                Toast.makeText(
-                                    this@SearchBoardActivity,
-                                    "다시 검색버튼을 눌러주세요",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                            }
-
-                        })
-                }
-
-            }
-
         }
     }
 }

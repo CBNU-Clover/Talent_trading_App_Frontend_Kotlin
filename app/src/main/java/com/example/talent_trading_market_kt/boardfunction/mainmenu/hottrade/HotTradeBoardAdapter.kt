@@ -13,6 +13,7 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PopularPostResponse
+import com.example.talent_trading_market_kt.retrofit.App
 
 class HotTradeBoardAdapter(var boardList: List<PopularPostResponse>): RecyclerView.Adapter<HotTradeBoardAdapter.CustomViewHolder>()
 {
@@ -38,7 +39,7 @@ class HotTradeBoardAdapter(var boardList: List<PopularPostResponse>): RecyclerVi
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
         Glide.with(holder.itemView.context)
-            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .load(App.prefs.image+boardList.get(position).image_url.toString())
             .dontAnimate()
             .format(DecodeFormat.PREFER_ARGB_8888)
             .diskCacheStrategy(DiskCacheStrategy.ALL)

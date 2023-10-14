@@ -47,7 +47,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var container:FrameLayout
 
     var roomId:Long=0
-    val URL="ws://192.168.45.42:8080/ws/websocket"
+    val URL="ws://192.168.45.113:8080/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -56,7 +56,6 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         .build()
     val stomp = StompClient(client, intervalMillis).apply { this@apply.url = URL }
     var s= ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.chatscreen)

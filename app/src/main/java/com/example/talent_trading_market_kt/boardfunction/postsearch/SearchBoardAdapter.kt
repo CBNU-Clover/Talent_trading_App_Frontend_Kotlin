@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
+import com.example.talent_trading_market_kt.retrofit.App
 import io.reactivex.Completable.error
 
 class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Adapter<SearchBoardAdapter.CustomViewHolder>()
@@ -39,17 +40,8 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
         Glide.with(holder.itemView.context)
-            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .load(App.prefs.image+boardList.get(position).image_url.toString())
             .into(holder.board_image)
-       /*val imageData = boardList[position].image // 비트맵 데이터
-        if (imageData != null) {
-            var image = BitmapFactory.decodeByteArray(imageData, 0, imageData.size)
-            holder.board_image.setImageBitmap(image)
-        }*/
-        //Glide를 사용하여 비트맵 표시
-        /*Glide.with(holder.itemView.context)
-            .load(imageData) // 비트맵 데이터를 로드합니다.
-            .into(holder.board_image)*/
     }
 
     override fun getItemCount(): Int {
