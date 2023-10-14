@@ -186,6 +186,22 @@
             app:layout_constraintVertical_bias="0.0"
             app:tint="#C7C7C7" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="86dp"
+            android:layout_height="40dp"
+            android:background="@drawable/border_green2"
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="거래 요청"
+            android:textColor="#3DC181"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.881"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView8"
+            app:layout_constraintVertical_bias="0.452" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
