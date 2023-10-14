@@ -20,6 +20,9 @@
             android:id="@+id/board_image"
             android:layout_width="59dp"
             android:layout_height="59dp"
+            android:scaleType="fitXY"
+            android:minWidth="59dp"
+            android:minHeight="59dp"
             android:src="@drawable/img_2"
             />
 

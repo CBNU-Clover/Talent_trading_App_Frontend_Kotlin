@@ -6,5 +6,5 @@ class PostBoardDTO
     var postName :String?=null
     var content : String?=null
     var price:Long?=null
-    //var image: ByteArray? = null
+    var image: ByteArray? = null
 }

@@ -9,6 +9,6 @@ class PostSearchResult{
     var price:Long?=null
     var date:String?=null
     var review_size:Long?=null
-    var image:ByteArray?=null
+    var image_url:String?=null
 }
 

@@ -10,4 +10,5 @@ class PostGetAllBoard {
     var price:Long?=null
     var date:String?=null
     var my_review_size:Long?=null
+    var image_url:String?=null
 }
