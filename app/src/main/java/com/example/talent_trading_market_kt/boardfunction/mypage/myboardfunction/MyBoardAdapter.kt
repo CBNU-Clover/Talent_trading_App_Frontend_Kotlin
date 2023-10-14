@@ -4,8 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.PostGetAllBoard
 
@@ -35,6 +37,9 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.my_date.text=boardList.get(position).date
         holder.my_review_size.text=boardList.get(position).my_review_size.toString()
+        Glide.with(holder.itemView.context)
+            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .into(holder.board_image)
     }
 
     override fun getItemCount(): Int {
@@ -46,6 +51,7 @@ class MyBoardAdapter(var boardList: List<PostGetAllBoard>): RecyclerView.Adapter
         val price=itemView.findViewById<TextView>(R.id.all_price)//가격
         val my_date=itemView.findViewById<TextView>(R.id.all_time) // 작성일자
         var my_review_size=itemView.findViewById<TextView>(R.id.board_review_size)
+        val board_image=itemView.findViewById<ImageView>(R.id.board_image)
     }
 
 }
