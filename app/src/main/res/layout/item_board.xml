@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginRight="5dp"
-    android:layout_marginLeft="5dp"
+    android:layout_marginLeft="14dp"
     android:layout_marginTop="15dp"
     android:orientation="vertical">
 
@@ -23,7 +23,8 @@
             android:scaleType="fitXY"
             android:minWidth="59dp"
             android:minHeight="59dp"
-            android:src="@drawable/img_2"
+            android:src="@drawable/img_1"
+            android:background="@drawable/border_point_item"
             />
 
         <LinearLayout
