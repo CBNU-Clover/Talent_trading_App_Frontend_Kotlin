@@ -39,7 +39,7 @@ class SearchBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Ad
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
         Glide.with(holder.itemView.context)
-            .load(boardList.get(position).image_url.toString())
+            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
             .into(holder.board_image)
        /*val imageData = boardList[position].image // 비트맵 데이터
         if (imageData != null) {

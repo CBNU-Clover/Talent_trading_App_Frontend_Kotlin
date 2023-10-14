@@ -7,4 +7,5 @@ class PostReadResponse {
     val content: String? = null
     val price: Long? = null
     val date: String? = null
+    val image_url:String?=null
 }

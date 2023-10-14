@@ -5,8 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PopularPostResponse
 
@@ -33,12 +37,12 @@ class HotTradeBoardAdapter(var boardList: List<PopularPostResponse>): RecyclerVi
         holder.price.text= boardList.get(position).price.toString()+"원"
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
-        /* val imageData = boardList[position].image // 비트맵 데이터
-
-         // Glide를 사용하여 비트맵 표시
-         Glide.with(holder.itemView.context)
-             .load(imageData) // 비트맵 데이터를 로드합니다.
-             .into(holder.board_image)*/
+        Glide.with(holder.itemView.context)
+            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .dontAnimate()
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.board_image)
     }
 
     override fun getItemCount(): Int {
@@ -50,7 +54,7 @@ class HotTradeBoardAdapter(var boardList: List<PopularPostResponse>): RecyclerVi
         val price=itemView.findViewById<TextView>(R.id.all_price)
         val date=itemView.findViewById<TextView>(R.id.all_time)
         val review_size=itemView.findViewById<TextView>(R.id.board_review_size)
-        // val board_image=itemView.findViewById<ImageView>(R.id.board_image)
+        val board_image=itemView.findViewById<ImageView>(R.id.board_image)
     }
 
 }

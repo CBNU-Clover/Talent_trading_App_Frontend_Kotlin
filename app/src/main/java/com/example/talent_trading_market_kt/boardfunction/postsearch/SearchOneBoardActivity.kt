@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
@@ -100,6 +104,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         lateinit var one_rating_av: RatingBar
         lateinit var one_rating_av_up: TextView
         lateinit var one_reviewsize: TextView
+        lateinit var one_board_image:ImageView
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.one_board_page)
@@ -117,6 +122,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
             back_button = findViewById(R.id.back_button)
             go_review_bt = findViewById(R.id.goreview)
             one_rating_av_up = findViewById(R.id.one_rating_av_up)
+            one_board_image=findViewById(R.id.oneboard_image)
             Id = intent.getStringExtra("Search_Id").toString().toLong()
 
             //뒤로 가기 버튼
@@ -240,6 +246,12 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             content.text = post.content
                             searchone_date.text = post.date
                             board_price.text = post.price.toString() + "원"
+                            Glide.with(this@SearchOneBoardActivity)
+                                .load("http://192.168.45.42:8080/api/vi/image/image/"+post.image_url.toString())
+                                .dontAnimate()
+                                .format(DecodeFormat.PREFER_ARGB_8888)
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(one_board_image)
                         }
                     }
 

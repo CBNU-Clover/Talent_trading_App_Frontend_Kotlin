@@ -64,10 +64,8 @@
 
         <EditText
             android:id="@+id/talk"
-            android:layout_width="292dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="496dp"
-            android:layout_marginEnd="4dp"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/border_gray"
             android:fontFamily="@font/pretendard_regular"
             android:hint="메시지 보내기"
@@ -81,8 +79,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/submit_talk"
             app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.521" />
+            app:layout_constraintVertical_bias="0.968" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat"
@@ -178,7 +178,7 @@
             android:scaleType="fitCenter"
             android:src="@drawable/ic_08"
             app:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/talk"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/talk"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

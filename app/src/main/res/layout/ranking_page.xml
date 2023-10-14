@@ -101,7 +101,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/show_ranking"
                 android:layout_width="361dp"
                 android:layout_height="438dp" />
 
@@ -118,7 +118,7 @@
         <TextView
         android:layout_width="43dp"
         android:layout_height="18dp"
-        android:text="내 순위"
+        android:text="내 랭킹"
             android:fontFamily="@font/pretendard_semibold"
             android:textSize="15dp"
             android:textColor="#3DC181"
@@ -127,12 +127,13 @@
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/border_green2"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/border_green2"
         android:orientation="horizontal">
 
 
         <TextView
+            android:id="@+id/myranking_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -144,6 +145,7 @@
             android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/myranking_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -155,6 +157,7 @@
             android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/myranking_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
