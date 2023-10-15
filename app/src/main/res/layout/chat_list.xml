@@ -42,7 +42,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:fontFamily="@font/pretendard_semibold"
-                android:text="안녕하세용"
                 android:textColor="#8D8D8D"
                 android:textSize="15dp" />
 

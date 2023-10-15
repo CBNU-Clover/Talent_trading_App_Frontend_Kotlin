@@ -336,7 +336,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
-                    android:id="@+id/goreview"
+                    android:id="@+id/myboard_review_bt"
                     android:layout_width="213dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"

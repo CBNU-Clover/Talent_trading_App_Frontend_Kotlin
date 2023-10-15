@@ -98,7 +98,7 @@ class MyOneBoardActivity : AppCompatActivity() {
         content=findViewById(R.id.myboard_content)
         backbt_myoneboard=findViewById(R.id.myboard_back_button)
         go_review_bt=findViewById(R.id.myboard_review_bt)
-        myrating=findViewById(R.id.myrating)
+        //myrating=findViewById(R.id.myrating)
         myboard_rating=findViewById(R.id.myboard_rating)
         myrating_av=findViewById(R.id.myrating_av)
         myreview_size=findViewById(R.id.myreview_size)
