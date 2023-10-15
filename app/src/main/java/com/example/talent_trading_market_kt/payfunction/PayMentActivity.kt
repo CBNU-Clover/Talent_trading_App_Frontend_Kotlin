@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
+import com.example.talent_trading_market_kt.chatfunction.chat.ChatActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
 import com.example.talent_trading_market_kt.pointfunction.api.PointFunctionApi
 import com.example.talent_trading_market_kt.response.pointresponse.ShowPointDTO
@@ -142,6 +143,7 @@ class PayMentActivity : AppCompatActivity() {
                                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                         if (response.isSuccessful) {
                                             Toast.makeText(this@PayMentActivity, "거래 성공", Toast.LENGTH_SHORT).show()
+                                            App.prefs.trade_status_complete="success"
                                             finish()
                                         }
                                     }

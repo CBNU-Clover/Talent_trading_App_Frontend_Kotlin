@@ -31,4 +31,9 @@ class Prefs(context: Context) {
         set(value) {
             prefs.edit().putString("point", value).apply()
         }
+    var trade_status_complete: String?
+        get() = prefs.getString("trade_status", null)
+        set(value) {
+            prefs.edit().putString("trade_status", value).apply()
+        }
 }
