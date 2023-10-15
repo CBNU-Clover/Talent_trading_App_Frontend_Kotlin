@@ -32,9 +32,11 @@
                 android:layout_marginTop="3dp"
                 android:text="닉네임00"
                 android:textColor="#C0C0C0"
+                android:textStyle="bold"
                 android:textSize="15dp" />
 
             <TextView
+            android:textStyle="bold"
             android:id="@+id/ranking_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +50,7 @@
             android:textSize="14dp" />
 
             <TextView
+            android:textStyle="bold"
             android:id="@+id/ranking_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

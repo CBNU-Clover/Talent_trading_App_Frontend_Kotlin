@@ -80,8 +80,8 @@ class TalkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         else if( holder is TradingRequestLeftViewHolder)
         {
-            holder.binding.leftFinalPriceRequest.text=lst[position].talkContent+" 송금요청"
-            holder.binding.leftFinalPriceRequestContent.text= lst[position].sender+"님이 "+lst[position].talkContent+"을 \n송금 요청했어요."
+            holder.binding.leftFinalPriceRequest.text=lst[position].talkContent+" 거래요청"
+            holder.binding.leftFinalPriceRequestContent.text= lst[position].sender+"님이 "+lst[position].talkContent+"을 \n거래 요청했어요."
             holder.binding.sendLeftDate.text=lst[position].talkdate
         }
         else if ( holder is TradingCompleteRightViewHolder)
