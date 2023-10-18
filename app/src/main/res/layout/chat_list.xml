@@ -15,18 +15,30 @@
 
 
         <ImageView
-            android:layout_width="59dp"
+            android:layout_width="58dp"
             android:layout_height="60dp"
             android:layout_marginLeft="18dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/baseline_account_circle_24"
             />
 
         <LinearLayout
-            android:layout_width="288dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="14dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="23dp"
             android:layout_marginTop="7dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
 
             <TextView
@@ -38,12 +50,37 @@
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2분 전"
+                    android:layout_marginLeft="16dp"
+                    android:textColor="#D9D9D9"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:fontFamily="@font/pretendard_semibold"
+                android:text="안녕하세용"
+                android:layout_marginTop="5dp"
                 android:textColor="#8D8D8D"
                 android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/background_talk_other"
+                android:gravity="end"/>
 
 
         </LinearLayout>

@@ -143,8 +143,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="닉네임00"
-            android:textStyle="bold"
-            android:textColor="#C0C0C0"
+            android:textColor="#C7C7C7"
             android:fontFamily="@font/pretendard_semibold"
             android:textSize="15dp" />
 
@@ -155,10 +154,9 @@
             android:layout_marginTop="13dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="00000"
             android:fontFamily="@font/pretendard_semibold"
-            android:textColor="#C0C0C0"
+            android:textColor="#C7C7C7"
             android:textSize="15dp" />
 
         <TextView
@@ -166,12 +164,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
-            android:textStyle="bold"
             android:layout_weight="1"
             android:gravity="center"
             android:text="000"
             android:fontFamily="@font/pretendard_semibold"
-            android:textColor="#C0C0C0"
+            android:textColor="#C7C7C7"
             android:textSize="15dp" />
 
     </LinearLayout>
