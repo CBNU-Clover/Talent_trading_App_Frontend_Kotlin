@@ -8,6 +8,8 @@ class App : Application(){
     }
     override fun onCreate() {
         prefs=Prefs(applicationContext)
+        prefs.serverUrl = "http://cloverx.kro.kr:10003/"
+        prefs.image= prefs.serverUrl+"api/vi/image/image/"
         super.onCreate()
     }
 }

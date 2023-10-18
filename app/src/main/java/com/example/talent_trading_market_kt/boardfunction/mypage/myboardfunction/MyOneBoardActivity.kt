@@ -4,15 +4,16 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.RatingBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostDeleteBoard
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.allreview.AllReview
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
@@ -83,6 +84,7 @@ class MyOneBoardActivity : AppCompatActivity() {
     lateinit var myrating_av:RatingBar
     lateinit var myreview_size:TextView
     lateinit var go_review_bt:ImageButton
+    lateinit var my_oneboard_image:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.myboard_read)
@@ -96,10 +98,11 @@ class MyOneBoardActivity : AppCompatActivity() {
         content=findViewById(R.id.myboard_content)
         backbt_myoneboard=findViewById(R.id.myboard_back_button)
         go_review_bt=findViewById(R.id.myboard_review_bt)
-        myrating=findViewById(R.id.myrating)
+        //myrating=findViewById(R.id.myrating)
         myboard_rating=findViewById(R.id.myboard_rating)
         myrating_av=findViewById(R.id.myrating_av)
         myreview_size=findViewById(R.id.myreview_size)
+        my_oneboard_image=findViewById(R.id.my_oneboard_image)
 
         backbt_myoneboard.setOnClickListener {
             finish()
@@ -118,7 +121,13 @@ class MyOneBoardActivity : AppCompatActivity() {
                         title.text=post.postName
                         content.text=post.content
                         date.text=post.date
-                        price.text=post.price.toString()+"원~"
+                        price.text=post.price.toString()+"원"
+                        Glide.with(this@MyOneBoardActivity)
+                            .load(App.prefs.image+post.image_url.toString())
+                            .dontAnimate()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .into(my_oneboard_image)
                     }
                 }
 

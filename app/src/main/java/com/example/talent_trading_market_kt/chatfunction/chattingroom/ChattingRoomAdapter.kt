@@ -23,13 +23,13 @@ class ChattingRoomAdapter(val chattingRoomList: List<ChattingRoomListDTO>): Recy
                 val chattingRoom:ChattingRoomListDTO=chattingRoomList.get(curPos)
                 val intent= Intent(parent.context,ChatActivity::class.java)
                 intent.putExtra("roomId",chattingRoom.roomId.toString())
-                if(chattingRoom.seller!=App.prefs.nickname)
+                if(chattingRoom.seller.toString().trim()!=App.prefs.nickname.toString().trim())
                 {
-                    intent.putExtra("seller",chattingRoom.seller)
+                    intent.putExtra("seller",chattingRoom.seller.toString().trim())
                 }
                 else
                 {
-                    intent.putExtra("seller",chattingRoom.buyer)
+                    intent.putExtra("seller",chattingRoom.buyer.toString().trim())
                 }
                 intent.putExtra("board_name",chattingRoom.postname)
                 intent.putExtra("board_price",chattingRoom.post_price+"원")

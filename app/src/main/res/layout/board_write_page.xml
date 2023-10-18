@@ -71,7 +71,7 @@
                 <EditText
                     android:id="@+id/title"
                     android:layout_width="361dp"
-                    android:layout_height="39dp"
+                    android:layout_height="41dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/border_gray"
                     android:singleLine="true"
@@ -192,23 +192,6 @@
                         android:layout_marginLeft="22dp"
                         android:background="@drawable/border_gray" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="57dp"
-                        android:minHeight="57dp"
-                        android:adjustViewBounds="true"
-                        android:layout_marginLeft="1dp"
-                        android:background="@drawable/border_gray" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="57dp"
-                        android:minHeight="57dp"
-                        android:adjustViewBounds="true"
-                        android:layout_marginLeft="1dp"
-                        android:background="@drawable/border_gray" />
 
 
                 </LinearLayout>

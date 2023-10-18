@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -102,6 +103,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/test.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/trade_history.xml" value="0.2" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/tradecomplete_left.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/tradecomplete_right.xml" value="0.13903985507246377" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/menu/bottom_nav_mainpage.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/menu/popup_menu.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

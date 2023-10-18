@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.response.postresponse.PostSearchResult
+import com.example.talent_trading_market_kt.retrofit.App
 import io.reactivex.Completable.error
 
 class RealTimeBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.Adapter<RealTimeBoardAdapter.CustomViewHolder>()
@@ -41,7 +42,7 @@ class RealTimeBoardAdapter(var boardList: List<PostSearchResult>): RecyclerView.
         holder.date.text= boardList.get(position).date
         holder.review_size.text= boardList.get(position).review_size.toString()
         Glide.with(holder.itemView.context)
-            .load("http://192.168.45.42:8080/api/vi/image/image/"+boardList.get(position).image_url.toString())
+            .load(App.prefs.image+boardList.get(position).image_url.toString())
             .dontAnimate()
             .format(DecodeFormat.PREFER_ARGB_8888)
             .diskCacheStrategy(DiskCacheStrategy.ALL)

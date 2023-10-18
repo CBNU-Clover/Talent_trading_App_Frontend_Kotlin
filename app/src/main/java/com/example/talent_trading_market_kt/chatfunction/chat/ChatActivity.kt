@@ -1,6 +1,5 @@
 package com.example.talent_trading_market_kt.chatfunction.chat
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -8,7 +7,6 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +22,6 @@ import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.gmail.bishoybasily.stomp.lib.Event
 import com.gmail.bishoybasily.stomp.lib.StompClient
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.chatscreen.view.*
 import okhttp3.OkHttpClient
 import org.json.JSONObject
 import retrofit2.Call
@@ -35,6 +32,53 @@ import java.util.concurrent.TimeUnit
 
 
 class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
+    override fun onResume() {
+        super.onResume()
+        updateChatscreen()
+    }
+
+    private fun updateChatscreen(){
+
+        if(App.prefs.trade_status_complete=="success")
+        {
+            Log.v("거래3","성공")
+            var postId:Long
+            postId=intent.getStringExtra("postId").toString().toLong()
+            val jsonObject = JSONObject()
+            s=chat_postprice.text.toString()
+            jsonObject.put("type", "TRADING_ACCEPT")
+            jsonObject.put("sender", App.prefs.nickname)
+            jsonObject.put("roomId", roomId)
+            jsonObject.put("content", s)
+
+            val calendar = Calendar.getInstance()
+            val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
+            var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+            if(hour>12)
+            {
+                hour=hour-12
+            }
+            val minute = calendar.get(Calendar.MINUTE)
+            if(minute<10)
+            {
+                val formattedTime = "$amOrPm $hour:0$minute"
+                jsonObject.put("date", formattedTime)
+                stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                submitTalk(s,formattedTime,"trading_accept_right",postId,App.prefs.nickname.toString())
+                App.prefs.trade_status_complete="false"
+            }
+            else
+            {
+                val formattedTime = "$amOrPm $hour:$minute"
+                jsonObject.put("date", formattedTime)
+                stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                submitTalk(s,formattedTime,"trading_accept_right",postId,App.prefs.nickname.toString())
+                App.prefs.trade_status_complete="false"
+            }
+        }
+        }
+
+
     lateinit var talkAdapter: TalkAdapter
     lateinit var stompConnection:Disposable
     lateinit var topic:Disposable
@@ -45,9 +89,10 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_postprice:TextView
     lateinit var chat_plus_bt:ImageButton
     lateinit var container:FrameLayout
+    lateinit var start_trade_bt:Button
 
     var roomId:Long=0
-    val URL="ws://192.168.45.42:8080/ws/websocket"
+    val URL="ws://cloverx.kro.kr:10003/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -56,7 +101,6 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         .build()
     val stomp = StompClient(client, intervalMillis).apply { this@apply.url = URL }
     var s= ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.chatscreen)
@@ -66,19 +110,21 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         chat_postname=findViewById(R.id.chat_postname)
         chat_postprice=findViewById(R.id.textView)
         chat_plus_bt=findViewById(R.id.chatplus)
+        start_trade_bt=findViewById(R.id.start_trade)
         var seller:String
         var postname:String
         var postprice:String
         var postId:Long
+        var trade_status:String
         roomId= intent.getStringExtra("roomId").toString().toLong()
         seller= intent.getStringExtra("seller").toString()
         postname= intent.getStringExtra("board_name").toString()
         postprice=intent.getStringExtra("board_price").toString()
         postId=intent.getStringExtra("postId").toString().toLong()
+        trade_status=intent.getStringExtra("trade").toString()
         chat_person.text=seller
         chat_postname.text=postname
         chat_postprice.text=postprice
-
 
        chat_postname.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
@@ -88,14 +134,57 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
             }
         })
-
-
-
         chat_backbt.setOnClickListener {
             finish()
         }
 
-        chat_plus_bt.setOnClickListener {
+        start_trade_bt.setOnClickListener {
+            if(App.prefs.nickname.toString().trim()!=seller.trim())
+            {
+                Log.v("로그인", App.prefs.nickname!!)
+                Log.v("작성자",seller)
+                val jsonObject = JSONObject()
+                s=chat_postprice.text.toString()
+                jsonObject.put("type", "TRADING_REQUEST")
+                jsonObject.put("sender", App.prefs.nickname)
+                jsonObject.put("roomId", roomId)
+                jsonObject.put("content", s)
+
+                val calendar = Calendar.getInstance()
+                val amOrPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "오전" else "오후"
+                var hour = calendar.get(Calendar.HOUR_OF_DAY) // 24시간 형식의 시간
+                if(hour>12)
+                {
+                    hour=hour-12
+                }
+                val minute = calendar.get(Calendar.MINUTE)
+                if(minute<10)
+                {
+                    val formattedTime = "$amOrPm $hour:0$minute"
+                    jsonObject.put("date", formattedTime)
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"trading_request_right",postId,App.prefs.nickname.toString())
+                }
+                else
+                {
+                    val formattedTime = "$amOrPm $hour:$minute"
+                    jsonObject.put("date", formattedTime)
+                    stomp.send("/pub/chatroom", jsonObject.toString()).subscribe()
+                    submitTalk(s,formattedTime,"trading_request_right",postId,App.prefs.nickname.toString())
+                }
+            }
+            if(App.prefs.nickname.toString()==seller)
+            {
+                Log.v("로그인2", App.prefs.nickname!!)
+                Log.v("작성자2",seller)
+                Toast.makeText(this@ChatActivity, "작성자만 거래 요청 가능합니다!!", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        }
+
+
+        /*chat_plus_bt.setOnClickListener {
             val dialogView: View = LayoutInflater.from(this).inflate(R.layout.chatplus, null)
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setView(dialogView)
@@ -137,7 +226,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     submitTalk(s,formattedTime,"trading_request_right",postId,App.prefs.nickname.toString())
                 }
             }
-        }
+        }*/
 
         talkAdapter = TalkAdapter()
         binding.chat.adapter = talkAdapter
@@ -154,7 +243,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                             val content = chatHistoryDTO.content
                             val date=chatHistoryDTO.date
                             val type=chatHistoryDTO.type
-                            if(type!="trading_request")
+                            if((type!="trading_request")&&(type!="trading_accept"))
                             {
                                 val talk = if (sender !=App.prefs.nickname) {
                                     Talk(content.toString(),date.toString(),"left",postId,sender.toString())
@@ -169,6 +258,15 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                                     Talk(content.toString(),date.toString(),"trading_request_left",postId,sender.toString())
                                 } else {
                                     Talk(content.toString(),date.toString(), "trading_request_right",postId,sender.toString())
+                                }
+                                talkAdapter.addItem(talk)
+                            }
+                            else if(type=="trading_accept")
+                            {
+                                val talk = if (sender !=App.prefs.nickname) {
+                                    Talk(content.toString(),date.toString(),"trading_accept_left",postId,sender.toString())
+                                } else {
+                                    Talk(content.toString(),date.toString(), "trading_accept_right",postId,sender.toString())
                                 }
                                 talkAdapter.addItem(talk)
                             }
@@ -204,6 +302,11 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                                     Log.v("타입",type.toString())
                                     talk= Talk(content.toString(), date.toString(),"trading_request_left",postId,sender.toString())
 
+                                }
+                                else if(type=="TRADING_ACCEPT")
+                                {
+                                    Log.v("타입",type.toString())
+                                    talk= Talk(content.toString(), date.toString(),"trading_accept_left",postId,sender.toString())
                                 }
                                 else
                                 {

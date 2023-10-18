@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="송금 요청!!"
+            android:text="거래 요청!!"
             android:textColor="#3DC181"
             android:textSize="20dp" />
 
