@@ -21,7 +21,7 @@ interface BoardFunctionApi{
     fun postsearch(@Body postSearch: PostSearch):Call<List<PostSearchResult>>
 
     @GET("/api/vi/boards/read/{postId}")
-    fun readPost(@Path("postId") roomId:Long):Call<PostReadResponse>
+    fun readPost(@Path("postId") postId:Long):Call<PostReadResponse>
 
     @GET("/api/vi/popularPost/all")
     fun getAllPopularPost():Call<List<PopularPostResponse>>

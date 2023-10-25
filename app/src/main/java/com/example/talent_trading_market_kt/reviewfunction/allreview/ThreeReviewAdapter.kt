@@ -3,10 +3,13 @@ package com.example.talent_trading_market_kt.reviewfunction.allreview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.talent_trading_market_kt.R
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewReadResponse
 
 class ThreeReviewAdapter(val reviews: List<ReviewReadResponse>): RecyclerView.Adapter<ThreeReviewAdapter.CustomViewHolder>()
@@ -29,6 +32,9 @@ class ThreeReviewAdapter(val reviews: List<ReviewReadResponse>): RecyclerView.Ad
         if (rating != null) {
             holder.review_rating.rating = rating
         }
+        Glide.with(holder.itemView.context)
+            .load(App.prefs.image+reviews.get(position).review_writer_image_url.toString())
+            .into(holder.review_writer_photo)
     }
     override fun getItemCount(): Int {
         return minOf(3, reviews.size)
@@ -40,6 +46,7 @@ class ThreeReviewAdapter(val reviews: List<ReviewReadResponse>): RecyclerView.Ad
         val review_score=itemView.findViewById<TextView>(R.id.review_score)
         val review_date=itemView.findViewById<TextView>(R.id.review_date)
         val content_review=itemView.findViewById<TextView>(R.id.content_review)
+        val review_writer_photo=itemView.findViewById<ImageView>(R.id.review_writer_photo)
     }
 
 }

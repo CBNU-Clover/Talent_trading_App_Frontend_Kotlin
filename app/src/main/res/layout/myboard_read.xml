@@ -78,6 +78,7 @@
 
 
                 <ImageView
+                    android:id="@+id/my_board_profile"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="20dp"

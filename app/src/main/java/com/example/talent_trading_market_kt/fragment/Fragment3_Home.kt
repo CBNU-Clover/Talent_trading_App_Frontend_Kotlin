@@ -27,24 +27,12 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Fragment3_Home:Fragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view=inflater.inflate(R.layout.main_page,container,false)
-
-        val mypage: ImageView =view.findViewById(R.id.mypage)
-        val home_search_bt:ImageButton=view.findViewById(R.id.searchButton)
-        val home_search:EditText=view.findViewById(R.id.home_search)
-        mypage.setOnClickListener {
-            val activity = requireActivity()
-            val intent = Intent(activity, MyPageActivity::class.java)
-            activity.startActivity(intent)
-        }
-        home_search_bt.setOnClickListener {
-            val activity = requireActivity()
-            val intent = Intent(activity, SearchBoardActivity::class.java)
-            intent.putExtra("home_search",home_search.text.toString())
-            activity.startActivity(intent)
-        }
+    override fun onResume() {
+        super.onResume()
+        updateFragmentData()
+    }
+    private fun updateFragmentData()
+    {
         val service = RetrofitConnection.getInstance().create(BoardFunctionApi::class.java)
         val postSearch=PostSearch()
         if(service!=null)
@@ -100,6 +88,24 @@ class Fragment3_Home:Fragment() {
             })
         }
 
+    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view=inflater.inflate(R.layout.main_page,container,false)
+
+        val mypage: ImageView =view.findViewById(R.id.mypage)
+        val home_search_bt:ImageButton=view.findViewById(R.id.searchButton)
+        val home_search:EditText=view.findViewById(R.id.home_search)
+        mypage.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, MyPageActivity::class.java)
+            activity.startActivity(intent)
+        }
+        home_search_bt.setOnClickListener {
+            val activity = requireActivity()
+            val intent = Intent(activity, SearchBoardActivity::class.java)
+            intent.putExtra("home_search",home_search.text.toString())
+            activity.startActivity(intent)
+        }
         return view
     }
 }

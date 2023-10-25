@@ -104,6 +104,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         lateinit var one_rating_av_up: TextView
         lateinit var one_reviewsize: TextView
         lateinit var one_board_image:ImageView
+        lateinit var writer_photo:ImageView
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.one_board_page)
@@ -121,6 +122,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
             back_button = findViewById(R.id.back_button)
             go_review_bt = findViewById(R.id.goreview)
             one_board_image=findViewById(R.id.oneboard_image)
+            writer_photo=findViewById(R.id.writer_photo)
             Id = intent.getStringExtra("Search_Id").toString().toLong()
 
             //뒤로 가기 버튼
@@ -245,11 +247,17 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             searchone_date.text = post.date
                             board_price.text = post.price.toString() + "원"
                             Glide.with(this@SearchOneBoardActivity)
-                                .load(App.prefs.image+post.image_url.toString())
+                                .load(App.prefs.image+post.board_image_url.toString())
                                 .dontAnimate()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(one_board_image)
+                           Glide.with(this@SearchOneBoardActivity)
+                                .load(App.prefs.image+post.writer_image_url.toString())
+                                .dontAnimate()
+                                .format(DecodeFormat.PREFER_ARGB_8888)
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(writer_photo)
                         }
                     }
 

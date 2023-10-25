@@ -92,10 +92,10 @@
                 </LinearLayout>
 
 
-                <CalendarView
+                <!--<CalendarView
                     app:mcv_selectionColor="#9C5D5D"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"/>-->
 
 
 

@@ -19,6 +19,7 @@
 
 
         <ImageView
+            android:id="@+id/review_writer_photo"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/baseline_account_circle_24"/>
