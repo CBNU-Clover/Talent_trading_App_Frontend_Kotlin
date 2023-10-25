@@ -1,9 +1,15 @@
 package com.example.talent_trading_market_kt.memberfunction.register
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.EmailCheckDTO
 import com.example.talent_trading_market_kt.dto.memberfunctiondto.MemberJoinDTO
@@ -13,6 +19,7 @@ import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
 import java.util.logging.Level
 import java.util.logging.Logger
 
@@ -28,6 +35,8 @@ class RegisterMember : AppCompatActivity() {
     lateinit var check_nickname_result : TextView
     lateinit var check_email_result:TextView
     lateinit var backbt_register:ImageButton
+    lateinit var add_profile_photo_bt:ImageButton
+    lateinit var profile_photo:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +53,17 @@ class RegisterMember : AppCompatActivity() {
         check_nickname_result=findViewById(R.id.checkidresult)
         check_email_result=findViewById(R.id.checkemailresult)
         backbt_register=findViewById(R.id.backbt_register)
+        add_profile_photo_bt=findViewById(R.id.add_profile_photo)
+        profile_photo=findViewById(R.id.profile_photo)
         backbt_register.setOnClickListener {
             finish()
         }
 
+        add_profile_photo_bt.setOnClickListener {
+            val intent= Intent(Intent.ACTION_PICK)
+            intent.type="image/*"
+            activityResult.launch(intent)
+        }
         val service = RetrofitConnection.getInstance().create(MemberFunctionApi::class.java)
 
         //닉네임 중복 체크
@@ -121,6 +137,7 @@ class RegisterMember : AppCompatActivity() {
 
         }
         register_button.setOnClickListener {
+            var memberImage:ByteArray?=null
             val nickname = nickname.text.toString()
             val email = email.text.toString()
             val name = name.text.toString()
@@ -132,6 +149,16 @@ class RegisterMember : AppCompatActivity() {
             memberjoinDTO.email = email
             memberjoinDTO.phoneNumber = phone_number
             memberjoinDTO.passWord = password
+            if(profile_photo!=null)
+            {
+                val bitmap=(profile_photo.drawable as BitmapDrawable).bitmap
+                val stream= ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
+
+                memberImage=stream.toByteArray()
+                memberjoinDTO.image=memberImage
+                stream.close()
+            }
             if (service != null) {
                 service.join(memberjoinDTO).enqueue(object : Callback<String?> {
                     override fun onResponse(call: Call<String?>, response: Response<String?>) {
@@ -155,6 +182,20 @@ class RegisterMember : AppCompatActivity() {
 
 
             }
+        }
+    }
+    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult())
+    {
+        // 결과 코드 OK , 결과값 null 아니면
+        if(it.resultCode==RESULT_OK&&it.data!=null)
+        {
+            //값 담기
+            val uri=it.data!!.data
+            //화면에 보여주기
+            Glide.with(this)
+                .load(uri) // 이미지
+                .into(profile_photo) // 보여줄 위치
         }
     }
 }

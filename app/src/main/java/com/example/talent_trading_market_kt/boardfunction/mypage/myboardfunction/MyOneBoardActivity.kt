@@ -83,8 +83,9 @@ class MyOneBoardActivity : AppCompatActivity() {
     lateinit var myboard_rating:TextView
     lateinit var myrating_av:RatingBar
     lateinit var myreview_size:TextView
-    lateinit var go_review_bt:ImageButton
+    lateinit var go_review_bt:Button
     lateinit var my_oneboard_image:ImageView
+    lateinit var my_board_profile:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.myboard_read)
@@ -103,6 +104,7 @@ class MyOneBoardActivity : AppCompatActivity() {
         myrating_av=findViewById(R.id.myrating_av)
         myreview_size=findViewById(R.id.myreview_size)
         my_oneboard_image=findViewById(R.id.my_oneboard_image)
+        my_board_profile=findViewById(R.id.my_board_profile)
 
         backbt_myoneboard.setOnClickListener {
             finish()
@@ -123,11 +125,17 @@ class MyOneBoardActivity : AppCompatActivity() {
                         date.text=post.date
                         price.text=post.price.toString()+"원"
                         Glide.with(this@MyOneBoardActivity)
-                            .load(App.prefs.image+post.image_url.toString())
+                            .load(App.prefs.image+post.board_image_url.toString())
                             .dontAnimate()
                             .format(DecodeFormat.PREFER_ARGB_8888)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(my_oneboard_image)
+                        Glide.with(this@MyOneBoardActivity)
+                            .load(App.prefs.image+post.writer_image_url.toString())
+                            .dontAnimate()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .into(my_board_profile)
                     }
                 }
 
@@ -142,7 +150,6 @@ class MyOneBoardActivity : AppCompatActivity() {
             intent.putExtra("postId",Id.toString())
             startActivity(intent)
         }
-        val readMyBoardActivity=ReadMyBoardActivity.readMyBoardActivity
         delete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder
@@ -158,10 +165,8 @@ class MyOneBoardActivity : AppCompatActivity() {
                                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                     if (response.isSuccessful) {
                                         Toast.makeText(this@MyOneBoardActivity, "게시물 삭제 완료", Toast.LENGTH_SHORT).show()
-                                        readMyBoardActivity?.finish()
                                         finish()
-                                        val intent = Intent(this@MyOneBoardActivity, ReadMyBoardActivity::class.java)
-                                        startActivity(intent)
+
                                     }
                                 }
 

@@ -18,9 +18,7 @@ import retrofit2.Response
 
 
 class ReadMyBoardActivity : AppCompatActivity() {
-    companion object{
-        var readMyBoardActivity:ReadMyBoardActivity?=null
-    }
+
     override fun onResume()
     {
         super.onResume()
