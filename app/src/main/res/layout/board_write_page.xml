@@ -182,15 +182,25 @@
                         android:background="@drawable/border_gray"
                         app:tint="@color/white" />
 
-                    <ImageView
-                        android:id="@+id/board_photo1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="57dp"
-                        android:minHeight="57dp"
-                        android:adjustViewBounds="true"
-                        android:layout_marginLeft="22dp"
-                        android:background="@drawable/border_gray" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="59dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+
+                        <ImageView
+                            android:id="@+id/board_photo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="57dp"
+                            android:minHeight="57dp"
+                            android:adjustViewBounds="true"
+                            android:layout_marginLeft="22dp"
+                            android:scaleType = "fitXY"
+                            android:background="@drawable/border_gray" />
+
+                    </androidx.cardview.widget.CardView>
 
 
 
