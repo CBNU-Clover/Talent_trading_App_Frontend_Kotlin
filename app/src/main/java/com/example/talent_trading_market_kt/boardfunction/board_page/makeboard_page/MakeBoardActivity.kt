@@ -30,6 +30,7 @@ class MakeBoardActivity : AppCompatActivity() {
     lateinit var searchBoardAdapter: SearchBoardAdapter
     lateinit var add_board_photo_bt:ImageButton
     lateinit var board_photo1:ImageView
+    var bitmap :Bitmap?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,9 +66,9 @@ class MakeBoardActivity : AppCompatActivity() {
             postBoardDTO.price=makeprice
            if(board_photo1!=null)
             {
-                val bitmap=(board_photo1.drawable as BitmapDrawable).bitmap
+                //val bitmap=(board_photo1.drawable as BitmapDrawable).bitmap
                 val stream=ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
+                bitmap?.compress(Bitmap.CompressFormat.JPEG,100,stream)
 
                 postImage=stream.toByteArray()
                 postBoardDTO.image=postImage
@@ -100,6 +101,8 @@ class MakeBoardActivity : AppCompatActivity() {
             {
                 //값 담기
                 val uri=it.data!!.data
+                bitmap =
+                    MediaStore.Images.Media.getBitmap(applicationContext.getContentResolver(), uri);
                 //화면에 보여주기
                 Glide.with(this)
                     .load(uri) // 이미지

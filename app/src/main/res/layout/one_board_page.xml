@@ -258,6 +258,7 @@
                 <RatingBar
                     android:id="@+id/one_rating_av"
                     style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+                    android:secondaryProgressTint="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:isIndicator="true"
