@@ -37,6 +37,7 @@
                 android:id="@+id/board_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType = "fitXY"
                 android:gravity="end"
                 android:src="@drawable/background_talk_other" />
 
@@ -89,6 +90,7 @@
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:layout_marginTop="2dp"
+                    android:layout_marginLeft="20dp"
                     android:src="@drawable/ic_07"
                     app:tint="#C0C0C0" />
 
@@ -102,7 +104,7 @@
                     android:textColor="#C0C0C0"
                     android:textSize="12dp" />
 
-                <ImageView
+                <!--<ImageView
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:layout_marginTop="2dp"
@@ -117,7 +119,7 @@
                     android:layout_marginLeft="3dp"
                     android:fontFamily="@font/pretendard_medium"
                     android:textSize="12dp"
-                    android:textColor="#C0C0C0"/>
+                    android:textColor="#C0C0C0"/>-->
 
                 </LinearLayout>
 

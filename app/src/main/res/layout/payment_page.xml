@@ -112,13 +112,12 @@
                 android:background="@drawable/search_border"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_29"
-                    app:tint="#D9D9D9" />
+                    android:src="@drawable/ic_29"/>
 
 
                 <TextView
@@ -186,11 +185,16 @@
                     android:text="주문 금액"
                     android:textColor="#5C5C5C"
                     android:textSize="15dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                 <TextView
                     android:id="@+id/pay_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="195dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_gravity="end"
                     android:fontFamily="@font/pretendard_semibold"
                     android:text="34,000원"
                     android:textColor="#5C5C5C"
@@ -210,12 +214,18 @@
                         android:text="할인 금액"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="236dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="0원"
+                        android:layout_marginRight="30dp"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
 

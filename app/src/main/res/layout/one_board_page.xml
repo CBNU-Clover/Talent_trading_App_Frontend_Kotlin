@@ -62,7 +62,7 @@
             android:orientation="horizontal">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/writer_photo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -369,13 +369,12 @@
 
 
             <ImageButton
-                android:layout_width="28dp"
-                android:layout_height="25dp"
-                android:background="@drawable/ic_11"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/cloverlogo3"
                 android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="20dp"
-                android:backgroundTint="#D8D8D8"></ImageButton>
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="20dp"></ImageButton>
 
             <TextView
                 android:id="@+id/board_price"
