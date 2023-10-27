@@ -89,7 +89,7 @@ class PayMentActivity : AppCompatActivity() {
                             .format(DecodeFormat.PREFER_ARGB_8888)
                             .into(pay_writer_profile)
                         Glide.with(this@PayMentActivity)
-                            .load(App.prefs.image+post.writer_image_url.toString())
+                            .load(App.prefs.image+post.board_image_url.toString())
                             .dontAnimate()
                             .format(DecodeFormat.PREFER_ARGB_8888)
                             .into(pay_post_profile)

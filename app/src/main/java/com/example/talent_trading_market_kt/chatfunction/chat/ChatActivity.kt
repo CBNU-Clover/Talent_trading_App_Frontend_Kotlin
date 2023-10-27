@@ -122,6 +122,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         var postId:Long
         var trade_status:String
         var post_image:String
+        var post_image_url:String
         roomId= intent.getStringExtra("roomId").toString().toLong()
         seller= intent.getStringExtra("seller").toString()
         postname= intent.getStringExtra("board_name").toString()
@@ -129,6 +130,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         postId=intent.getStringExtra("postId").toString().toLong()
         trade_status=intent.getStringExtra("trade").toString()
         post_image=intent.getStringExtra("chat_post_profile").toString()
+        post_image_url=intent.getStringExtra("post_image").toString()
         Glide.with(this@ChatActivity)
             .load(App.prefs.image+post_image)
             .dontAnimate()
@@ -137,6 +139,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         chat_person.text=seller
         chat_postname.text=postname
         chat_postprice.text=postprice
+
 
        chat_postname.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
