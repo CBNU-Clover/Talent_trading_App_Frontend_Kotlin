@@ -12,6 +12,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
 import com.example.talent_trading_market_kt.chatfunction.api.ChatFunctionApi
@@ -22,6 +24,7 @@ import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.gmail.bishoybasily.stomp.lib.Event
 import com.gmail.bishoybasily.stomp.lib.StompClient
 import io.reactivex.disposables.Disposable
+import kotlinx.android.synthetic.main.chatscreen.*
 import okhttp3.OkHttpClient
 import org.json.JSONObject
 import retrofit2.Call
@@ -90,9 +93,10 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     lateinit var chat_plus_bt:ImageButton
     lateinit var container:FrameLayout
     lateinit var start_trade_bt:Button
+    lateinit var chat_post_profile:ImageView
 
     var roomId:Long=0
-    val URL="ws://192.168.45.103:8080/ws/websocket"
+    val URL="ws://cloverx.kro.kr:10003/ws/websocket"
     val intervalMillis = 5000L
     val client = OkHttpClient.Builder()
         .readTimeout(10, TimeUnit.SECONDS)
@@ -111,17 +115,25 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         chat_postprice=findViewById(R.id.textView)
         chat_plus_bt=findViewById(R.id.chatplus)
         start_trade_bt=findViewById(R.id.start_trade)
+        chat_post_profile=findViewById(R.id.imageView)
         var seller:String
         var postname:String
         var postprice:String
         var postId:Long
         var trade_status:String
+        var post_image:String
         roomId= intent.getStringExtra("roomId").toString().toLong()
         seller= intent.getStringExtra("seller").toString()
         postname= intent.getStringExtra("board_name").toString()
         postprice=intent.getStringExtra("board_price").toString()
         postId=intent.getStringExtra("postId").toString().toLong()
         trade_status=intent.getStringExtra("trade").toString()
+        post_image=intent.getStringExtra("chat_post_profile").toString()
+        Glide.with(this@ChatActivity)
+            .load(App.prefs.image+post_image)
+            .dontAnimate()
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .into(chat_post_profile)
         chat_person.text=seller
         chat_postname.text=postname
         chat_postprice.text=postprice

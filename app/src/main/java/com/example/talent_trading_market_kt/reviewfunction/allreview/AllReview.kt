@@ -4,14 +4,18 @@ import android.content.Intent
 import android.media.Rating
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction.ReadMyBoardActivity
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewReadResponse
@@ -79,6 +83,7 @@ class AllReview  : AppCompatActivity() {
     lateinit var rv_title:TextView
     lateinit var rv_price:TextView
     lateinit var rv_backbt:ImageButton
+    lateinit var allreview_image:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.review_page)
@@ -87,6 +92,7 @@ class AllReview  : AppCompatActivity() {
         Allreview_score=findViewById(R.id.Allreview_score)
         review_rating_av=findViewById(R.id.review_rating_av)
         Allreview_size=findViewById(R.id.Allreview_size)
+        allreview_image=findViewById(R.id.allreview_image)
         rv_title=findViewById(R.id.rv_title)
         rv_price=findViewById(R.id.rv_price)
         rv_backbt=findViewById(R.id.rv_backbt)
@@ -105,6 +111,11 @@ class AllReview  : AppCompatActivity() {
                         post=response.body()!!
                         rv_title.text=post.postName
                         rv_price.text=post.price.toString()+"원"
+                        Glide.with(this@AllReview)
+                            .load(App.prefs.image+post.board_image_url.toString())
+                            .dontAnimate()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .into(allreview_image)
                     }
                 }
 

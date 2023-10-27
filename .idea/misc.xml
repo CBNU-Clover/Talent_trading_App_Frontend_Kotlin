@@ -52,7 +52,7 @@
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/board_search_page.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/board_write_page.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/boardlist_item.xml" value="0.16799999999999998" />
-        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chat_list.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chat_list.xml" value="0.264" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatlist_page.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatplus.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/tlsgy/Talenttradingmarketkt/app/src/main/res/layout/chatroom_page.xml" value="0.19927536231884058" />
@@ -112,7 +112,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

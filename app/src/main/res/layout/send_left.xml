@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/pretendard_medium"
                 android:gravity="center"
-                android:text="송금 하기"
+                android:text="거래 하기"
                 android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 

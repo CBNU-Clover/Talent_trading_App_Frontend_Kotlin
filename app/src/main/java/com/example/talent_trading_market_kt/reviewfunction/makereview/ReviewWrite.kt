@@ -3,9 +3,12 @@ package com.example.talent_trading_market_kt.reviewfunction.makereview
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadResponse
+import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewWriteDTO
@@ -19,6 +22,7 @@ class ReviewWrite : AppCompatActivity() {
     lateinit var rv_write_title:TextView
     lateinit var rv_write_price:TextView
     lateinit var rv_write_backbt:ImageButton
+    lateinit var rv_post_image:ImageView
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.review_write_page)
@@ -27,6 +31,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     rv_write_title=findViewById(R.id.rv_write_title)
     rv_write_price=findViewById(R.id.rv_write_price)
     rv_write_backbt=findViewById(R.id.rv_write_backbt)
+    rv_post_image=findViewById(R.id.review_post_image)
     Id = intent.getStringExtra("postId").toString().toLong()
     var userRating:Long=0
     rv_write_backbt.setOnClickListener {
@@ -48,6 +53,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     post=response.body()!!
                     rv_write_title.text=post.postName
                     rv_write_price.text=post.price.toString()+"원"
+                    Glide.with(this@ReviewWrite)
+                        .load(App.prefs.image+post.board_image_url.toString())
+                        .dontAnimate()
+                        .format(DecodeFormat.PREFER_ARGB_8888)
+                        .into(rv_post_image)
                 }
             }
 

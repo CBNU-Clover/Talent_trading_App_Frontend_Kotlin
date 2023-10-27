@@ -6,11 +6,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchOneBoardActivity
@@ -38,6 +37,8 @@ class PayMentActivity : AppCompatActivity() {
     lateinit var payfinal_money: TextView
     lateinit var backbt_pay:ImageButton
     lateinit var payment_bt: Button
+    lateinit var pay_post_profile:ImageView
+    lateinit var pay_writer_profile:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.payment_page)
@@ -52,6 +53,8 @@ class PayMentActivity : AppCompatActivity() {
         payfinal_money = findViewById(R.id.payfinal_money)
         backbt_pay=findViewById(R.id.backbt_payment)
         payment_bt=findViewById(R.id.payment)
+        pay_post_profile=findViewById(R.id.pay_post_profile)
+        pay_writer_profile=findViewById(R.id.pay_writer_profile)
 
         backbt_pay.setOnClickListener {
             finish()
@@ -80,6 +83,16 @@ class PayMentActivity : AppCompatActivity() {
                         pay_money.text = post.price.toString() + "원"
                         paytotal_money.text = post.price.toString() + "원"
                         payfinal_money.text = post.price.toString() + "원"
+                        Glide.with(this@PayMentActivity)
+                            .load(App.prefs.image+post.writer_image_url.toString())
+                            .dontAnimate()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .into(pay_writer_profile)
+                        Glide.with(this@PayMentActivity)
+                            .load(App.prefs.image+post.writer_image_url.toString())
+                            .dontAnimate()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .into(pay_post_profile)
                     }
                 }
 

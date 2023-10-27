@@ -250,13 +250,11 @@ class SearchOneBoardActivity : AppCompatActivity() {
                                 .load(App.prefs.image+post.board_image_url.toString())
                                 .dontAnimate()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
-                                .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(one_board_image)
                            Glide.with(this@SearchOneBoardActivity)
                                 .load(App.prefs.image+post.writer_image_url.toString())
                                 .dontAnimate()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
-                                .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(writer_photo)
                         }
                     }

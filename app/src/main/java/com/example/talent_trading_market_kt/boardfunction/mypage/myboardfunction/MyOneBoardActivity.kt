@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -16,8 +17,11 @@ import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostReadRespons
 import com.example.talent_trading_market_kt.retrofit.App
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
 import com.example.talent_trading_market_kt.reviewfunction.allreview.AllReview
+import com.example.talent_trading_market_kt.reviewfunction.allreview.ThreeReviewAdapter
 import com.example.talent_trading_market_kt.reviewfunction.api.ReviewFunctionApi
 import com.example.talent_trading_market_kt.reviewfunction.dto.ReviewReadResponse
+import kotlinx.android.synthetic.main.myboard_read.*
+import kotlinx.android.synthetic.main.one_board_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +46,7 @@ class MyOneBoardActivity : AppCompatActivity() {
                         var rating_av :Double
                         rating_av=response.body()!!
                         val formattedRating=String.format("%.1f",rating_av)
-                        myrating.text=formattedRating.toFloat().toString()
+                        //myrating.text=formattedRating.toFloat().toString()
                         myrating_av.rating=rating_av.toFloat()
                         myboard_rating.text=formattedRating.toFloat().toString()
                     }
@@ -54,14 +58,27 @@ class MyOneBoardActivity : AppCompatActivity() {
 
             })
         }
-        if(service!=null)
+        if (service != null)
         {
+            var Id: Long
+            Id = intent.getStringExtra("my_postId").toString().toLong()
+            val service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
+
             service.getAllPostReview(Id).enqueue(object : Callback<List<ReviewReadResponse>> {
-                override fun onResponse(call: Call<List<ReviewReadResponse>>, response: Response<List<ReviewReadResponse>>) {
+                override fun onResponse(
+                    call: Call<List<ReviewReadResponse>>,
+                    response: Response<List<ReviewReadResponse>>
+                ) {
                     if (response.isSuccessful) {
-                        var reviewlist:List<ReviewReadResponse>;
-                        reviewlist= response.body()!!;
-                        myreview_size.text="구매 후기 "+reviewlist.size.toString()+"개"
+                        var reviewlist: List<ReviewReadResponse>;
+                        reviewlist = response.body()!!;
+                        myreview_size.text = "구매 후기 " + reviewlist.size.toString() + "개"
+                        myboard_reviews.layoutManager = LinearLayoutManager(
+                            this@MyOneBoardActivity,
+                            LinearLayoutManager.VERTICAL, false
+                        )
+                        myboard_reviews.setHasFixedSize(true)
+                        myboard_reviews.adapter = ThreeReviewAdapter(reviewlist)
                     }
                 }
 
@@ -70,6 +87,7 @@ class MyOneBoardActivity : AppCompatActivity() {
                 }
 
             })
+
         }
     }
     lateinit var title: TextView
@@ -128,13 +146,11 @@ class MyOneBoardActivity : AppCompatActivity() {
                             .load(App.prefs.image+post.board_image_url.toString())
                             .dontAnimate()
                             .format(DecodeFormat.PREFER_ARGB_8888)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(my_oneboard_image)
                         Glide.with(this@MyOneBoardActivity)
                             .load(App.prefs.image+post.writer_image_url.toString())
                             .dontAnimate()
                             .format(DecodeFormat.PREFER_ARGB_8888)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(my_board_profile)
                     }
                 }
