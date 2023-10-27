@@ -119,7 +119,7 @@
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:src="@drawable/baseline_account_circle_24" />
 
 
@@ -134,7 +134,7 @@
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/seller_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                     android:fontFamily="@font/pretendard_semibold"
                     android:text="0.0"
                     android:textColor="#8D8D8D"
-                    android:textSize="15dp" />
+                    android:textSize="15dp" />-->
 
             </LinearLayout>
 
