@@ -105,6 +105,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
         lateinit var one_reviewsize: TextView
         lateinit var one_board_image:ImageView
         lateinit var writer_photo:ImageView
+        lateinit var post_image:String
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.one_board_page)
@@ -193,6 +194,8 @@ class SearchOneBoardActivity : AppCompatActivity() {
                                                             intent.putExtra(
                                                                 "postId",Id.toString()
                                                             )
+                                                            intent.putExtra("" +
+                                                                    "post_image",post_image)
                                                             startActivity(intent)
                                                         }
                                                     }
@@ -246,6 +249,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             content.text = post.content
                             searchone_date.text = post.date
                             board_price.text = post.price.toString() + "원"
+                            post_image=post.board_image_url.toString()
                             Glide.with(this@SearchOneBoardActivity)
                                 .load(App.prefs.image+post.board_image_url.toString())
                                 .dontAnimate()

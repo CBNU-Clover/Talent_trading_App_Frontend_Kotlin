@@ -104,9 +104,11 @@ class MakeBoardActivity : AppCompatActivity() {
                 bitmap =
                     MediaStore.Images.Media.getBitmap(applicationContext.getContentResolver(), uri);
                 //화면에 보여주기
-                Glide.with(this)
-                    .load(uri) // 이미지
-                    .into(board_photo1) // 보여줄 위치
+                runOnUiThread {
+                    Glide.with(this)
+                        .load(uri) // 이미지
+                        .into(board_photo1) // 보여줄 위치
+                }
             }
         }
 }
