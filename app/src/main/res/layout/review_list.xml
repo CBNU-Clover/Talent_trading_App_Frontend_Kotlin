@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/review_writer_photo"
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -27,6 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
             android:orientation="vertical">
 
             <TextView

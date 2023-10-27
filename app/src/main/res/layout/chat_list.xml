@@ -91,6 +91,7 @@
                     android:id="@+id/chat_post_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scaleType = "fitXY"
                     android:gravity="end"
                     android:src="@drawable/background_talk_other" />
 
