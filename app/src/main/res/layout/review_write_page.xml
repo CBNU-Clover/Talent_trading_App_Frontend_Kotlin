@@ -56,11 +56,10 @@
                     android:orientation="horizontal">
 
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/review_post_image"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_margin="5dp"
                         android:src="@drawable/cloverlogo2" />
 
                     <LinearLayout
@@ -74,7 +73,7 @@
                             android:id="@+id/rv_write_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="4dp"
                             android:fontFamily="@font/pretendard_semibold"
                             android:text="제목 0000 제작해 드립니다."
                             android:textColor="@color/black"
