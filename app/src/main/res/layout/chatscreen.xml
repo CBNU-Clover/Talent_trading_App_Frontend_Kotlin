@@ -127,17 +127,17 @@
             app:layout_constraintVertical_bias="0.0"
             app:tint="#C7C7C7" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="51dp"
-            android:layout_height="48dp"
+            android:layout_height="51dp"
             android:src="@drawable/cloverlogo2"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintHorizontal_bias="0.055"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chat_quit"
-            app:layout_constraintVertical_bias="0.533" />
+            app:layout_constraintVertical_bias="0.608" />
 
         <TextView
             android:id="@+id/chat_postname"

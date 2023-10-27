@@ -56,7 +56,7 @@
                     android:orientation="horizontal">
 
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/allreview_image"
                         android:layout_width="60dp"
                         android:layout_height="60dp"

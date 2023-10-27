@@ -47,11 +47,12 @@
             android:orientation="horizontal">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/pay_post_profile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:src="@drawable/cloverlogo2" />
 
             <LinearLayout
@@ -113,13 +114,13 @@
                 android:background="@drawable/search_border"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/pay_writer_profile"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_29" />
+                    android:src="@drawable/baseline_account_circle_24" />
 
 
                 <TextView
