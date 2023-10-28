@@ -259,6 +259,7 @@
         </LinearLayout>-->
 
         <LinearLayout
+            android:id="@+id/QA_Button"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:background="@drawable/border_darkgray"

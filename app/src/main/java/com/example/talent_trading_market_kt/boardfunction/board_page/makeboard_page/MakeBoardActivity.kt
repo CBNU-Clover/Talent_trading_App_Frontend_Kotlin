@@ -1,6 +1,7 @@
 package com.example.talent_trading_market_kt.boardfunction.board_page.makeboard_page
 
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -10,12 +11,18 @@ import android.provider.MediaStore
 import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.talent_trading_market_kt.R
 import com.example.talent_trading_market_kt.boardfunction.api.BoardFunctionApi
 import com.example.talent_trading_market_kt.boardfunction.postsearch.SearchBoardAdapter
 import com.example.talent_trading_market_kt.dto.boardfunctiondto.PostBoardDTO
 import com.example.talent_trading_market_kt.retrofit.RetrofitConnection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,6 +42,7 @@ class MakeBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.board_write_page)
+        val progressBar = ProgressBar(this)
         postName = findViewById(R.id.title)
         content = findViewById(R.id.content)
         write_bt = findViewById(R.id.make_content)
@@ -53,43 +61,57 @@ class MakeBoardActivity : AppCompatActivity() {
             activityResult.launch(intent)
 
         }
-        write_bt.setOnClickListener {
-            var postImage:ByteArray?=null
-            val postname=postName.text.toString()
-            val content=content.text.toString()
-            val price=makeboard_price.text.toString()
-            val makeprice=price.toLong()
-            val postBoardDTO= PostBoardDTO()
-            postBoardDTO.writerNickname="writer"
-            postBoardDTO.postName=postname
-            postBoardDTO.content=content
-            postBoardDTO.price=makeprice
-           if(board_photo1!=null)
-            {
-                //val bitmap=(board_photo1.drawable as BitmapDrawable).bitmap
-                val stream=ByteArrayOutputStream()
-                bitmap?.compress(Bitmap.CompressFormat.JPEG,100,stream)
 
-                postImage=stream.toByteArray()
-                postBoardDTO.image=postImage
-                stream.close()
-            }
-            if(service!=null)
-            {
-                service.make_board(postBoardDTO).enqueue(object : Callback<Long?> {
-                    override fun onResponse(call: Call<Long?>, response: Response<Long?>) {
+        write_bt.setOnClickListener {
+            var progressDialog: AlertDialog? = null
+            progressDialog = AlertDialog.Builder(this)
+                .setView(progressBar)
+                .setTitle("게시글 작성 중...")
+                .setCancelable(false)
+                .create()
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                try {
+                    var postImage: ByteArray? = null
+                    val postname = postName.text.toString()
+                    val content = content.text.toString()
+                    val price = makeboard_price.text.toString()
+                    val makeprice = price.toLong()
+                    val postBoardDTO = PostBoardDTO()
+                    postBoardDTO.writerNickname = "writer"
+                    postBoardDTO.postName = postname
+                    postBoardDTO.content = content
+                    postBoardDTO.price = makeprice
+
+                    if (board_photo1 != null) {
+                        val stream = ByteArrayOutputStream()
+                        bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+                        postImage = stream.toByteArray()
+                        postBoardDTO.image = postImage
+                        stream.close()
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        progressDialog?.show()
+                    }
+
+                    if (service != null) {
+                        val response = service.make_board(postBoardDTO).execute()
                         if (response.isSuccessful) {
-                            Toast.makeText(this@MakeBoardActivity, "게시물 쓰기 완료", Toast.LENGTH_SHORT).show()
-                            finish()
+                            withContext(Dispatchers.Main) {
+                                progressDialog?.dismiss()
+                                // 게시물 작성 완료 시 다음 작업 수행
+                                finish()
+                            }
                         }
                     }
-
-                    override fun onFailure(call: Call<Long?>, t: Throwable) {
-                        Toast.makeText(this@MakeBoardActivity, "다시 버튼을 눌러주세요", Toast.LENGTH_SHORT)
-                            .show()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        progressDialog?.dismiss()
+                        e.printStackTrace()
+                        // 에러 처리
                     }
-
-                })
+                }
             }
         }
     }

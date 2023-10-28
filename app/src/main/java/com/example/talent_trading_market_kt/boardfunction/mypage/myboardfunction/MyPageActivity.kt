@@ -1,9 +1,11 @@
 package com.example.talent_trading_market_kt.boardfunction.mypage.myboardfunction
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -30,6 +32,7 @@ class MyPageActivity : AppCompatActivity() {
     lateinit var my_nickname:TextView
     lateinit var my_ranking:TextView
     lateinit var my_photo:ImageView
+    lateinit var QA_bt:LinearLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage)
@@ -40,6 +43,7 @@ class MyPageActivity : AppCompatActivity() {
         my_nickname=findViewById(R.id.my_nickname)
         my_ranking=findViewById(R.id.my_ranking)
         my_photo=findViewById(R.id.myprofile)
+        QA_bt=findViewById(R.id.QA_Button)
 
         val service = RetrofitConnection.getInstance().create(MemberFunctionApi::class.java)
         if (service != null) {
@@ -68,7 +72,10 @@ class MyPageActivity : AppCompatActivity() {
 
             })
         }
-
+        QA_bt.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.naver.com"))
+            startActivity(intent)
+        }
         //거래기록 버튼
         trading_history_bt.setOnClickListener {
             val intent = Intent(this, TradingHistoryActivity::class.java)
