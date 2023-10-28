@@ -57,7 +57,7 @@ class MyPageActivity : AppCompatActivity() {
                         var myprofile: MyProfile
                         myprofile = response.body()!!
                         my_nickname.text =myprofile.my_nickname
-                        my_ranking.text=myprofile.my_ranking
+                        my_ranking.text="Rank: "+myprofile.my_ranking
                         Glide.with(this@MyPageActivity)
                             .load(App.prefs.image+myprofile.my_image_url.toString())
                             .dontAnimate()

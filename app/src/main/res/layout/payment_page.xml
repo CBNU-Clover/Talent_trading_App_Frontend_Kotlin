@@ -55,7 +55,7 @@
                 app:cardElevation="0dp">
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/pay_post_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
