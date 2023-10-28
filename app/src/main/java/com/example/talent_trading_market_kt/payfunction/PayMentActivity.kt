@@ -59,6 +59,24 @@ class PayMentActivity : AppCompatActivity() {
         backbt_pay.setOnClickListener {
             finish()
         }
+        val review_service = RetrofitConnection.getInstance().create(ReviewFunctionApi::class.java)
+        if (review_service != null) {
+            review_service.getPostAvg(postId).enqueue(object : Callback<Double> {
+                override fun onResponse(call: Call<Double>, response: Response<Double>) {
+                    if (response.isSuccessful) {
+                        var rating_av: Double
+                        rating_av = response.body()!!
+                        val formattedRating = String.format("%.1f", rating_av)
+                        seller_star.text = formattedRating.toFloat().toString()
+                    }
+                }
+
+                override fun onFailure(call: Call<Double?>, t: Throwable) {
+
+                }
+
+            })
+        }
         paypost_name.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent= Intent(this@PayMentActivity, SearchOneBoardActivity::class.java)
