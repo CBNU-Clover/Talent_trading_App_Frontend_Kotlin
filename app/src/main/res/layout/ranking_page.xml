@@ -143,7 +143,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="닉네임00"
-            android:textColor="#C7C7C7"
+            android:textColor="#757575"
             android:fontFamily="@font/pretendard_semibold"
             android:textSize="15dp" />
 
@@ -156,7 +156,7 @@
             android:gravity="center"
             android:text="00000"
             android:fontFamily="@font/pretendard_semibold"
-            android:textColor="#C7C7C7"
+            android:textColor="#757575"
             android:textSize="15dp" />
 
         <TextView
@@ -168,7 +168,7 @@
             android:gravity="center"
             android:text="000"
             android:fontFamily="@font/pretendard_semibold"
-            android:textColor="#C7C7C7"
+            android:textColor="#757575"
             android:textSize="15dp" />
 
     </LinearLayout>
