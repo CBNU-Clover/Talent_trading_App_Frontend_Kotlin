@@ -41,7 +41,6 @@
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
             android:background="#CFCFCF" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -56,13 +55,12 @@
                 app:cardElevation="0dp">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/pay_post_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:scaleType = "fitXY"
                 android:src="@drawable/cloverlogo2" />
-
 
             </androidx.cardview.widget.CardView>
 
@@ -212,13 +210,19 @@
                         android:text="주문 금액"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
                     <TextView
                         android:id="@+id/pay_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="195dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="34000원"
+                        android:text="34,000원"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
                 </LinearLayout>
@@ -237,12 +241,17 @@
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
 
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="240dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="원"
+                        android:text="0원"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
 
@@ -269,11 +278,16 @@
                         android:text="총 결제 금액"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:id="@+id/paytotal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="179dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="34,000원"
                         android:textColor="@color/black"
@@ -308,11 +322,16 @@
                         android:textColor="#3DC181"
                         android:textSize="20dp" />
 
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:id="@+id/payfinal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="34,000원"
                         android:textColor="#3DC181"
