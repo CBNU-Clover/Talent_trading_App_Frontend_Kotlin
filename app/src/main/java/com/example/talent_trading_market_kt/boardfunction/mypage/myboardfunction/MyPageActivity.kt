@@ -73,7 +73,7 @@ class MyPageActivity : AppCompatActivity() {
             })
         }
         QA_bt.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.naver.com"))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSdE0RrrbvNMPGjRsmYNSQq27wFXUMtjaOnuvISsnp63XbB81g/viewform"))
             startActivity(intent)
         }
         //거래기록 버튼

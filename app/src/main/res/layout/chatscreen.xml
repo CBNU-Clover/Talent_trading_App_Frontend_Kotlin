@@ -206,7 +206,7 @@
             android:id="@+id/start_trade"
             android:layout_width="86dp"
             android:layout_height="35dp"
-            android:layout_marginStart="196dp"
+            android:layout_marginStart="180dp"
             android:background="@drawable/border_green2"
             android:fontFamily="@font/pretendard_semibold"
             android:text="거래 요청"

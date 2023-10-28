@@ -4,6 +4,7 @@ package com.example.talent_trading_market_kt.boardfunction.postsearch
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -28,6 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SearchOneBoardActivity : AppCompatActivity() {
+
     override fun onResume() {
         super.onResume()
         updateBoard()
@@ -90,6 +92,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
 
         }
     }
+
         lateinit var writerNickname: TextView
         lateinit var title: TextView
         lateinit var content: TextView
@@ -105,7 +108,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
         lateinit var one_reviewsize: TextView
         lateinit var one_board_image:ImageView
         lateinit var writer_photo:ImageView
-        lateinit var post_image:String
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.one_board_page)
@@ -137,7 +139,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
                 intent.putExtra("postId", Id.toString())
                 startActivity(intent)
             }
-
             //채팅하기 버튼
             chat_button.setOnClickListener {
                 if (writerNickname.text == App.prefs.nickname) {
@@ -194,8 +195,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
                                                             intent.putExtra(
                                                                 "postId",Id.toString()
                                                             )
-                                                            intent.putExtra("" +
-                                                                    "post_image",post_image)
                                                             startActivity(intent)
                                                         }
                                                     }
@@ -249,7 +248,6 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             content.text = post.content
                             searchone_date.text = post.date
                             board_price.text = post.price.toString() + "원"
-                            post_image=post.board_image_url.toString()
                             Glide.with(this@SearchOneBoardActivity)
                                 .load(App.prefs.image+post.board_image_url.toString())
                                 .dontAnimate()

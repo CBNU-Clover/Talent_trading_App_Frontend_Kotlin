@@ -41,6 +41,7 @@
             android:layout_height="2px"
             android:layout_marginBottom="9dp"
             android:background="#CFCFCF" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -55,12 +56,13 @@
                 app:cardElevation="0dp">
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/pay_post_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType = "fitXY"
+                android:scaleType="fitXY"
                 android:src="@drawable/cloverlogo2" />
+
 
             </androidx.cardview.widget.CardView>
 
@@ -216,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="195dp"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="34,000원"
+                        android:text="34000원"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
                 </LinearLayout>
@@ -234,12 +236,13 @@
                         android:text="할인 금액"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="236dp"
+                        android:layout_marginLeft="240dp"
                         android:fontFamily="@font/pretendard_semibold"
-                        android:text="0원"
+                        android:text="원"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
 
