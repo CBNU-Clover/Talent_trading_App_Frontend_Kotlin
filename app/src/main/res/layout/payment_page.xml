@@ -210,11 +210,17 @@
                         android:text="주문 금액"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
                     <TextView
                         android:id="@+id/pay_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="195dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="34,000원"
                         android:textColor="#5C5C5C"
@@ -234,10 +240,16 @@
                         android:text="할인 금액"
                         android:textColor="#5C5C5C"
                         android:textSize="15dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="236dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="0원"
                         android:textColor="#5C5C5C"
@@ -266,11 +278,16 @@
                         android:text="총 결제 금액"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:id="@+id/paytotal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="179dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="34,000원"
                         android:textColor="@color/black"
@@ -305,11 +322,16 @@
                         android:textColor="#3DC181"
                         android:textSize="20dp" />
 
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <TextView
                         android:id="@+id/payfinal_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/pretendard_semibold"
                         android:text="34,000원"
                         android:textColor="#3DC181"
