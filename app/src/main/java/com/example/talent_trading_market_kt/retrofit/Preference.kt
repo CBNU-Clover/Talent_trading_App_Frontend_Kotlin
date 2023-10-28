@@ -36,4 +36,9 @@ class Prefs(context: Context) {
         set(value) {
             prefs.edit().putString("trade_status", value).apply()
         }
+    var first_chat_image: String?
+        get() = prefs.getString("first_chat_image", null)
+        set(value) {
+            prefs.edit().putString("first_chat_image", value).apply()
+        }
 }

@@ -131,11 +131,23 @@ class ChatActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         trade_status=intent.getStringExtra("trade").toString()
         post_image=intent.getStringExtra("chat_post_profile").toString()
         post_image_url=intent.getStringExtra("post_image").toString()
-        Glide.with(this@ChatActivity)
-            .load(App.prefs.image+post_image)
-            .dontAnimate()
-            .format(DecodeFormat.PREFER_ARGB_8888)
-            .into(chat_post_profile)
+        if(App.prefs.first_chat_image!="0")
+        {
+            Glide.with(this@ChatActivity)
+                .load(App.prefs.image+App.prefs.first_chat_image)
+                .dontAnimate()
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .into(chat_post_profile)
+            App.prefs.first_chat_image="0"
+        }
+        else
+        {
+            Glide.with(this@ChatActivity)
+                .load(App.prefs.image+post_image)
+                .dontAnimate()
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .into(chat_post_profile)
+        }
         chat_person.text=seller
         chat_postname.text=postname
         chat_postprice.text=postprice

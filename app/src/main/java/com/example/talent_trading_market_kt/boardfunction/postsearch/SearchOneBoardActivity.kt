@@ -247,6 +247,7 @@ class SearchOneBoardActivity : AppCompatActivity() {
                             title.text = post.postName
                             content.text = post.content
                             searchone_date.text = post.date
+                            App.prefs.first_chat_image=post.board_image_url.toString()
                             board_price.text = post.price.toString() + "원"
                             Glide.with(this@SearchOneBoardActivity)
                                 .load(App.prefs.image+post.board_image_url.toString())
